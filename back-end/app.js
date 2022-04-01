@@ -38,6 +38,20 @@ connection.connect((err) => {
     });
   });
 
+ 
+app.get("/accomodation/:id", (req, res) => {
+  connection.query("SELECT * FROM accomodation WHERE id=? ", req.params.id, (err, result) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send("Error retrieving data from database");
+    } else {
+      res.json(result);
+    }
+  });
+});
+
+
+
   app.put("/accomodation/:id", (req, res) => {
     const { id } = req.params;
     // On récupère les nouvelles valeurs depuis le corps de notre requête
@@ -57,6 +71,7 @@ connection.connect((err) => {
       }
     );
   });
+  
 
   app.listen(port, (err) => {
     if (err) {
