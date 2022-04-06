@@ -17,7 +17,7 @@ class AccomodationController {
             res.status(200).send(putAccomodations)
         }
         catch (error) {
-            res.status(500).send({ error: error.message })
+            res.status(404).send({ error: error.message })
         }
     }
 }

@@ -1,7 +1,9 @@
 const mysql = require('mysql2')
 
+
+//******* CONNEXION DB *********//
 class AccomodationModel {
-    connection = mysql.createConnection({
+    connection = mysql.createConnection({ 
         host: process.env.DB_HOST,
         port: process.env.DB_PORT,
         user: process.env.DB_USER,
@@ -9,7 +11,8 @@ class AccomodationModel {
         database: process.env.DB_NAME
     })
 
-    async getAccomodations() {
+    //******* REQUETE GET SUR LA DB *********//
+    async getAccomodations() { 
         try {
             const result = await this.connection.promise().query('SELECT * FROM accomodation')
             return result[0]
@@ -18,7 +21,9 @@ class AccomodationModel {
             throw error
         }
     }
-    async putAccomodations(updateAccomodation, id) {
+
+    //******* REQUETE PUT SUR LA DB *********//
+    async putAccomodations(updateAccomodation, id) { 
         try {
             const result = await this.connection.promise().query('UPDATE accomodation SET ? WHERE id = ?', [updateAccomodation, id])
             return result[0]
@@ -27,6 +32,16 @@ class AccomodationModel {
             throw error
         }
     }
+    
+    
+
+
+
+
+
+
+
+
     //     const { id } = req.params;
     //     // On récupère les nouvelles valeurs depuis le corps de notre requête
     //     const userPropsToUpdate = req.body;

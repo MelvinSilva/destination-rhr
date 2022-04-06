@@ -1,25 +1,24 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
-/* Middleware */
+
+//******* MIDDLEWARES *********//
 app.use(express.json());
 
-const port = process.env.PORT ?? 3000; 
-//peut etre pas besoin du 3000 car la const va chercher sur le .env
+const port = process.env.PORT
 
-// import your routes here
+//******* IMPORT ROUTES *********//
 const accomodationRouter = require('./accomodations/accomodations.routes')
 app.use('/accomodations', accomodationRouter)
 
-// connection.connect((err) => {
-//   if (err) {
-//     console.error("error connecting: " + err.stack);
-//   } else {
-//     console.log("connected as id " + connection.threadId);
-//   }
-// });
 
-
+app.listen(port, (err) => {
+  if (err) {
+    console.error("Something bad happened");
+  } else {
+    console.log(`Server is listening on ${port}`);
+  }
+});
 
 
 // app.get("/station", (req, res) => {
@@ -64,10 +63,3 @@ app.use('/accomodations', accomodationRouter)
 //   );
 // });
 
-app.listen(port, (err) => {
-  if (err) {
-    console.error("Something bad happened");
-  } else {
-    console.log(`Server is listening on ${port}`);
-  }
-});
