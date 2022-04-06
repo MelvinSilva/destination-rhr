@@ -28,7 +28,7 @@ connection.connect((err) => {
   });
 
   app.get("/accomodation", (req, res) => {
-    connection.query("SELECT * FROM accomodation",  (err, result) => {
+    connection.query("SELECT *y FROM accomodation",  (err, result) => {
       if (err) {
         console.error(err);
         res.status(500).send("Error retrieving data from database");
