@@ -9,7 +9,9 @@ const port = process.env.PORT
 
 //******* IMPORT ROUTES *********//
 const accomodationRouter = require('./accomodations/accomodations.routes')
+const eatRouter = require('./eats/eats.routes')
 app.use('/accomodations', accomodationRouter)
+app.use('/eats', eatRouter)
 
 
 app.listen(port, (err) => {
