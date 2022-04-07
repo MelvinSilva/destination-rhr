@@ -42,6 +42,7 @@ class UserModel {
             throw error
         }
     }
+
     //******* REQUETE DELETE SUR LA DB *********//
     async deleteUsers(id) {
         try {

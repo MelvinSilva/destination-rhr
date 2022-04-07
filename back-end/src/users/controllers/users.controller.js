@@ -1,4 +1,5 @@
 const userModel = require('../models/users.model')
+const argon2 = require('argon2')
 
 class UserController {
     async readUsers(req, res) {
@@ -22,8 +23,9 @@ class UserController {
     }
     async createUsers(req, res) {
         try {
+            req.body.password = await argon2.hash(req.body.password)
             const createUser = req.body
-            const postUsers = await userModel.postUsers(createUser, req.params.id)
+            const postUsers = await userModel.postUsers(createUser)
             res.status(200).send(postUsers)
         }
         catch (error) {
