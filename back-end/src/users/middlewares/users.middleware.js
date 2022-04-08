@@ -1,8 +1,9 @@
 const Joi = require('joi');
 const { joiPassword } = require('joi-password')
-const { connection } = require('../models/users.model')
-// On utilise en destructuring connection pour aller le chercher dans le model users.model.js
+// On destructure connection pour aller le chercher dans le model users.model.js
 // afin de l'utiliser ensuite sur notre connection.query 
+const { connection } = require('../models/users.model')
+
 
 class UsersMiddleware {
 
@@ -37,7 +38,7 @@ class UsersMiddleware {
             (err, result) => {
                 if (result[0]) {
                     console.error(err);
-                    res.status(409).json({ message: 'This email is already used' });
+                    res.status(409).json({ message: `👮 ALERTE!! Tu as déja un compte chez nous ${req.body.firstname}. Bien essayé quand même 🤡 !` });
                 } else {
                     next()
                 }
