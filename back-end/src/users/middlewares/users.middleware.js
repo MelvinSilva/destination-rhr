@@ -1,9 +1,12 @@
 const Joi = require('joi');
 const { joiPassword } = require('joi-password')
+const { connection } = require('../models/users.model')
+// On utilise en destructuring connection pour aller le chercher dans le model users.model.js
+// afin de l'utiliser ensuite sur notre connection.query 
 
 class UsersMiddleware {
 
-    checkPassword(req, res, next) {
+    checkSignIn(req, res, next) {
         const { lastname, firstname, email, login, password, } = req.body;
         const { error } = Joi.object({
             lastname: Joi.string().min(3).required(),
@@ -25,15 +28,37 @@ class UsersMiddleware {
             next()
         }
     }
-    
 
-
-
-
-
-
+    checkEmail(req, res, next) {
+        const { email } = req.body;
+        connection.query(
+            'SELECT * FROM users WHERE email = ?',
+            [email],
+            (err, result) => {
+                if (result[0]) {
+                    console.error(err);
+                    res.status(409).json({ message: 'This email is already used' });
+                } else {
+                    next()
+                }
+            }
+        )
+    }
+    checkLogin(req, res, next) {
+        const { login } = req.body;
+        connection.query(
+            'SELECT * FROM users WHERE login = ?',
+            [login],
+            (err, result) => {
+                if (result[0]) {
+                    console.error(err);
+                    res.status(409).json({ message: 'This login is already used' });
+                } else {
+                    next()
+                }
+            }
+        )
+    }
 }
-
-
 
 module.exports = new UsersMiddleware()

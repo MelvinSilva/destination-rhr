@@ -6,7 +6,9 @@ const router = express.Router()
 router.get('/', userController.readUsers)
 router.put('/:id', userController.updateUsers)
 router.post('/',[
-    userMiddleware.checkPassword, 
+    userMiddleware.checkSignIn,
+    userMiddleware.checkEmail,
+    userMiddleware.checkLogin, 
     userController.createUsers] )
 router.delete('/:id', userController.deleteUsers)
 

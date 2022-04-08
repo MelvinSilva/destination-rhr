@@ -20,7 +20,7 @@ class UserController {
             res.status(200).send(putUsers)
         }
         catch (error) {
-            res.status(404).send({ error: error.message })
+            res.status(500).send({ error: error.message })
         }
     }
     async createUsers(req, res) {
@@ -32,7 +32,7 @@ class UserController {
             res.status(200).send(postUsers)
         }
         catch (error) {
-            res.status(404).send({ error: error.message })
+            res.status(500).send({ error: error.message })
         }
     }
     async deleteUsers(req, res) {
@@ -41,7 +41,7 @@ class UserController {
             res.status(200).send(deleteUsers)
         }
         catch (error) {
-            res.status(404).send({ error: error.message })
+            res.status(500).send({ error: error.message })
         }
     }
 }
