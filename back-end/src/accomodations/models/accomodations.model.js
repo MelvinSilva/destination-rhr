@@ -33,12 +33,6 @@ class AccomodationModel {
         }
     }
     
-    
-
-
-
-
-
 
 
 
