@@ -4,8 +4,12 @@ const { joiPassword } = require('joi-password')
 class UsersMiddleware {
 
     checkPassword(req, res, next) {
-        const { password } = req.body;
+        const { lastname, firstname, email, login, password, } = req.body;
         const { error } = Joi.object({
+            lastname: Joi.string().min(3).required(),
+            firstname: Joi.string().min(3).required(),
+            email: Joi.string().email().required(),
+            login: Joi.string().min(8).max(8).required(),
             password: joiPassword
                 .string()
                 .min(8)
@@ -13,7 +17,7 @@ class UsersMiddleware {
                 .minOfSpecialCharacters(1)
                 .minOfNumeric(1)
                 .required(),
-        }).validate({ password }, { abortEarly: false })
+        }).validate({ lastname, firstname, email, login, password }, { abortEarly: false })
 
         if (error) {
             res.status(422).json({ validationErrors: error.details })
@@ -21,9 +25,12 @@ class UsersMiddleware {
             next()
         }
     }
-
-
     
+
+
+
+
+
 
 }
 

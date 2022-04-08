@@ -13,7 +13,8 @@ class UserController {
     }
     async updateUsers(req, res) {
         try {
-            req.body.password = await argon2.hash(req.body.password) // crypté mdp
+            req.body.password = await argon2.hash(req.body.password) // mdp crypté
+            req.body.profil_user = "user"
             const updateUser = req.body
             const putUsers = await userModel.putUsers(updateUser, req.params.id)
             res.status(200).send(putUsers)
@@ -24,7 +25,8 @@ class UserController {
     }
     async createUsers(req, res) {
         try {
-            req.body.password = await argon2.hash(req.body.password) // crypté mdp
+            req.body.password = await argon2.hash(req.body.password) // mdp crypté
+            req.body.profil_user = "user"
             const createUser = req.body
             const postUsers = await userModel.postUsers(createUser)
             res.status(200).send(postUsers)
