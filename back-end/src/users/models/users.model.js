@@ -53,6 +53,16 @@ class UserModel {
             throw error
         }
     }
+
+    async loginUsers(loginUser) {
+        try {
+            const result = await this.connection.promise().query('SELECT login FROM users', [loginUser])
+            return result[0]
+        }
+        catch (error) {
+            throw error
+        }
+    }
 }
 
 module.exports = new UserModel()

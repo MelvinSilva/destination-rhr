@@ -6,7 +6,7 @@ const { connection } = require('../models/users.model')
 
 class UsersMiddleware {
 
-    checkSignIn(req, res, next) {
+    checkSignUp(req, res, next) {
         const { lastname, firstname, email, login, password, } = req.body;
         const { error } = Joi.object({
             lastname: Joi.string().min(3).required(),
@@ -29,7 +29,7 @@ class UsersMiddleware {
         }
     }
 
-    checkEmail(req, res, next) {
+    checkEmailExist(req, res, next) {
         const { email } = req.body;
         connection.query(
             'SELECT * FROM users WHERE email = ?',
@@ -44,7 +44,7 @@ class UsersMiddleware {
             }
         )
     }
-    checkLogin(req, res, next) {
+    checkLoginExist(req, res, next) {
         const { login } = req.body;
         connection.query(
             'SELECT * FROM users WHERE login = ?',
@@ -59,6 +59,21 @@ class UsersMiddleware {
             }
         )
     }
-}
+    checkLoginAuth(req, res, next) {
+        const { login } = req.body;
+        connection.query(
+            'SELECT * FROM users WHERE login = ?',
+            [login],
+            (err, result) => {
+                if (result[0]) {
+                    next()
+                } else {
+                    console.error(err);
+                    res.status(409).json({ message: 'This login is not valid' });
+                }
+            }
+        )
+    }
+}  
 
 module.exports = new UsersMiddleware()
