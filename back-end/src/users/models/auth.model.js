@@ -38,7 +38,7 @@ class AuthModel {
 
     async verifyLogin(loginVerify) {
         try {
-            const result = await this.connection.promise().query('SELECT  FROM users WHERE login = ?', [loginVerify])
+            const result = await this.connection.promise().query('SELECT login FROM users WHERE login = ?', [loginVerify])
             return result[0]
         }
         catch (error) {
