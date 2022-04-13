@@ -26,7 +26,7 @@ class AuthModel {
     //******* REQUETE CONNEXION UTILISATEURS SUR LA DB *********//
     async loginUser(loginUser) {
         try {
-            const result = await this.connection.promise().query('SELECT * FROM users', [loginUser])
+            const result = await this.connection.promise().query('SELECT login, password, firstname FROM users where login = ?', [loginUser])
             return result[0]
         }
         catch (error) {
