@@ -18,6 +18,7 @@ app.use('/stations', stationRouter)
 app.use('/users', userRouter)
 
 
+
 app.listen(port, (err) => {
   if (err) {
     console.error("Something bad happened");
