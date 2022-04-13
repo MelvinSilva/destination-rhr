@@ -26,11 +26,11 @@ class AuthController {
     //******** SE CONNECTER ********//
     async signIn(req, res) {
         try {
-            const { login, password } = req.body
+            const { login, password} = req.body
             const user = await authModel.loginUser(login, password)
             const token = createToken(user.login)
             res.cookie('jwt-token', token, { httpOnly: true, maxAge})
-            res.status(200).send({ message: `${login} est connecté` })
+            res.status(200).send({ message: `${user[0].firstname} est connecté` })
         }
         catch (error) {
             res.status(500).send({ error: error.message })

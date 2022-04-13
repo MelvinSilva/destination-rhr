@@ -26,7 +26,7 @@ class AuthModel {
     //******* REQUETE CONNEXION UTILISATEURS SUR LA DB *********//
     async loginUser(loginUser) {
         try {
-            const result = await this.connection.promise().query('SELECT * FROM users', [loginUser])
+            const result = await this.connection.promise().query('SELECT login, password, firstname FROM users WHERE login = ?', [loginUser])
             return result[0]
         }
         catch (error) {
@@ -38,7 +38,7 @@ class AuthModel {
 
     async verifyLogin(loginVerify) {
         try {
-            const result = await this.connection.promise().query('SELECT  FROM users WHERE login = ?', [loginVerify])
+            const result = await this.connection.promise().query('SELECT login FROM users WHERE login = ?', [loginVerify])
             return result[0]
         }
         catch (error) {
