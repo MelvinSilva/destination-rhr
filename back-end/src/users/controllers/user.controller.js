@@ -1,4 +1,4 @@
-const userModel = require('../models/users.model')
+const userModel = require('../models/user.model')
 const argon2 = require('argon2')
 
 class UserController {
@@ -17,7 +17,7 @@ class UserController {
         try {
             req.body.password = await argon2.hash(req.body.password) // mdp crypté
             req.body.profil_user = "user"
-            const user = req.body
+            const user = req.body  // récupère tout et tous les champs sont modifiables
             const putUser = await userModel.updateUser(user, req.params.id)
             res.status(200).send(putUser)
         }
