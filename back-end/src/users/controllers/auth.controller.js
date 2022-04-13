@@ -1,24 +1,37 @@
-const userModel = require('../models/users.model')
+const authModel = require('../models/auth.model')
 const jwt = require('jsonwebtoken')
+const argon2 = require('argon2')
 
-const maxAge = '30000' // duree du token 30 secondes
 const createToken = (id) => {
     return jwt.sign({ id }, process.env.TOKEN_SECRET, {
-        expiresIn: maxAge
+      
     })
 }
 
 class AuthController {
 
+    //******** S'INSCRIRE ********//
+    async signUp(req, res) {
+        try {
+            req.body.password = await argon2.hash(req.body.password) // mdp crypté
+            req.body.profil_user = "user"
+            const newUser = req.body
+            const signUp = await authModel.createUsers(newUser)
+            res.status(200).send(signUp)
+        }
+        catch (error) {
+            res.status(500).send({ error: error.message })
+        }
+    }
+    //******** SE CONNECTER ********//
     async signIn(req, res) {
 
-
         try {
-            const { login, password} = req.body
-            const user = await userModel.loginUsers(login, password)
+            const { login, password } = req.body
+            const user = await authModel.loginUsers(login, password)
             const token = createToken(user.id)
-            res.cookie('jwt', token, { httpOnly: true, maxAge })
-            res.status(200).send(`${req.body.login} is connected`)
+            res.cookie('jwt-token', token, { httpOnly: true })
+            res.status(200).send(`${req.body.login} est connecté`)
         }
         catch (error) {
             res.status(500).send({ error: error.message })
