@@ -11,19 +11,19 @@ class UserModel {
         database: process.env.DB_NAME
     })
 
-    //******* REQUETE GET SUR LA DB *********//
+    //******* REQUETE CHERCHER UN USER SUR LA DB *********//
     async getUsers() {
         try {
             const result = await this.connection.promise().query('SELECT * FROM users')
             return result[0]
         }
         catch (error) {
-            throw error
+            throw error // throw = renvoie l'erreur au controller
         }
     }
 
-    //******* REQUETE PUT SUR LA DB *********//
-    async putUsers(updateUser, id) {
+    //******* REQUETE MODIFIER UN USER SUR LA DB *********//
+    async updateUsers(updateUser, id) {
         try {
             const result = await this.connection.promise().query('UPDATE users SET ? WHERE id = ?', [updateUser, id])
             return result[0]
@@ -32,17 +32,8 @@ class UserModel {
             throw error
         }
     }
-    //******* REQUETE POST SUR LA DB *********//
-    async postUsers(createUser) {
-        try {
-            const result = await this.connection.promise().query('INSERT INTO users SET ?', [createUser])
-            return result[0]
-        }
-        catch (error) {
-            throw error
-        }
-    }
-    //******* REQUETE DELETE SUR LA DB *********//
+
+    //******* REQUETE SUPPRESSION USER SUR LA DB *********//
     async deleteUsers(id) {
         try {
             const result = await this.connection.promise().query('DELETE FROM users WHERE id = ?', [id])
@@ -53,5 +44,4 @@ class UserModel {
         }
     }
 }
-
 module.exports = new UserModel()
