@@ -23,7 +23,7 @@ class UserModel {
     }
 
     //******* REQUETE MODIFIER UN USER SUR LA DB *********//
-    async updateUsers(updateUser, id) {
+    async updateUser(updateUser, id) {
         try {
             const result = await this.connection.promise().query('UPDATE users SET ? WHERE id = ?', [updateUser, id])
             return result[0]
@@ -34,7 +34,7 @@ class UserModel {
     }
 
     //******* REQUETE SUPPRESSION USER SUR LA DB *********//
-    async deleteUsers(id) {
+    async deleteUser(id) {
         try {
             const result = await this.connection.promise().query('DELETE FROM users WHERE id = ?', [id])
             return result[0]

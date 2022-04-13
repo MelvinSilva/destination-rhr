@@ -33,9 +33,8 @@ class UsersMiddleware {
     async checkEmailUsed(req, res, next) {
 
         try {
-            const user = await authModel.verifyEmail(req.body.email)
-            console.log(user)
-            if (user.length > 0) {
+            const email = await authModel.verifyEmail(req.body.email)
+            if (email.length > 0) {
                 res.status(409).send({ error: "Email existe déja" })
             } else {
                 next()
@@ -51,9 +50,8 @@ class UsersMiddleware {
     async checkLoginUsed(req, res, next) {
 
         try {
-            const user = await authModel.verifyLogin(req.body.login)
-            console.log(user)
-            if (user.length > 0) {
+            const login = await authModel.verifyLogin(req.body.login)
+            if (login.length > 0) {
                 res.status(409).send({ error: "Login existe déja" })
             } else {
                 next()
