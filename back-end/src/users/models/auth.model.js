@@ -13,7 +13,7 @@ class AuthModel {
 
 
     //******* REQUETE INSCRIPTION USER SUR LA DB *********//
-    async createUsers(createUser) {
+    async createUser(createUser) {
         try {
             const result = await this.connection.promise().query('INSERT INTO users SET ?', [createUser])
             return result[0]
@@ -24,9 +24,9 @@ class AuthModel {
     }
 
     //******* REQUETE CONNEXION UTILISATEURS SUR LA DB *********//
-    async loginUsers(loginUser) {
+    async loginUser(loginUser) {
         try {
-            const result = await this.connection.promise().query('SELECT * FROM users', [loginUser])
+            const result = await this.connection.promise().query('SELECT login, password, firstname FROM users where login = ?', [loginUser])
             return result[0]
         }
         catch (error) {
@@ -38,7 +38,7 @@ class AuthModel {
 
     async verifyLogin(loginVerify) {
         try {
-            const result = await this.connection.promise().query('SELECT * FROM users WHERE login = ?', [loginVerify])
+            const result = await this.connection.promise().query('SELECT login FROM users WHERE login = ?', [loginVerify])
             return result[0]
         }
         catch (error) {
@@ -48,7 +48,7 @@ class AuthModel {
 
     async verifyEmail(emailVerify) {
         try {
-            const result = await this.connection.promise().query('SELECT * FROM users WHERE email = ?', [emailVerify])
+            const result = await this.connection.promise().query('SELECT email FROM users WHERE email = ?', [emailVerify])
             return result[0]
         }
         catch (error) {
