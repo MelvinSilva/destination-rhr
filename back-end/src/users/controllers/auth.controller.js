@@ -2,10 +2,9 @@ const authModel = require('../models/auth.model')
 const jwt = require('jsonwebtoken')
 const argon2 = require('argon2')
 
-const createToken = (id) => {
-    return jwt.sign({ id }, process.env.TOKEN_SECRET, {
-      
-    })
+const maxAge = 24 * 60 * 60 * 1000 // calcul d'une journée pour le token
+const createToken = (login) => {
+    return jwt.sign({ login }, process.env.TOKEN_SECRET, { expiresIn: maxAge })
 }
 
 class AuthController {
@@ -29,9 +28,9 @@ class AuthController {
         try {
             const { login, password } = req.body
             const user = await authModel.loginUsers(login, password)
-            const token = createToken(user.id)
-            res.cookie('jwt-token', token, { httpOnly: true })
-            res.status(200).send(`${req.body.login} est connecté`)
+            const token = createToken(user.login)
+            res.cookie('jwt-token', token, { httpOnly: true, maxAge }) //affiche sur Postman
+            res.status(200).send({ message: `${user[0].firstname} est connecté` })
         }
         catch (error) {
             res.status(500).send({ error: error.message })
