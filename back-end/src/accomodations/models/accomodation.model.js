@@ -23,7 +23,7 @@ class AccomodationModel {
     }
 
     //******* REQUETE PUT SUR LA DB *********//
-    async putAccomodations(updateAccomodation, id) { 
+    async putAccomodation(updateAccomodation, id) { 
         try {
             const result = await this.connection.promise().query('UPDATE accomodation SET ? WHERE id = ?', [updateAccomodation, id])
             return result[0]
@@ -32,6 +32,18 @@ class AccomodationModel {
             throw error
         }
     }
+
+     //******* REQUETE SUPPRESSION USER SUR LA DB *********//
+     async deleteAccomodation(id) {
+        try {
+            const result = await this.connection.promise().query('DELETE FROM accomodation WHERE id = ?', [id])
+            return result[0]
+        }
+        catch (error) {
+            throw error
+        }
+    }
+}
     
 
 
@@ -54,6 +66,6 @@ class AccomodationModel {
     //         }
     //     );
     // });
-}
+
 
 module.exports = new AccomodationModel()
