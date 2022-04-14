@@ -1,9 +1,9 @@
-const stationModel = require('../models/stations.model')
+const stationModel = require('../models/station.model')
 
 class StationController {
-    async readStations(req, res) {
+    async listStations(req, res) {
         try {
-            const stations = await stationModel.getStations()
+            const stations = await stationModel.listStations()
             res.status(200).send(stations)
         }
         catch (error) {

@@ -2,7 +2,7 @@ const mysql = require('mysql2')
 
 
 //******* CONNEXION DB *********//
-class EatModel {
+class StationModel {
     connection = mysql.createConnection({ 
         host: process.env.DB_HOST,
         port: process.env.DB_PORT,
@@ -12,9 +12,9 @@ class EatModel {
     })
 
     //******* REQUETE GET SUR LA DB *********//
-    async getEats() { 
+    async listStations() { 
         try {
-            const result = await this.connection.promise().query('SELECT * FROM eat')
+            const result = await this.connection.promise().query('SELECT * FROM station')
             return result[0]
         }
         catch (error) {
@@ -22,17 +22,7 @@ class EatModel {
         }
     }
 
-    //******* REQUETE PUT SUR LA DB *********//
-    async putEats(updateEat, id) { 
-        try {
-            const result = await this.connection.promise().query('UPDATE eat SET ? WHERE id = ?', [updateEat, id])
-            return result[0]
-        }
-        catch (error) {
-            throw error
-        }
-    }
-    
+     
     
 
 
@@ -62,4 +52,4 @@ class EatModel {
     // });
 }
 
-module.exports = new EatModel()
+module.exports = new StationModel()

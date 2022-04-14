@@ -1,8 +1,9 @@
 const express = require('express')
-const eatController = require('./controllers/eats.controller')
+const eatController = require('./controllers/eat.controller')
 
 const router = express.Router()
 
-router.get('/', eatController.readEats)
-router.put('/:id', eatController.updateEats)
+router.get('/', eatController.listEats)
+router.put('/:id', eatController.updateEat)
+router.delete('/:id', eatController.deleteEat)
 module.exports = router
