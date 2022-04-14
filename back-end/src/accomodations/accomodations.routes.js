@@ -1,8 +1,10 @@
 const express = require('express')
-const accomodationController = require('./controllers/accomodations.controller')
+const accomodationController = require('./controllers/accomodation.controller')
 
 const router = express.Router()
 
-router.get('/', accomodationController.readAccomodations)
-router.put('/:id', accomodationController.updateAccomodations)
+router.get('/', accomodationController.listAccomodations)
+router.put('/:id', accomodationController.updateAccomodation)
+router.delete('/:id', accomodationController.deleteAccomodation)
+
 module.exports = router

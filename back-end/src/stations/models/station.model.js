@@ -12,7 +12,7 @@ class StationModel {
     })
 
     //******* REQUETE GET SUR LA DB *********//
-    async getStations() { 
+    async listStations() { 
         try {
             const result = await this.connection.promise().query('SELECT * FROM station')
             return result[0]

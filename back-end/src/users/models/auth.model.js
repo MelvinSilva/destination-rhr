@@ -24,10 +24,10 @@ class AuthModel {
     }
 
     //******* REQUETE CONNEXION UTILISATEURS SUR LA DB *********//
-    async loginUser(loginUser) {
+    async loginUser(login) {
         try {
-            const result = await this.connection.promise().query('SELECT login, password, firstname FROM users WHERE login = ?', [loginUser])
-            return result[0]
+            const result = await this.connection.promise().query('SELECT login, profil_user, firstname, lastname FROM users WHERE login = ?', [login])
+            return result[0][0] // premier [0] = buffer mysql inutile, deuxieme [0] recupere le premier utilisateur et le seul car il n'y en a qu'un grave au WHERE login qui est unique!!!!
         }
         catch (error) {
             throw error
