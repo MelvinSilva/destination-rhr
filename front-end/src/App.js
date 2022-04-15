@@ -3,17 +3,13 @@ import React, {useEffect, useState} from 'react'
 import axios from 'axios';
 
 const App = () =>  {
-const [essai, setEssai]= useState([{}])
+const [essai, setEssai]= useState([])
 const [test, setTest]= useState([])
 
-
-
-console.log(test)
-useEffect(() => {
-    
+useEffect(() => {  
   axios
-    .get("localhost:3000/accomodations")
-    .then((response) => setEssai(response.data[3]));
+    .get("localhost:5001/accomodations")
+    .then((response) => setEssai(response.data[0]));
 }, []);
 
 
