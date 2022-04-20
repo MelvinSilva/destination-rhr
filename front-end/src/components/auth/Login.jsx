@@ -4,7 +4,7 @@ import React, { useRef, useState } from 'react';
 const Login = () => {
     const login = useRef();
     const password = useRef();
-    const [error, setError]= useState()
+    const [error, setError] = useState()
 
     const handleLogin = (e) => {
         e.preventDefault()
@@ -17,25 +17,27 @@ const Login = () => {
     }
 
     return (
-        <div className="login">
-            <video id="background-video" autoPlay loop muted>
-                <source src="./images/production ID_4789847.mp4" type="video/mp4" />
-            </video>
-            <div className="card-login">
-                <img src='./images/logo.png' alt='logo' />
-                <form onSubmit={e => handleLogin(e)}>
-                    <input type="text" placeholder='Numéro de CP*' ref={login} />
-                    <input type="password" placeholder='Mot de passe*' ref={password} />
-                    <p>Mot de passe oublié ?</p>
-                    <button type="submit" className='btn-login'>SE CONNECTER</button>
-                    <h3>{error}</h3>
-                    <span> ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯ OU ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯</span>
-                    <button className='btn-register'>S'INSCRIRE</button>
-                </form>
+        <div className="auth">
+            <div className="login">
+                <video id="background-video" autoPlay loop muted>
+
+                    <source src="./images/production ID_4789847.mp4" type="video/mp4" />
+
+                </video>
+                <div className="card-auth">
+                    <form onSubmit={e => handleLogin(e)}>
+                        <img src='./images/logo.png' alt='logo' />
+                        <input type="text" placeholder='Numéro de CP*' ref={login} />
+                        <input type="password" placeholder='Mot de passe*' ref={password} />
+                        <p>Mot de passe oublié ?</p>
+                        <button type="submit" className='btn-login'>SE CONNECTER</button>
+                        <h3>{error}</h3>
+                        <button className="btn-login" type="submit">SE CONNECTER</button>
+                        <p className="line_horizontal">&nbsp; OU &nbsp;</p>
+                        <button className="btn">S'INSCRIRE</button>
+                    </form>
+                </div>
             </div>
-
-
-
         </div>
     );
 };
