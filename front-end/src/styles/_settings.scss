@@ -1,0 +1,18 @@
+$primary-blue: #009AA6;   // bleu canard sncf 
+$dark-grey: #4D4F53;     // gris foncé sncf
+$middle-grey: #D7D7D7;  // gris moyen sncf
+$light-grey: #F2F2F2;  // gris léger sncf
+$white: #FFFFFF;      // blanc
+$opacity-white: #ffffffc0; // blanc transparent
+$border-grey: #52525298; // bordure grise
+$border-blue: 1px solid $primary-blue; // bordure bleu canard sncf
+$shadow: 0 3px 20px rgba(0, 0, 0, 0.168); // ombre à utiliser par défaut
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    color: $dark-grey;
+}
