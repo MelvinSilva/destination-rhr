@@ -14,7 +14,7 @@ class AccomodationModel {
     //******* REQUETE GET SUR LA DB *********//
     async getAccomodations() { 
         try {
-            const result = await this.connection.promise().query('SELECT * FROM accomodation')
+            const result = await this.connection.promise().query('SELECT a.*, s.city FROM accomodation AS a LEFT JOIN station AS s ON a.id_station=s.id')
             return result[0]
         }
         catch (error) {

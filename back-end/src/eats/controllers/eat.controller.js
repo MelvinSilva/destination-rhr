@@ -1,4 +1,4 @@
-const eatModel = require('../models/eat.model')
+const storeModel = require('../models/eat.model')
 
 class EatController {
     async listEats(req, res) {
