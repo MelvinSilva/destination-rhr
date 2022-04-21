@@ -32,7 +32,7 @@ const Login = () => {
                         <h3>{error}</h3>
                         <p className="line_horizontal">&nbsp; OU &nbsp;</p>
                     </form>
-                    <Link to="register"><button className="btn">S'INSCRIRE</button></Link>
+                    <Link className="link" to="register"><button className="btn">S'INSCRIRE</button></Link>
                 </div>
             </div>
         </div>
