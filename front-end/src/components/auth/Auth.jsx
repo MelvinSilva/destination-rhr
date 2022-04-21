@@ -1,10 +1,15 @@
 import React from 'react';
-import Login from './Login';
+import { Outlet } from 'react-router-dom';
 
 const Auth = () => {
-    return (
-        <div>
 
+
+    return (
+        <div className='auth'>
+            <video id="background-video" autoPlay loop muted>
+                <source src="./images/production ID_4789847.mp4" type="video/mp4" />
+            </video>
+                <Outlet />
         </div>
     );
 };
