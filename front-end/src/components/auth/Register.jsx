@@ -16,7 +16,7 @@ const Register = () => {
                         <input type="email" placeholder='Email*' />
                         <input type="password" placeholder='Mot de passe*' />
                         <input type="password" placeholder='Confirmation mot de passe*' />
-                        <Link to="/"><button className='btn' type="submit">VALIDER</button></Link>
+                        <Link className="link-register" to="/"><button className='btn' type="submit">VALIDER</button></Link>
                     </form>
                 </div>
 
