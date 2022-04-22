@@ -11,7 +11,6 @@ app.use(express.json());
 app.use(cors(corsOptions));
 
 
-
 const port = process.env.PORT
 
 //******* IMPORT ROUTES *********//

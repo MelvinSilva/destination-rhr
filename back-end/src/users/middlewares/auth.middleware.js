@@ -72,10 +72,10 @@ class UsersMiddleware {
                 if (await argon2.verify(user.password, req.body.password)) {
                     next()
                 } else {
-                    res.status(404).send({ error: "L'identifiant et/ou le mot de passe sont invalides" })
+                    res.status(404).send({ error: "L'identifiant et/ou le mot de passe sont incorrects" })
                 }
             } else {
-                res.status(404).send({ error: "L'identifiant et/ou le mot de passe sont invalides"})
+                res.status(404).send({ error: "L'identifiant et/ou le mot de passe sont incorrects"})
             }
         }
         catch (error) {
