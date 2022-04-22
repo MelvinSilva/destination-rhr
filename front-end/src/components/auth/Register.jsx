@@ -45,9 +45,7 @@ const Register = () => {
         <div className="auth">
             <div className="register">
                 <video id="background-video" autoPlay loop muted>
-
                     <source src="./images/production ID_4789847.mp4" type="video/mp4" />
-
                 </video>
                 <div className="card-auth">
 

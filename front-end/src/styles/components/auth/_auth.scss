@@ -35,7 +35,6 @@
             transform: scale(1.04);
         }
 
-
         form {
             display: flex;
             flex-direction: column;
@@ -50,6 +49,7 @@
                 border: $border-blue;
                 align-items: center;
             }
+            
         }
     }
 }
