@@ -5,6 +5,7 @@ import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import ChoiceStation from './components/station/ChoiceStation';
 
 
 const App = () => {
@@ -15,12 +16,15 @@ const App = () => {
       <Header />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Navigate to="/authentification" />} />
-          <Route path="/authentification" element={<Auth />} >
+        
+          <Route path="/" element={<Navigate to="/home" />} />
+          <Route path="/home" element={<Auth />} >
             <Route index element={<Login />} />
             <Route path="register" element={<Register />} />
           </Route>
+          <Route path="/home/choicestation" element={<ChoiceStation />}/>
         </Routes>
+        
       </BrowserRouter>
       <Footer />
     </div>

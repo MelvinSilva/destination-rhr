@@ -1,12 +1,13 @@
 import axios from 'axios';
 import React, { useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 
 const Login = () => {
     const login = useRef();
     const password = useRef();
+    const choiceStation = useNavigate()
     const [error, setError] = useState()
 
     const handleLogin = (e) => {
@@ -14,6 +15,8 @@ const Login = () => {
         axios.post('http://localhost:5001/users/login', { login: login.current.value, password: password.current.value })
             .then((res) => {
                 alert('Vous etes connecté')
+                choiceStation("choicestation")
+
             }).catch((error) => {
                 setError(error.response.data.error) // reponse de l'API
             });
