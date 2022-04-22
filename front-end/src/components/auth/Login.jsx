@@ -32,7 +32,6 @@ const Login = () => {
                         <p>Mot de passe oublié ?</p>
                         <button type="submit" className='btn-login'>SE CONNECTER</button>
                         <h3>{error}</h3>
-                        <button className="btn-login" type="submit">SE CONNECTER</button>
                         <p className="line_horizontal">&nbsp; OU &nbsp;</p>
                         <button className="btn">S'INSCRIRE</button>
                     </form>

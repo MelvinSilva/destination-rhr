@@ -1,6 +1,46 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useRef, useState } from 'react';
 
 const Register = () => {
+
+    const login = useRef();
+    const password = useRef();
+    const lastname = useRef();
+    const firstname = useRef();
+    const email = useRef();
+    const confirmPassword = useRef();
+
+
+    const [error, setError] = useState()
+
+    const handleRegister = (e) => {
+
+        e.preventDefault()
+
+
+        if (confirmPassword.current.value === password.current.value) {
+
+            axios.post('http://localhost:5001/users/register', {
+                login: login.current.value,
+                password: password.current.value,
+                firstname: firstname.current.value,
+                lastname: lastname.current.value,
+                email: email.current.value,
+
+            })
+                .then((res) => {
+                    alert('Your profil is created')
+                }).catch((error) => {
+                    setError(error.response.data.error) // reponse de l'API
+                    console.log(error.response.data.error)
+                });
+
+        }
+        else alert("Your password is different")
+
+    }
+
+
     return (
         <div className="auth">
             <div className="register">
@@ -10,14 +50,23 @@ const Register = () => {
 
                 </video>
                 <div className="card-auth">
-                    <form>
-                        <input type="text" placeholder='Numéro de CP*' />
-                        <input type="text" placeholder='Nom*' />
-                        <input type="text" placeholder='Prénom*' />
-                        <input type="email" placeholder='Email*' />
-                        <input type="password" placeholder='Mot de passe*' />
-                        <input type="password" placeholder='Confirmation mot de passe*' />
+
+                    <form onSubmit={e => handleRegister(e)}>
+                        <input type="text" placeholder='Numéro de CP*' ref={login} minlength="1" maxlength="8" required />
+
+                        <input type="text" placeholder='Nom*' ref={lastname} required />
+
+                        <input type="text" placeholder='Prénom*' ref={firstname} required />
+
+                        <input type="email" placeholder='Email*' ref={email} required />
+
+                        <input type="password" placeholder='Mot de passe*' ref={password} required />
+                        <h5>{error}</h5>
+                        <input type="password" placeholder='Confirmation mot de passe*' ref={confirmPassword} required />
                         <button className='btn' type="submit">VALIDER</button>
+
+
+
                     </form>
                 </div>
 

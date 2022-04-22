@@ -10,7 +10,7 @@ const App = () => {
   return (
     <div>
       <Header />
-      <Login />
+      <Register />
       <Footer />
     </div>
   );
