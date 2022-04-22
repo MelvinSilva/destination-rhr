@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
 
@@ -10,15 +10,12 @@ const Register = () => {
     const firstname = useRef();
     const email = useRef();
     const confirmPassword = useRef();
-
-
+    const returnLogin = useNavigate()
+    
     const [error, setError] = useState()
 
     const handleRegister = (e) => {
-
         e.preventDefault()
-
-
         if (confirmPassword.current.value === password.current.value) {
 
             axios.post('http://localhost:5001/users/register', {
@@ -30,17 +27,17 @@ const Register = () => {
 
             })
                 .then((res) => {
-                    alert('Your profil is created')
+                    alert('Votre inscription est bien pris en compte')
+                    returnLogin("/")
+
                 }).catch((error) => {
                     setError(error.response.data.error) // reponse de l'API
                     console.log(error.response.data.error)
                 });
 
         }
-        else alert("Your password is different")
-
+        else alert("Votre mot de passe est différent")
     }
-
 
     return (
         <div className="auth">
@@ -49,7 +46,6 @@ const Register = () => {
                     <source src="./images/production ID_4789847.mp4" type="video/mp4" />
                 </video>
                 <div className="card-auth">
-
                     <form onSubmit={e => handleRegister(e)}>
                         <input type="text" placeholder='Numéro de CP*' ref={login} minlength="1" maxlength="8" required />
                         <input type="text" placeholder='Nom*' ref={lastname} required />
@@ -58,12 +54,10 @@ const Register = () => {
                         <input type="password" placeholder='Mot de passe*' ref={password} required />
                         <h5>{error}</h5>
                         <input type="password" placeholder='Confirmation mot de passe*' ref={confirmPassword} required />
-                        <Link className="link-register" to="/"><button className='btn' type="submit">VALIDER L'INSCRIPTION</button></Link>
+                        <button className='btn' type="submit">VALIDER L'INSCRIPTION</button>
                     </form>
                 </div>
-
             </div>
-
         </div>
     );
 };
