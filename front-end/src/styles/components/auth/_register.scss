@@ -6,7 +6,15 @@
         text-decoration:none; 
     }
 
+    .password-visible-register {
+        position: absolute;
+        top: 302px; 
+        right: 40px;
+        cursor: pointer;
+        color: $dark-grey;
+    }
+
     input {
-        height: 8%;
+        height: 200px;
     }
 }

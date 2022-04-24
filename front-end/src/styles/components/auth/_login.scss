@@ -6,25 +6,39 @@
         align-items: center;
         text-decoration:none; 
     }
+    
+    .password-visible-login {
+        position: absolute;
+        top: 188px; 
+        right: 40px;
+        cursor: pointer;
+        color: $dark-grey;
+    }
 
     img {
         margin: 10px 0 10px 0;
-        width: 100px;
-        height: 100px;
-        transition: transform .9s;
+        width: 70px;
+        height: 70px;
     }
 
-    p {
-        
-        width: 90%;
+    h3 {
+        font-size: 18px;
         text-align: center;
         color: $white;
     }
 
+    p {
+        font-size: 12px;
+        text-align: center;
+        color: $opacity-white;
+    }
+
     .line_horizontal {
+        font-size: 18px;
+        width: 90%;
         display: flex;
         flex-direction: row;
-
+        color: $white;
     }
 
     .line_horizontal:before,
@@ -33,10 +47,6 @@
         flex: 1 1;
         border-bottom: 2px solid $white;
         margin: 10px 0px 10px 0px;
-    }
-
-    input {
-        height: 50px;
     }
 
     .btn-login {

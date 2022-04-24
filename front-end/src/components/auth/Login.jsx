@@ -9,6 +9,7 @@ const Login = () => {
     const password = useRef();
     const choiceStation = useNavigate()
     const [error, setError] = useState()
+    const [passwordIsVisible, setPasswordIsVisible] = useState(false)
 
     const handleLogin = (e) => {
         e.preventDefault()
@@ -22,6 +23,8 @@ const Login = () => {
             });
     }
 
+
+
     return (
         <div className="auth">
             <div className="login">
@@ -29,7 +32,8 @@ const Login = () => {
                     <form onSubmit={e => handleLogin(e)}>
                         <img src='./images/logo.png' alt='logo' />
                         <input type="text" placeholder='Numéro de CP*' ref={login} />
-                        <input type="password" placeholder='Mot de passe*' ref={password} />
+                        <input type={passwordIsVisible ? "text" : "password"} placeholder='Mot de passe*' ref={password}  />
+                        <i className="password-visible-login far fa-eye" onClick={() => setPasswordIsVisible(!passwordIsVisible)}></i>
                         <p>Mot de passe oublié ?</p>
                         <button type="submit" className='btn-login'>SE CONNECTER</button>
                         <h3>{error}</h3>

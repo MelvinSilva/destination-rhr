@@ -1,5 +1,5 @@
 .auth {
-    margin: 0;
+    margin: auto;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -9,7 +9,7 @@
 
 
     #background-video {
-        height: auto;
+        height: 100vh;
         width: 100vw;
         object-fit: cover;
         position: fixed;
@@ -25,7 +25,7 @@
         margin: auto;
         display: flex;
         flex-direction: column;
-        width: 400px;
+        width: 390px;
         background-color: rgba(255, 255, 255, 0.112);
         border-radius: 10px;
         box-shadow: $shadow;
@@ -43,14 +43,17 @@
         }
 
         form {
+            position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
             margin: 10px 0px 10px 0px;
+
             input {
                 margin: 10px;
                 padding: 15px;
                 width: 90%;
+                height: 50px;
                 font-size: 15px;
                 border-radius: 5px;
                 border: $border-blue;

@@ -13,6 +13,7 @@ const Register = () => {
     const returnLogin = useNavigate()
     
     const [error, setError] = useState()
+    const [passwordIsVisible, setPasswordIsVisible] = useState(false)
 
     const handleRegister = (e) => {
         e.preventDefault()
@@ -51,9 +52,10 @@ const Register = () => {
                         <input type="text" placeholder='Nom*' ref={lastname} required />
                         <input type="text" placeholder='Prénom*' ref={firstname} required />
                         <input type="email" placeholder='Email*' ref={email} required />
-                        <input type="password" placeholder='Mot de passe*' ref={password} required />
+                        <input type={passwordIsVisible ? "text" : "password"} placeholder='Mot de passe*' ref={password} required />
+                        <i className="password-visible-register far fa-eye" onClick={() => setPasswordIsVisible(!passwordIsVisible)}></i>
                         <h5>{error}</h5>
-                        <input type="password" placeholder='Confirmation mot de passe*' ref={confirmPassword} required />
+                        <input type={passwordIsVisible ? "text" : "password"} placeholder='Confirmation mot de passe*' ref={confirmPassword} required />
                         <button className='btn' type="submit">VALIDER L'INSCRIPTION</button>
                     </form>
                 </div>
