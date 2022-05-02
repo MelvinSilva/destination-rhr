@@ -14,7 +14,7 @@ class StationModel {
     //******* REQUETE GET SUR LA DB *********//
     async listStations() { 
         try {
-            const result = await this.connection.promise().query('SELECT * FROM station')
+            const result = await this.connection.promise().query('SELECT * FROM station WHERE id IN (14, 12, 8, 18, 4, 21, 19, 20,2);')
             return result[0]
         }
         catch (error) {
