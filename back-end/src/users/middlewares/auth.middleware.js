@@ -99,12 +99,12 @@ class UsersMiddleware {
                     next()
                 } else {
                     res.status(404).send({
-                        error: "L'identifiant et/ou le mot de passe sont invalides"
+                        error: "L'identifiant et/ou le mot de passe sont incorrects"
                     })
                 }
             } else {
                 res.status(404).send({
-                    error: "L'identifiant et/ou le mot de passe sont invalides"
+                    error: "L'identifiant et/ou le mot de passe sont incorrects"
                 })
             }
         } catch (error) {

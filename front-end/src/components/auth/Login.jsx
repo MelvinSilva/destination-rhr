@@ -33,7 +33,7 @@ const Login = () => {
                         <img src='./images/logo.png' alt='logo' />
                         <input type="text" placeholder='Numéro de CP*' ref={login} />
                         <input type={passwordIsVisible ? "text" : "password"} placeholder='Mot de passe*' ref={password}  />
-                        <i className="password-visible-login far fa-eye" onClick={() => setPasswordIsVisible(!passwordIsVisible)}></i>
+                        <i className={passwordIsVisible ? "password-is-visible-login far fa-eye-slash" :  "password-is-visible-login fa fa-eye"} onClick={() => setPasswordIsVisible(!passwordIsVisible)}></i>
                         <p>Mot de passe oublié ?</p>
                         <button type="submit" className='btn-login'>SE CONNECTER</button>
                         <h3>{error}</h3>
