@@ -1,30 +1,20 @@
-import React from 'react';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-
-
-
-
 const ChoiceStation = () => {
-    const [locality,setLocality] = useState({})
-    
+    const [locality, setLocality] = useState([])
+
     useEffect(() => {
         axios
-          .get("http://localhost:5001/station")
-          .then((response) => setCity(response.data[0]));
-      }, []);
+            .get("http://localhost:5001/stations")
+            .then((response) => setLocality(response.data));
+    }, []);
     return (
         <div className="choice-station">
             <h1>CHOIX DE LA VILLE</h1>
             <div className="container-card">
-                <div className="card-station">
-                    <h3>{locality.city}</h3>
-                </div>
-                
-
+                {locality.map((town) => (<li> <div className="card-station"><h3>{town.city}</h3>            
+                    </div></li>))}
             </div>
-
-
         </div>
     );
 };
