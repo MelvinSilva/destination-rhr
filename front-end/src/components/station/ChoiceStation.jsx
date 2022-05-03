@@ -12,7 +12,9 @@ const ChoiceStation = () => {
         <div className="choice-station">
             <h1>CHOIX DE LA VILLE</h1>
             <div className="container-card">
-                {locality.map((town) => (<li> <div className="card-station"><h3>{town.city}</h3>            
+                {locality.map((town) => (<li> <div className="card-station">
+                    <h3>{town.city}</h3> 
+                 <img src={town.picture} alt=""/>          
                     </div></li>))}
             </div>
         </div>
