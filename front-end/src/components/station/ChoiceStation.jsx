@@ -10,14 +10,16 @@ const ChoiceStation = () => {
     }, []);
     return (
         <div className="choice-station">
-            <h1>CHOIX DE LA VILLE</h1>
+            <h1>☟ CHOISISSEZ VOTRE GARE ☟</h1>
             <div className="container-card">
-                {locality.map((town) => (<li> 
+                {locality.map((town) => (
+                <li>
                     <div className="card-station">
-                        <h3>{town.city}</h3> 
-                        <img src={town.picture} alt=""/>          
+                        <h3>{town.city}</h3>
+                        <img src={town.picture} alt="" />
                     </div>
-                </li>))}
+                </li>
+                ))}
             </div>
         </div>
     );
