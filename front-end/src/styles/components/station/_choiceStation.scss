@@ -6,7 +6,6 @@ li{
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 80vh;
     background-color:$white;
 
     h1 {
@@ -28,15 +27,20 @@ li{
         width: 70%;
 
         .card-station {
+            margin: 10px;
             display: flex;
             flex-direction: column;
-            align-self: center;
-            margin-bottom: 10px;
-            width: 320px;
-            height: 150px;
+            border : 2px solid $middle-grey;
             border-radius: 10px;
-            background-size: cover;
-            border-radius: 5px;
+        
+            img {
+                width: 320px;
+                height: 150px;
+                background-size: cover;
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+            }
+        }
 
             h3 {
                 font-size: 18px;
@@ -51,4 +55,3 @@ li{
         
     }
 
-}
