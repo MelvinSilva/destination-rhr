@@ -1,21 +1,17 @@
-li{
-    list-style-type: none;  
-}
 .choice-station {
-    margin-top: 10px;
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color:$white;
+    background-color: $light-grey;
 
     h1 {
-        margin: auto;
-        width: 70%;
+        margin: 20px auto;
+        width: 80%;
         border-radius: 10px;
         font-size: 20px;
-        color:$white;
+        color: $primary-blue;
         text-align: center;
-        background: $primary-blue;
+        background: $white;
         padding: 3px;
     }
  
@@ -24,14 +20,19 @@ li{
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        width: 70%;
+        width: 80%;
+
+        li{
+            list-style-type: none;  
+        }
 
         .card-station {
             margin: 10px;
             display: flex;
             flex-direction: column;
-            border : 2px solid $middle-grey;
-            border-radius: 10px;
+            border-radius: 12px;
+            box-shadow: $shadow;
+            background-color: $white;
         
             img {
                 width: 320px;
@@ -51,7 +52,6 @@ li{
                 padding: 5px;
                 background: $opacity-white;
             }
-        }
-        
+        } 
     }
 
