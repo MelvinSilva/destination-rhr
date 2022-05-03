@@ -14,7 +14,9 @@ const App = () => {
 
   return (
     <div>
+      <Header />
       <Accomodation />
+      <Footer />
     </div>
   );
 };

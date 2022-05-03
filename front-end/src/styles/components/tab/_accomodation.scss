@@ -4,8 +4,21 @@
     justify-content: space-around;
     flex-wrap: wrap;
     width: 100%;
-    height: 100vh;
     background-color: $light-grey;
+
+    h2 {
+        color: $dark-grey;
+        font-size: 22px;
+        text-align: center;
+        border-bottom: 4px solid $primary-blue;
+        padding: 5px;
+    }
+
+    p {
+        color: $dark-grey;
+        margin: 10px;
+        font-size: 20px;
+    }
 
     .container-left {
         margin: 10px;
@@ -17,12 +30,6 @@
             background-color: $white;
             border-radius: 10px;
             box-shadow: $shadow;
-
-            h2 {
-                color: $dark-grey;
-                text-align: center;
-                border-bottom: 4px solid $primary-blue;
-            }
 
             iframe {
                 width: 100%;
@@ -50,6 +57,13 @@
         background-color: $white;
         border-radius: 10px;
         box-shadow: $shadow;
+
+        .info-accomodation {
+            span {
+                
+                color: $primary-blue;
+            }
+        }
     }
     .container-right {
         margin: 10px;

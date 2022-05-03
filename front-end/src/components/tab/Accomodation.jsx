@@ -1,6 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Accomodation = () => {
+    const [dataAccomodation, setDataAccomodation] = useState([])
+
+    useEffect(() => {
+        axios
+            .get("http://localhost:5001/accomodations")
+            .then((response) => setDataAccomodation(response.data[12]));
+    }, []);
+
     return (
         <div className="accomodation">
             <div className="container-left">
@@ -15,11 +25,29 @@ const Accomodation = () => {
 
             </div>
             <div className="container-center">
+                <h2>{dataAccomodation.accomodation}</h2>
                 <div className="info-accomodation">
+                    <p><span>🏡 Adresse :</span> {dataAccomodation.adress}</p>
+                    <p><span>📬 Mail :</span> {dataAccomodation.email}</p>
+                    <p><span>📱 Numéro :</span> {dataAccomodation.phone_number}</p>
+                    {dataAccomodation.distance_station && <p><span>📍 Distance gare :</span></p>}
+                    {dataAccomodation.reception && <p><span>🕥 Horaire accueil :</span></p>}
                 </div>
             </div>
             <div className="container-right">
+                <h2>Services inclus</h2>
                 <div className="services-accomodation">
+                    {dataAccomodation.e_press === 1 && <p>🗞 E-presse</p>}
+                    {dataAccomodation.bedroom_air_conditioner === 1 && <p>❄ Climatisation dans la chambre</p>}
+                    {dataAccomodation.kitchen === 1 && <p>🍽 Cuisine équipée et salle à manger à disposition</p>}
+                    {dataAccomodation.tv_room === 1 && <p>📺 Salle de télévision</p>}
+                    {dataAccomodation.cofee === 1 && <p>☕ Café à disposition</p>}
+                    {dataAccomodation.wifi === 1 && <p>🌐 Accès internet</p>}
+                    {dataAccomodation.bike === 1 && <p>🚲 Vélos à disposition à l'accueil</p>}
+                    {dataAccomodation.terrace === 1 && <p>🪟 Terrasse</p>}
+                    {dataAccomodation.board_games === 1 && <p>🎲 Jeux de sociétés</p>}
+                    {dataAccomodation.website && <p>💻 <a href={dataAccomodation.website}>Site internet</a></p>}
+
                 </div>
             </div>
         </div >
