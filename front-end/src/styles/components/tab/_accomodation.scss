@@ -1,0 +1,65 @@
+.accomodation {
+    padding: 30px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100vh;
+    background-color: $light-grey;
+
+    .container-left {
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 390px;
+
+        .map {
+            background-color: $white;
+            border-radius: 10px;
+            box-shadow: $shadow;
+
+            h2 {
+                color: $dark-grey;
+                text-align: center;
+                border-bottom: 4px solid $primary-blue;
+            }
+
+            iframe {
+                width: 100%;
+                border: none;
+                margin-top: 10px;
+                
+            }
+        }
+
+        .change-services {
+            margin-top: 20px;
+
+            .btn {
+                width: 100%;
+            }
+        } 
+    }
+    
+    .container-center {
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 390px;
+        height: 500px;
+        background-color: $white;
+        border-radius: 10px;
+        box-shadow: $shadow;
+    }
+    .container-right {
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 390px;
+        height: 500px;
+        background-color: $white;
+        border-radius: 10px;
+        box-shadow: $shadow;
+    }
+    
+}
