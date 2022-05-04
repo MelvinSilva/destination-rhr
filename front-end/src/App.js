@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import Auth from './components/auth/Auth';
 import Login from './components/auth/Login';
@@ -23,7 +22,7 @@ const App = () => {
             <Route path="register" element={<Register />} />
           </Route>
           <Route path="/home/choicestation" element={<ChoiceStation />}/>
-          <Route path="/accomodation/:id_station/" element={<Accomodation />}/>
+          <Route path="/accomodations/:id_station/" element={<Accomodation />}/>
         </Routes>  
       </BrowserRouter>
       <Footer />
