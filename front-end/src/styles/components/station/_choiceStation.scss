@@ -28,12 +28,12 @@
             list-style-type: none;  
         }
 
-        a:link 
-{ 
- text-decoration:none; 
-} 
+        a:link { 
+            text-decoration:none; 
+        } 
 
         .card-station {
+            height: 180px;
             margin: 10px;
             display: flex;
             flex-direction: column;

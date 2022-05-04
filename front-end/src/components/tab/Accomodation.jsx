@@ -25,7 +25,7 @@ const Accomodation = () => {
                 {dataAccomodation.accomodation && <h2>{dataAccomodation.accomodation}</h2>}
                 <div className="info-accomodation">
                     {dataAccomodation.adress && <p><span>🏡 Adresse :</span> {dataAccomodation.adress}, {dataAccomodation.postal_code}</p>}
-                    {dataAccomodation.email && <p><span>📬 Mail : </span> {dataAccomodation.email}</p>}
+                    {dataAccomodation.email  && <p><span>📬 Mail : </span> {dataAccomodation.email}</p>}
                     {dataAccomodation.phone_number && <p><span>📱 Numéro :</span> {dataAccomodation.phone_number}</p>}
                     {dataAccomodation.distance_station && <p><span>📍 Distance gare : </span>{dataAccomodation.distance_station}</p>}
                     {dataAccomodation.reception && <p><span>🕥 Horaire accueil : </span>{dataAccomodation.reception}</p>}
