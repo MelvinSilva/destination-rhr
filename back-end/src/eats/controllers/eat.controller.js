@@ -1,10 +1,19 @@
-const storeModel = require('../models/eat.model')
+const eatModel = require('../models/eat.model')
 
 class EatController {
     async listEats(req, res) {
         try {
             const eats = await eatModel.listEats()
             res.status(200).send(eats)
+        }
+        catch (error) {
+            res.status(500).send({ error: error.message })
+        }
+    }
+    async listEatStation(req, res) {
+        try {
+            const eatStation = await eatModel.listEatStation(req.params.id_station)
+            res.status(200).send(eatStation)
         }
         catch (error) {
             res.status(500).send({ error: error.message })

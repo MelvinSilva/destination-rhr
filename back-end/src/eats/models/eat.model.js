@@ -11,7 +11,7 @@ class EatModel {
         database: process.env.DB_NAME
     })
 
-    //******* REQUETE GET SUR LA DB *********//
+    //******* REQUETE GET SUR LA DB pour tous les eats *********//
     async listEats() { 
         try {
             const result = await this.connection.promise().query('SELECT * FROM eat')
@@ -21,6 +21,17 @@ class EatModel {
             throw error
         }
     }
+
+        //******* REQUETE GET SUR LA DB pour chaque id_station *********//
+        async listEatStation(id_station) { 
+            try {
+                const result = await this.connection.promise().query('SELECT a.*, s.city FROM eat AS a LEFT JOIN station AS s ON a.id_station=s.id WHERE a.id_station =  ?', [id_station])
+                return result[0]
+            }
+            catch (error) {
+                throw error
+            }
+        }
 
     //******* REQUETE PUT SUR LA DB *********//
     async updateEat(updateEat, id) { 

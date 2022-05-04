@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const Accomodation = () => {
+    const { id_station } = useParams()
     const [dataAccomodation, setDataAccomodation] = useState([])
 
     useEffect(() => {
         axios
-            .get("http://localhost:5001/accomodations")
-            .then((response) => setDataAccomodation(response.data[22]));
+            .get(`http://localhost:5001/accomodations/${id_station}`)
+            .then((response) => setDataAccomodation(response.data));
     }, []);
 
     return (

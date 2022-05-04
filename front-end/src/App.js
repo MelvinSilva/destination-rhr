@@ -15,7 +15,17 @@ const App = () => {
   return (
     <div>
       <Header />
-      <Accomodation />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Navigate to="/home" />} />
+          <Route path="/home" element={<Auth />} >
+            <Route index element={<Login />} />
+            <Route path="register" element={<Register />} />
+          </Route>
+          <Route path="/home/choicestation" element={<ChoiceStation />}/>
+          <Route path="/accomodation/:id_station/" element={<Accomodation />}/>
+        </Routes>  
+      </BrowserRouter>
       <Footer />
     </div>
   );
