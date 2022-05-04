@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
 const Accomodation = () => {
-    const [dataAccomodation, setDataAccomodation] = useState([])
     const { id_station } = useParams()
+    const [dataAccomodation, setDataAccomodation] = useState([])
 
     useEffect(() => {
         axios
             .get(`http://localhost:5001/accomodations/${id_station}`)
-            .then((response) => setDataAccomodation(response.data[22]));
-    }, []);
+            .then((response) => setDataAccomodation(response.data[0]));
+    }, [id_station]);
+
 
     return (
         <div className="accomodation">
@@ -22,13 +22,14 @@ const Accomodation = () => {
                 </div>
             </div>
             <div className="container-center">
-                <h2>{dataAccomodation.accomodation}</h2>
+                {dataAccomodation.accomodation && <h2>{dataAccomodation.accomodation}</h2>}
                 <div className="info-accomodation">
                     {dataAccomodation.adress && <p><span>🏡 Adresse :</span> {dataAccomodation.adress}, {dataAccomodation.postal_code}</p>}
                     {dataAccomodation.email && <p><span>📬 Mail : </span> {dataAccomodation.email}</p>}
                     {dataAccomodation.phone_number && <p><span>📱 Numéro :</span> {dataAccomodation.phone_number}</p>}
                     {dataAccomodation.distance_station && <p><span>📍 Distance gare : </span>{dataAccomodation.distance_station}</p>}
                     {dataAccomodation.reception && <p><span>🕥 Horaire accueil : </span>{dataAccomodation.reception}</p>}
+                    {dataAccomodation.website && <p>💻 <a target="_blank" href={dataAccomodation.website}>Site internet</a></p>}
                     <img src="https://www.cheminots.net/uploads/monthly_2016_09/image.jpeg.33ce4e56e28f1c14de4147a06b3acdb4.jpeg" />
                 </div>
             </div>
@@ -36,15 +37,16 @@ const Accomodation = () => {
                 <h2>Services inclus</h2>
                 <div className="services-accomodation">
                     {dataAccomodation.e_press === 1 && <p>🗞 E-presse</p>}
-                    {dataAccomodation.bedroom_air_conditioner === 1 && <p>❄ Climatisation dans la chambre</p>}
+                    {dataAccomodation.bedroom_air_conditioning === 1 && <p>❄️ Climatisation dans la chambre</p>}
                     {dataAccomodation.kitchen === 1 && <p>🍽 Cuisine équipée et salle à manger à disposition</p>}
+                    {dataAccomodation.bereage_dispenser === 1 && <p>🥤 Distributeur automatique d'encas</p>}
                     {dataAccomodation.tv_room === 1 && <p>📺 Salle de télévision</p>}
                     {dataAccomodation.cofee === 1 && <p>☕ Café à disposition</p>}
+                    {dataAccomodation.iron === 1 && <p>👕 Fer à repasser</p>}
                     {dataAccomodation.wifi === 1 && <p>🌐 Accès internet</p>}
                     {dataAccomodation.bike === 1 && <p>🚲 Vélos à disposition à l'accueil</p>}
                     {dataAccomodation.terrace === 1 && <p>🪟 Terrasse</p>}
                     {dataAccomodation.board_games === 1 && <p>🎲 Jeux de sociétés</p>}
-                    {dataAccomodation.website && <p>💻 <a href={dataAccomodation.website}>Site internet</a></p>}
                     <div className="update-services">
                         <button className="btn">Mettre à jour les informations</button>
                         <button className="btn btn--red">Supprimer la fiche</button>

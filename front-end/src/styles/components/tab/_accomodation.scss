@@ -57,6 +57,15 @@
         box-shadow: $shadow;
 
         .info-accomodation {
+            a {
+                color: $primary-blue;
+                font-weight: 900;
+                text-decoration: none;
+                &:hover {
+                    background-color: $light-grey;
+                }
+            }
+
             span {
                 color: $primary-blue;
             }
@@ -83,6 +92,7 @@
         background-color: $white;
         border-radius: 10px;
         box-shadow: $shadow;
+
 
         .update-services {
             display: flex;
