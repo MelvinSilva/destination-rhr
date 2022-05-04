@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const Accomodation = () => {
     const [dataAccomodation, setDataAccomodation] = useState([])
+    const { id_station } = useParams()
 
     useEffect(() => {
         axios
-            .get("http://localhost:5001/accomodations")
+            .get(`http://localhost:5001/accomodations/${id_station}`)
             .then((response) => setDataAccomodation(response.data[22]));
     }, []);
 
