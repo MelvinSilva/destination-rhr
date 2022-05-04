@@ -10,7 +10,7 @@ li{
 
     h1 {
         margin: auto;
-        width: 70%;
+        width: 80%;
         border-radius: 10px;
         font-size: 20px;
         color:$white;
@@ -24,7 +24,7 @@ li{
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        width: 70%;
+        width: 80%;
 
         .card-station {
             margin: 10px;
@@ -32,6 +32,9 @@ li{
             flex-direction: column;
             border : 2px solid $middle-grey;
             border-radius: 10px;
+            &:hover {
+                opacity: 0.70;
+            }
         
             img {
                 width: 320px;

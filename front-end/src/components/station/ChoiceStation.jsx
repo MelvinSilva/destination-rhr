@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 const ChoiceStation = () => {
     const [locality, setLocality] = useState([])
@@ -10,12 +11,14 @@ const ChoiceStation = () => {
     }, []);
     return (
         <div className="choice-station">
-            <h1>CHOIX DE LA VILLE</h1>
+            <h1>Choisissez la destination de votre Repos Hors Résidence</h1>
             <div className="container-card">
-                {locality.map((town) => (<li> 
+                {locality.map((town) => (<li>
                     <div className="card-station">
-                        <h3>{town.city}</h3> 
-                        <img src={town.picture} alt=""/>          
+
+                        <Link to={`/eat/${town.id} `}><h3>{town.city}</h3> </Link>
+
+                        <img src={town.picture} alt="" />
                     </div>
                 </li>))}
             </div>
