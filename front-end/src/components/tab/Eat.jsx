@@ -12,22 +12,30 @@ const Eat = () => {
             .get(`http://localhost:5001/eats/${id_station}`)
             .then((response) => setEat(response.data));
     }, []);
-    return (<div className="choice-station">
-         
+
+    return (<div className="choice-eat">
+        {eat.length > 0 && <h1>☟ Se restaurer à {eat[0].city} ☟</h1>}
         <div className="container-card">
-    {eat.length > 0 && <h1>Se restaurer {eat[0].city}</h1>}
+
             {eat.map((restaurant) => (<li>
-                <div className="card-station">
+                <div className="container-global">
+                    <div className="container-left">
 
-                    <h3>{restaurant.name_eat}</h3>
-                    <h3>Adresse : {restaurant.adress_eat}</h3>
-                    <h3>Réduction avec Carmillon : {restaurant.reduction}</h3>
-                    <h3>Autre réduction : {restaurant.other_reduction}</h3>
+                        <h3>{restaurant.name_eat}</h3>
+                        {restaurant.adress_eat !== "null" && <p>Adresse : {restaurant.adress_eat}</p>}
+                        {restaurant.reduction !== "null" && <p>Réduction avec Carmillon : {restaurant.reduction}</p>}
+                        {restaurant.other_reduction !== "null" && <p>Autre réduction : {restaurant.other_reduction}</p>}
 
+                    </div>
+                    <div className="container-right">
+                        <img src={restaurant.picture_eat} alt="" />
+                        <h3>{restaurant.name_eat}</h3>
+                    </div>
                 </div>
+
             </li>))}
         </div>
-    </div>
+    </div >
     );
 };
 

@@ -14,23 +14,22 @@
         border-top: 1px solid $primary-blue;
         padding: 5px;
     }
- 
+
     .container-card {
         margin: 10px auto;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
         width: 80%;
-        
 
-        li{
-            list-style-type: none;  
+
+        li {
+            list-style-type: none;
         }
 
-        a:link 
-{ 
- text-decoration:none; 
-} 
+        a:link {
+            text-decoration: none;
+        }
 
         .card-station {
             margin: 10px;
@@ -44,11 +43,12 @@
             &:hover {
                 transform: scale(1.04);
                 background-color: $primary-blue;
+
                 h3 {
                     color: $white;
                 }
             }
-        
+
             img {
                 width: 320px;
                 height: 150px;
@@ -58,16 +58,15 @@
             }
         }
 
-            h3 {
-                font-size: 20px;
-                font-weight: 400;
-                letter-spacing: 1px;
-                text-align: center;
-                padding: 5px;
-                color: $primary-blue;
+        h3 {
+            font-size: 20px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-align: center;
+            padding: 5px;
+            color: $primary-blue;
 
-                
-            }
-        } 
+
+        }
     }
-
+}
