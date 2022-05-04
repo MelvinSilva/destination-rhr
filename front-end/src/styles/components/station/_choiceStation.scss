@@ -5,18 +5,10 @@
     background-color: $light-grey;
 
     h1 {
-<<<<<<< HEAD
-        margin: auto;
-        width: 80%;
-        border-radius: 10px;
-        font-size: 20px;
-        color:$white;
-=======
         margin: 30px auto;
         border-radius: 13px;
         font-size: 22px;
         color: $dark-grey;
->>>>>>> 4568b7fc01cd6b0d620f39ec82d47dc771220ba5
         text-align: center;
         border-bottom: 4px solid $primary-blue;
         border-top: 1px solid $primary-blue;
@@ -27,28 +19,23 @@
         margin: 10px auto;
         display: flex;
         flex-wrap: wrap;
-<<<<<<< HEAD
-        justify-content: space-between;
-        width: 80%;
-=======
         justify-content: space-around;
         width: 80%;
+        
 
         li{
             list-style-type: none;  
         }
->>>>>>> 4568b7fc01cd6b0d620f39ec82d47dc771220ba5
+
+        a:link 
+{ 
+ text-decoration:none; 
+} 
 
         .card-station {
             margin: 10px;
             display: flex;
             flex-direction: column;
-<<<<<<< HEAD
-            border : 2px solid $middle-grey;
-            border-radius: 10px;
-            &:hover {
-                opacity: 0.70;
-=======
             border-radius: 12px;
             box-shadow: $shadow;
             background-color: $white;
@@ -60,7 +47,6 @@
                 h3 {
                     color: $white;
                 }
->>>>>>> 4568b7fc01cd6b0d620f39ec82d47dc771220ba5
             }
         
             img {

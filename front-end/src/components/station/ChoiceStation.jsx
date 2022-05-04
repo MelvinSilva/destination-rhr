@@ -13,11 +13,12 @@ const ChoiceStation = () => {
         <div className="choice-station">
             <h1>☟ CHOISISSEZ VOTRE GARE ☟</h1>
             <div className="container-card">
-                {locality.map((town) => (
-                <li>
+                {locality.map((town) => (<li>
                     <div className="card-station">
-                        <h3>{town.city}</h3>
-                        <img src={town.picture} alt="" />
+
+                        <Link to={`/eat/${town.id} `}><h3>{town.city}</h3>
+
+                        <img src={town.picture} alt="" /> </Link>
                     </div>
                 </li>
                 ))}
