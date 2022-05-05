@@ -29,7 +29,7 @@ const Login = () => {
             <div className="login">
                 <div className="card-auth">
                     <form onSubmit={e => handleLogin(e)}>
-                        <img src='./images/logo.png' alt='logo' />
+                        <img src='/images/logo.png' alt='logo' />
                         <input type="text" placeholder='Numéro de CP*' ref={login} />
                         <input type={passwordIsVisible ? "text" : "password"} placeholder='Mot de passe*' ref={password}  />
                         <i className={passwordIsVisible ? "password-is-visible-login far fa-eye-slash" :  "password-is-visible-login fa fa-eye"} onClick={() => setPasswordIsVisible(!passwordIsVisible)}></i>
