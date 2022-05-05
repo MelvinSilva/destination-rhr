@@ -8,6 +8,7 @@ import ChoiceStation from './components/station/ChoiceStation';
 import Accomodation from './components/tab/Accomodation';
 import CityInfos from './components/tab/CityInfos';
 import Eat from './components/tab/Eat';
+import Shopping from './components/tab/Shopping';
 
 
 const App = () => {
@@ -20,13 +21,14 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={<Auth />} >
-            <Route index element={<Login />} />
+            <Route index element={<Login />} />  
             <Route path="register" element={<Register />} />
           </Route>
           <Route path="/home/choicestation" element={<ChoiceStation />}/>
           <Route path="/city-infos/:id_station/" element={<CityInfos />} >
             <Route path="accomodation" element={<Accomodation />}/>
             <Route path="eat" element={<Eat />}/>
+            <Route path="store" element={<Shopping />}/>
           </Route>
         </Routes>  
       </BrowserRouter>
