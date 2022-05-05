@@ -6,14 +6,15 @@
 
 
     h1 {
-        margin: 30px auto;
-        border-radius: 13px;
-        font-size: 22px;
+        margin: 10px auto;
+        border-radius: 20px;
+        font-size: 25px;
         color: $dark-grey;
         text-align: center;
-        border-bottom: 4px solid $primary-blue;
-        border-top: 1px solid $primary-blue;
+        border-bottom: 3px solid $middle-grey;
+        border-top: 1px solid $middle-grey;
         padding: 5px;
+        background-color: $white;
     }
  
     .container-card {

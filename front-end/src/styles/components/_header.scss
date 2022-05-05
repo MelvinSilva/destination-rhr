@@ -14,7 +14,13 @@
     }
 
     h1 {
+        font-size: 50px;
+        letter-spacing: 3px;
         color: $white;
+        @media (max-width: 390px) {
+            font-size: 20px;
+            letter-spacing: 0px;
+        }
     }
 
     .logo-sncf {
