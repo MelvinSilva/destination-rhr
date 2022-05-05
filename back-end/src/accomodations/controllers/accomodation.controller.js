@@ -10,6 +10,17 @@ class AccomodationController {
             res.status(500).send({ error: error.message })
         }
     }
+
+    async listAccomodationStation(req, res) {
+        try {
+            const accomodationStation = await accomodationModel.listAccomodationStation(req.params.id_station)
+            res.status(200).send(accomodationStation)
+        }
+        catch (error) {
+            res.status(500).send({ error: error.message })
+        }
+    }
+
     async updateAccomodation(req, res) {
         try {
             const updateAccomodation = req.body

@@ -27,6 +27,7 @@ class AuthController {
             const token = jwt.sign({ login, firstname, lastname, profil_user }, process.env.TOKEN_SECRET, { expiresIn: maxAge})
             res.cookie('jwt-token', token, { httpOnly: true, maxAge})
             res.status(200).send({ message: `${firstname} est connecté` })
+            
         }
         catch (error) {
             res.status(500).send({ error: error.message })
