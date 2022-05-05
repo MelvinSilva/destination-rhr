@@ -15,8 +15,7 @@ const Login = () => {
         e.preventDefault()
         axios.post('http://localhost:5001/users/login', { login: login.current.value, password: password.current.value })
             .then((res) => {
-                alert('Vous etes connecté')
-                choiceStation("choicestation")
+                choiceStation("choicestation") // useNavigate pour atteidre la page "choice station"
 
             }).catch((error) => {
                 setError(error.response.data.error) // reponse de l'API

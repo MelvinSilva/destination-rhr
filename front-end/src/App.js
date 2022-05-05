@@ -6,6 +6,8 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import ChoiceStation from './components/station/ChoiceStation';
 import Accomodation from './components/tab/Accomodation';
+import CityInfos from './components/tab/CityInfos';
+import Eat from './components/tab/Eat';
 
 
 const App = () => {
@@ -22,7 +24,10 @@ const App = () => {
             <Route path="register" element={<Register />} />
           </Route>
           <Route path="/home/choicestation" element={<ChoiceStation />}/>
-          <Route path="/accomodations/:id_station/" element={<Accomodation />}/>
+          <Route path="/city-infos/:id_station/" element={<CityInfos />} >
+            <Route path="accomodation" element={<Accomodation />}/>
+            <Route path="eat" element={<Eat />}/>
+          </Route>
         </Routes>  
       </BrowserRouter>
       <Footer />

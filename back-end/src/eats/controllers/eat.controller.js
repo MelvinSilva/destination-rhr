@@ -10,6 +10,7 @@ class EatController {
             res.status(500).send({ error: error.message })
         }
     }
+
     async listEatStation(req, res) {
         try {
             const eatStation = await eatModel.listEatStation(req.params.id_station)
@@ -19,6 +20,7 @@ class EatController {
             res.status(500).send({ error: error.message })
         }
     }
+
     async updateEat(req, res) {
         try {
             const eat = req.body
@@ -29,6 +31,7 @@ class EatController {
             res.status(404).send({ error: error.message })
         }
     }
+    
     async deleteEat(req, res) {
         try {
             const eat = req.body
