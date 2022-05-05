@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Shopping from './Shopping';
 
 const Eat = () => {
     const { id_station } = useParams()
@@ -27,7 +26,6 @@ const Eat = () => {
 
                 </div>
             </li>))}
-            <Shopping/>
         </div>
     </div>
     );
