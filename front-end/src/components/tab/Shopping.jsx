@@ -30,7 +30,8 @@ const Shopping = () => {
 
                     </div>
                     <div className="container-bottom">
-                       
+                        <img src={shop.picture_store} alt="" />
+                        <h3>{shop.name_eat}</h3>
                     </div>
                 </div>
             </li>))}
