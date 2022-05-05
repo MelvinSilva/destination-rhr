@@ -10,6 +10,7 @@ const Register = () => {
     const firstname = useRef();
     const email = useRef();
     const confirmPassword = useRef();
+
     const returnLogin = useNavigate()
     
     const [error, setError] = useState()
@@ -28,7 +29,7 @@ const Register = () => {
 
             })
                 .then((res) => {
-                    alert('Votre inscription est bien pris en compte')
+                    alert('Votre inscription est bien prise en compte')
                     returnLogin("/")
 
                 }).catch((error) => {
@@ -53,7 +54,7 @@ const Register = () => {
                         <input type="text" placeholder='Prénom*' ref={firstname} required />
                         <input type="email" placeholder='Email*' ref={email} required />
                         <input type={passwordIsVisible ? "text" : "password"} placeholder='Mot de passe*' ref={password} required />
-                        <i className="password-visible-register far fa-eye" onClick={() => setPasswordIsVisible(!passwordIsVisible)}></i>
+                        <i className={passwordIsVisible ? "password-is-visible-register far fa-eye-slash" :  "password-is-visible-register fa fa-eye"} onClick={() => setPasswordIsVisible(!passwordIsVisible)}></i>
                         <h5>{error}</h5>
                         <input type={passwordIsVisible ? "text" : "password"} placeholder='Confirmation mot de passe*' ref={confirmPassword} required />
                         <button className='btn' type="submit">VALIDER L'INSCRIPTION</button>
