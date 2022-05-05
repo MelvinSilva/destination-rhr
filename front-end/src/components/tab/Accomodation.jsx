@@ -5,13 +5,13 @@ import NavbarTab from './NavbarTab';
 
 const Accomodation = () => {
     const { id_station } = useParams()
-    const [dataAccomodation, setDataAccomodation] = useState({})
+    const [dataAccomodation, setDataAccomodation] = useState([])
 
     useEffect(() => {
         axios
             .get(`http://localhost:5001/accomodations/${id_station}`)
             .then((response) => setDataAccomodation(response.data[0]));
-    }, []);
+    }, [id_station]);
 
 
     return (

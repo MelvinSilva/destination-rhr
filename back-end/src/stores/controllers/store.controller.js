@@ -10,6 +10,15 @@ class StoreController {
             res.status(500).send({ error: error.message })
         }
     }
+    async listStoreStation(req, res) {
+        try {
+            const storeStation = await storeModel.listStoreStation(req.params.id_station)
+            res.status(200).send(storeStation)
+        }
+        catch (error) {
+            res.status(500).send({ error: error.message })
+        }
+    }
     async updateStore(req, res) {
         try {
             const store = req.body
