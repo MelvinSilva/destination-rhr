@@ -2,7 +2,9 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: $light-grey;
+    background-image: url(../../../../public/images/eats/back.jpg);
+    opacity: 0.90;
+
 
     h1 {
         margin: 30px auto;
@@ -20,8 +22,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
-        width: 90%;
-
+        width: 80%;
 
 
         li {
@@ -29,7 +30,7 @@
         }
 
         .container-global {
-            width: 100%;
+            width: 320px;
             margin: 10px auto;
             display: flex;
             flex-wrap: wrap;
@@ -37,37 +38,45 @@
             box-shadow: $shadow;
             background-color: $white;
             transition: .7s;
-            padding: 5px;
+            padding-top: 5px;
         }
 
-        .container-left {
+        p {
+            margin: 10px 10px;
+        }
+
+        .container-top {
+            height: 140px;
             width: 320px;
+            text-align: center;
 
             h3 {
-                font-size: 20px;
+                font-size: 15px;
                 font-weight: 400;
                 letter-spacing: 1px;
                 text-align: center;
                 padding: 5px;
                 color: $primary-blue;
-                border-bottom: 1px solid $primary-blue;
+            }
+
+            hr {
+                border: 1px solid $primary-blue;
             }
 
         }
 
-        .container-right {
+        .container-bottom {
             width: 320px;
+            text-align: center;
 
             img {
                 width: 320px;
                 height: 150px;
                 background-size: cover;
-                border-bottom-left-radius: 10px;
-                border-bottom-right-radius: 10px;
             }
 
             h3 {
-                font-size: 20px;
+                font-size: 10px;
                 font-weight: 400;
                 letter-spacing: 1px;
                 text-align: center;
