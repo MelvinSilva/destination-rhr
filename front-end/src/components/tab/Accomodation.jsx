@@ -33,7 +33,7 @@ const Accomodation = () => {
                             {dataAccomodation.distance_station && <p><span>📍 Distance gare : </span>{dataAccomodation.distance_station}</p>}
                             {dataAccomodation.reception && <p><span>🕥 Horaire accueil : </span>{dataAccomodation.reception}</p>}
                             {dataAccomodation.website && <p>💻 <a target="_blank" href={dataAccomodation.website}>Site internet</a></p>}
-                            <img src="https://www.cheminots.net/uploads/monthly_2016_09/image.jpeg.33ce4e56e28f1c14de4147a06b3acdb4.jpeg" />
+                            <img src={dataAccomodation.picture_accomodation} alt="" />
                         </div>
                     </div>
                     <div className="container-right">
