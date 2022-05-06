@@ -1,4 +1,4 @@
-const storeModel = require('../models/eat.model')
+const eatModel = require('../models/eat.model')
 
 class EatController {
     async listEats(req, res) {
@@ -10,6 +10,17 @@ class EatController {
             res.status(500).send({ error: error.message })
         }
     }
+
+    async listEatStation(req, res) {
+        try {
+            const eatStation = await eatModel.listEatStation(req.params.id_station)
+            res.status(200).send(eatStation)
+        }
+        catch (error) {
+            res.status(500).send({ error: error.message })
+        }
+    }
+
     async updateEat(req, res) {
         try {
             const eat = req.body
@@ -20,6 +31,7 @@ class EatController {
             res.status(404).send({ error: error.message })
         }
     }
+    
     async deleteEat(req, res) {
         try {
             const eat = req.body

@@ -1,0 +1,66 @@
+.navbar-tab {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 10vh;
+
+    @media (max-width: 590px) {
+        position: fixed;
+        bottom: 0px;
+    }
+
+    .tab {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 300px;
+        height: 60px;
+        border-radius: 5px;
+        background-color: $light-grey;
+        letter-spacing: 3px;
+        font-size: 25px;
+        
+        
+        &--active {
+            background-color: $primary-blue;
+            height: 60px;
+            width: 300px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $white;
+          }  
+        
+
+        a {
+            text-decoration: none;
+        }
+
+        @media (max-width: 590px) {
+            width: 100px;
+            height: 40px;
+        }
+    }
+
+    .tab-return {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 300px;
+        height: 60px;
+        border-radius: 5px;
+        background-color: $middle-grey;
+        font-size: 25px;
+        letter-spacing: 3px;
+
+        a {
+            text-decoration: none;
+        }
+
+        @media (max-width: 590px) {
+            width: 95px;
+            height: 40px;
+        }
+    }
+}
