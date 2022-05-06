@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-const Shopping = () => {
+const Store = () => {
     const { id_station } = useParams()
     const [store, setStore] = useState([])
 
@@ -13,7 +13,8 @@ const Shopping = () => {
             .then((response) => setStore(response.data));
     }, []);
 
-    return (<div className="choice-eat">
+    return (
+    <div className="choice-store">
         {/* {eat.length > 0 && <h1>☟ Se restaurer à {eat[0].city} ☟</h1>} Rendu conditionnel hors mapping    */}
         <div className="container-card">
 
@@ -29,7 +30,7 @@ const Shopping = () => {
                         {shop.particularity_schedules!== "null" && <p><strong>Compléments: </strong> {shop.particularity_schedules}</p>}
 
                     </div>
-                    <div className="container-bottom">
+                    <div className="container-bottom-store">
                         <img src={shop.picture_store} alt="" />
                         <h3>{shop.name_eat}</h3>
                     </div>
@@ -40,4 +41,4 @@ const Shopping = () => {
     );
 };
 
-export default Shopping;
+export default Store;

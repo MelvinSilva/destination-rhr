@@ -1,10 +1,12 @@
-.choice-eat {
+.choice-store {
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-image: url(../../../../public/images/eats/back.jpg);
-    opacity: 0.90;
-
+    height: 70vh;
+    background-image: url(../../../../public/images/image2.png);
+    background-size: cover;
+    overflow-y: auto;
+    
 
     h1 {
         margin: 30px auto;
@@ -22,7 +24,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
-        width: 80%;
+        width: 90%;
 
 
         li {
@@ -30,14 +32,13 @@
         }
 
         .container-global {
-            width: 320px;
+            width: 370px;
             margin: 10px auto;
             display: flex;
             flex-wrap: wrap;
             border-radius: 12px;
             box-shadow: $shadow;
             background-color: $white;
-            transition: .7s;
             padding-top: 5px;
         }
 
@@ -46,9 +47,16 @@
         }
 
         .container-top {
-            height: 140px;
-            width: 320px;
-            text-align: center;
+            height: 160px;
+            width: 370px;
+
+            h2 {
+                font-size: 18px;
+                font-weight: 600;
+                letter-spacing: 1px;
+                text-align: center;
+                color: $primary-blue;
+            }
 
             h3 {
                 font-size: 15px;
@@ -61,17 +69,26 @@
 
             hr {
                 border: 1px solid $primary-blue;
+                margin: 5px 0 15px 0;
             }
 
+            span {
+                margin-left: 10px;
+                border-radius: 25% 10%;
+                background-color: $red;
+                padding: 10px;
+                color: white;
+                font-weight: 900;
+            }
         }
 
-        .container-bottom {
-            width: 320px;
+        .container-bottom-store {
+            width: 370px;
             text-align: center;
 
             img {
-                width: 320px;
-                height: 150px;
+                width: 150px;
+                height: 60px;
                 background-size: cover;
             }
 

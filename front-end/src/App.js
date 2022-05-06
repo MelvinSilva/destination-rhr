@@ -8,7 +8,7 @@ import ChoiceStation from './components/station/ChoiceStation';
 import Accomodation from './components/tab/Accomodation';
 import CityInfos from './components/tab/CityInfos';
 import Eat from './components/tab/Eat';
-import Shopping from './components/tab/Shopping';
+import Store from './components/tab/Store';
 
 
 const App = () => {
@@ -28,7 +28,7 @@ const App = () => {
           <Route path="/city-infos/:id_station/" element={<CityInfos />} >
             <Route path="accomodation" element={<Accomodation />}/>
             <Route path="eat" element={<Eat />}/>
-            <Route path="store" element={<Shopping />}/>
+            <Route path="store" element={<Store />}/>
           </Route>
         </Routes>  
       </BrowserRouter>
