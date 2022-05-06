@@ -21,7 +21,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={<Auth />} >
-            <Route index element={<Login />} />
+            <Route index element={<Login />} />  
             <Route path="register" element={<Register />} />
           </Route>
           <Route path="/home/choicestation" element={<ChoiceStation />}/>
