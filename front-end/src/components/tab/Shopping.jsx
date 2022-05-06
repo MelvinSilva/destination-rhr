@@ -21,7 +21,7 @@ const Shopping = () => {
                 <div className="container-global">
                     <div className="container-top">
 
-                        <h3>{shop.name_store}</h3>
+                        <h2>{shop.name_store}</h2>
                         <h3>{shop.city}</h3>
                         <hr />
                         {shop.adress_store !== "null" && <p><strong>Adresse : </strong>{shop.adress_store}</p>}

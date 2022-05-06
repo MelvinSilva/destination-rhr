@@ -13,7 +13,9 @@ const Eat = () => {
             .then((response) => setEat(response.data));
     }, []);
 
-    return (<div className="choice-eat">
+
+    return (
+    <div className="choice-eat">
         {/* {eat.length > 0 && <h1>☟ Se restaurer à {eat[0].city} ☟</h1>} Rendu conditionnel hors mapping    */}
         <div className="container-card">
 
@@ -21,11 +23,11 @@ const Eat = () => {
                 <div className="container-global">
                     <div className="container-top">
 
-                        <h3>{restaurant.name_eat}</h3>
+                        <h2>{restaurant.name_eat}</h2>
                         <h3>{restaurant.city}</h3>
                         <hr />
                         {restaurant.adress_eat !== "null" && <p><strong>Adresse : </strong>{restaurant.adress_eat}</p>}
-                        {restaurant.reduction !== "null" && <p><strong>Réduction avec Carmillon : </strong> {restaurant.reduction}</p>}
+                        {restaurant.reduction !== "null" && <p><strong>Réduction avec Carmillon : </strong> <span>{restaurant.reduction}</span></p>}
                         {restaurant.other_reduction !== "null" && <p><strong>Autre réduction : </strong> {restaurant.other_reduction}</p>}
 
                     </div>

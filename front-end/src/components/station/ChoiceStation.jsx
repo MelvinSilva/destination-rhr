@@ -11,6 +11,9 @@ const ChoiceStation = () => {
     }, []);
     return (
         <div className="choice-station">
+            <video id="background-video" autoPlay loop muted>
+                <source src="/images/production ID_4789847.mp4" type="video/mp4" />
+            </video>
             <h1>☟ CHOISISSEZ VOTRE GARE ☟</h1>
             <div className="container-card">
                 {locality.map((town) => (<li>

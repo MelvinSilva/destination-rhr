@@ -2,16 +2,31 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: $light-grey;
+    height: 80vh;
+    overflow-y: auto;
+
+
+    #background-video {
+        height: 100vh;
+        width: 100vw;
+        object-fit: cover;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
+        filter: saturate(1.6);
+        filter: blur(5px);
+        opacity: 0.6;
+    }
     
     h1 {
-        margin: 10px auto;
-        border-radius: 20px;
+        margin: 15px auto;
+        border-radius: 10px;
         font-size: 25px;
         color: $dark-grey;
         text-align: center;
-        border-bottom: 3px solid $middle-grey;
-        border-top: 1px solid $middle-grey;
         padding: 5px;
         background-color: $white;
     }

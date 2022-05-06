@@ -5,24 +5,24 @@ const NavbarTab = () => {
     return (
         <div className='navbar-tab'>
             <div className="tab-return">
-                <Link className="fas fa-home" to="/home/choicestation"></Link>
+                <Link to="/home/choicestation">🏠 accueil</Link>
             </div>
             <div className="tab">
                 <NavLink to="accomodation" className={({ isActive }) =>
                     "tab" + (isActive ? "--active" : "")}>
-                    ⏾ Couchage
+                    ⏾ couchage
                 </NavLink>
             </div>
-            <div className="tab fas fa-house">
+            <div className="tab">
                 <NavLink to="eat" className={({ isActive }) =>
                     "tab" + (isActive ? "--active" : "")}>
-                    🍽 Se restaurer
+                    🍽 se restaurer
                 </NavLink>
             </div>
             <div className="tab">
                 <NavLink to="store" className={({ isActive }) =>
                     "tab" + (isActive ? "--active" : "")}>
-                    🛒 Shopping
+                    🛒 shopping
                 </NavLink>
             </div>
 
