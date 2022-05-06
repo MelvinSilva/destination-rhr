@@ -2,11 +2,9 @@ import React from 'react';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
 const Eat = () => {
     const { id_station } = useParams()
     const [eat, setEat] = useState([])
-
     useEffect(() => {
         axios
             .get(`http://localhost:5001/eats/${id_station}`)
@@ -18,7 +16,6 @@ const Eat = () => {
     <div className="choice-eat">
         {/* {eat.length > 0 && <h1>☟ Se restaurer à {eat[0].city} ☟</h1>} Rendu conditionnel hors mapping    */}
         <div className="container-card">
-
             {eat.slice(0, 6).map((restaurant) => (<li>
                 <div className="container-global">
                     <div className="container-top">
@@ -29,7 +26,6 @@ const Eat = () => {
                         {restaurant.adress_eat !== "null" && <p><strong>Adresse : </strong>{restaurant.adress_eat}</p>}
                         {restaurant.reduction !== "null" && <p><strong>Réduction avec Carmillon : </strong> <span>{restaurant.reduction}</span></p>}
                         {restaurant.other_reduction !== "null" && <p><strong>Autre réduction : </strong> {restaurant.other_reduction}</p>}
-
                     </div>
                     <div className="container-bottom">
                         <img src={restaurant.picture_eat} alt="" />
@@ -41,5 +37,4 @@ const Eat = () => {
     </div >
     );
 };
-
 export default Eat;

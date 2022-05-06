@@ -18,19 +18,21 @@
         border-top: 1px solid $primary-blue;
         padding: 5px;
     }
-
     .container-card {
         margin: 10px auto;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
+<<<<<<< HEAD
         width: 90%;
 
 
+=======
+        width: 80%;
+>>>>>>> ac8eb7ad8d6f866dace4b876c64934de6ebd89e7
         li {
             list-style-type: none;
         }
-
         .container-global {
             width: 370px;
             margin: 10px auto;
@@ -41,11 +43,9 @@
             background-color: $white;
             padding-top: 5px;
         }
-
         p {
             margin: 10px 10px;
         }
-
         .container-top {
             height: 160px;
             width: 370px;
@@ -66,7 +66,6 @@
                 padding: 5px;
                 color: $primary-blue;
             }
-
             hr {
                 border: 1px solid $primary-blue;
                 margin: 5px 0 15px 0;
@@ -81,17 +80,14 @@
                 font-weight: 900;
             }
         }
-
         .container-bottom {
             width: 370px;
             text-align: center;
-
             img {
                 width: 370px;
                 height: 150px;
                 background-size: cover;
             }
-
             h3 {
                 font-size: 10px;
                 font-weight: 400;
