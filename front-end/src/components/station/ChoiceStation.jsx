@@ -1,6 +1,9 @@
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
+
+
+
 const ChoiceStation = () => {
     const [locality, setLocality] = useState([])
 
@@ -14,7 +17,7 @@ const ChoiceStation = () => {
             <video id="background-video" autoPlay loop muted>
                 <source src="/images/production ID_4789847.mp4" type="video/mp4" />
             </video>
-            <h1>☟ CHOISISSEZ VOTRE GARE ☟</h1>
+            <h1>CHOISISSEZ VOTRE GARE</h1>
             <div className="container-card">
                 {locality.map((town) => (<li>
                     <div className="card-station">

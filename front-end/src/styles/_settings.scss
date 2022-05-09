@@ -1,4 +1,4 @@
-$primary-blue: #bc5186;   // bleu canard sncf 
+$primary-blue: #009AA6;   // bleu canard sncf 
 $dark-grey: #4D4F53;     // gris foncé sncf
 $middle-grey: #cbc8c8;  // gris moyen sncf
 $light-grey: #F2F2F2;  // gris léger sncf
@@ -8,6 +8,7 @@ $red: #D52B1E;      // rouge sncf
 $border-grey: #52525298; // bordure grise
 $border-blue: 1px solid $primary-blue; // bordure bleu canard sncf
 $shadow: 0 3px 20px rgba(0, 0, 0, 0.168); // ombre à utiliser par défaut
+
 
 h1, .h1 {
     font-size: calc(1.375rem + 1.5vw);

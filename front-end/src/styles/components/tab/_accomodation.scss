@@ -8,6 +8,7 @@
         display: none;
     }
 
+
     .container-accomodation {
         display: flex;
         justify-content: space-around;
@@ -21,12 +22,12 @@
             border-bottom: 4px solid $primary-blue;
             padding: 8px;
         }
-
+        
         p {
-            color: $dark-grey;
             margin: 10px;
-            font-size: 20px;
+            font-size: 20px;    
         }
+        
 
         .container-left {
             margin: 10px;
@@ -76,6 +77,7 @@
                 span {
                     color: $primary-blue;
                 }
+
                 img {
                     margin: 20px 10px 10px 10px;
                     width: 370px;
@@ -85,7 +87,7 @@
                     box-shadow: $shadow;
                     transition: 0.9s;
                     &:hover {
-                        transform: scale(1.5);
+                        transform: scale(1.04);
                     }
                 }
             }
