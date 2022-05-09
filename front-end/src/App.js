@@ -5,7 +5,7 @@ import Register from './components/auth/Register';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import ChoiceStation from './components/station/ChoiceStation';
-import Accomodation from './components/tab/Accomodation';
+import ParentAccomodation from './components/tab/ParentAccomodation';
 import CityInfos from './components/tab/CityInfos';
 import Eat from './components/tab/Eat';
 import Store from './components/tab/Store';
@@ -21,16 +21,16 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={<Auth />} >
-            <Route index element={<Login />} />  
+            <Route index element={<Login />} />
             <Route path="register" element={<Register />} />
           </Route>
-          <Route path="/home/choicestation" element={<ChoiceStation />}/>
+          <Route path="/home/choicestation" element={<ChoiceStation />} />
           <Route path="/city-infos/:id_station/" element={<CityInfos />} >
-            <Route path="accomodation" element={<Accomodation />}/>
-            <Route path="eat" element={<Eat />}/>
-            <Route path="store" element={<Store />}/>
+            <Route path="accomodation" element={<ParentAccomodation />} />
+            <Route path="eat" element={<Eat />} />
+            <Route path="store" element={<Store />} />
           </Route>
-        </Routes>  
+        </Routes>
       </BrowserRouter>
       <Footer />
     </div>
