@@ -5,7 +5,7 @@ const Auth = () => {
 
 
     return (
-        <div className='auth'>
+        <div className="auth">
             <video id="background-video" autoPlay loop muted>
                 <source src="./images/production ID_4789847.mp4" type="video/mp4" />
             </video>
