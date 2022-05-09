@@ -6,6 +6,9 @@
     background-image: url(../../../../public/images/image2.png);
     background-size: cover;
     overflow-y: auto;
+    &::-webkit-scrollbar {
+        display: none;
+    }
     
 
     h1 {
