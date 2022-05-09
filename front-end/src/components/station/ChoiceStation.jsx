@@ -12,6 +12,7 @@ const ChoiceStation = () => {
             .get("http://localhost:5001/stations")
             .then((response) => setLocality(response.data));
     }, []);
+    
     return (
         <div className="choice-station">
             <video id="background-video" autoPlay loop muted>
