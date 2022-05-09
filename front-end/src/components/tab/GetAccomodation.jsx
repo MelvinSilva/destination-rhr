@@ -4,6 +4,7 @@ import { FaMugHot } from 'react-icons/fa'
 import { MdIron, MdMicrowave, MdWifi, MdPedalBike, MdTerrain, MdGames } from 'react-icons/md'
 
 
+
 const GetAccomodation = (props) => {
 
 
@@ -47,10 +48,9 @@ const GetAccomodation = (props) => {
                                 <button className="btn">Mettre à jour les informations</button>
                                 <button className="btn btn--red">Supprimer la fiche</button>
                             </div>
-
                         </div>
                     </div>
-                </div >
+                </div>
             </div>
         </div>
     );

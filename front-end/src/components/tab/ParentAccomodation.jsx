@@ -16,8 +16,7 @@ const ParentAccomodation = () => {
     }, []);
 
     return (
-        <div>
-           
+        <div> 
           <GetAccomodation  dataAccomodation={dataAccomodation}/>
         </div>
     );
