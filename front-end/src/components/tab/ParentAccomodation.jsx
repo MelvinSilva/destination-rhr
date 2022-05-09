@@ -3,7 +3,6 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import GetAccomodation from './GetAccomodation';
 
-
 const ParentAccomodation = () => {
 
     const { id_station } = useParams()

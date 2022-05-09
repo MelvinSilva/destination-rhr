@@ -1,15 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { IoMail, IoPhonePortrait, IoLocationSharp, IoNavigateCircle, IoTime, IoNewspaper, IoColorFilter, IoBeer, IoTv } from 'react-icons/io5'
 import { FaMugHot } from 'react-icons/fa'
 import { MdIron, MdMicrowave, MdWifi, MdPedalBike, MdTerrain, MdGames } from 'react-icons/md'
+import { useNavigate } from 'react-router-dom';
+import UpdateAccomodation from './UpdateAccomodation';
+
 
 
 const GetAccomodation = (props) => {
-
-
+    const [update, setUpdate] = useState(false)
+    const navigate = useNavigate()
+    const handleUpdate = () => {
+        setUpdate(!update)
+        navigate("update")
+    }
     return (
         <div>
-            <div className="accomodation">
+            {update ? <UpdateAccomodation dataAccomodation={props.dataAccomodation}  /> : <div className="accomodation">
                 <div className="container-accomodation">
                     <div className="container-left">
                         <div className="map">
@@ -20,7 +27,7 @@ const GetAccomodation = (props) => {
                     <div className="container-center">
                         <h2>{props.dataAccomodation.accomodation} - {`${props.dataAccomodation.city}`.toUpperCase()}</h2>
                         <div className="info-accomodation">
-                            {props.adress && <p><span><IoLocationSharp />&nbsp;Adresse :</span> {props.dataAccomodation.adress}, {props.dataAccomodation.postal_code}</p>}
+                            {props.dataAdress && <p><span><IoLocationSharp />&nbsp;Adresse :</span> {props.dataAccomodation.adress}, {props.dataAccomodation.postal_code}</p>}
                             {props.dataAccomodation.email && <p><span><IoMail /> &nbsp;Mail : </span> {props.dataAccomodation.email}</p>}
                             {props.dataAccomodation.phone_number && <p><span><IoPhonePortrait />&nbsp;Numéro :</span> {props.dataAccomodation.phone_number}</p>}
                             {props.dataAccomodation.distance_station && <p><span><IoNavigateCircle />&nbsp;Distance gare : </span>{props.dataAccomodation.distance_station}</p>}
@@ -44,14 +51,13 @@ const GetAccomodation = (props) => {
                             {props.dataAccomodation.terrace === 1 && <p><MdTerrain />&ensp;Terrasse</p>}
                             {props.dataAccomodation.board_games === 1 && <p><MdGames />&ensp;Jeux de sociétés</p>}
                             <div className="update-services">
-                                <button className="btn">Mettre à jour les informations</button>
+                                <button onClick={handleUpdate} className="btn">Mettre à jour les informations</button>
                                 <button className="btn btn--red">Supprimer la fiche</button>
                             </div>
-
                         </div>
                     </div>
                 </div >
-            </div>
+            </div>}
         </div>
     );
 };

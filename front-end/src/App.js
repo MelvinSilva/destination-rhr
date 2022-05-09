@@ -9,6 +9,7 @@ import ParentAccomodation from './components/tab/ParentAccomodation';
 import CityInfos from './components/tab/CityInfos';
 import Eat from './components/tab/Eat';
 import Store from './components/tab/Store';
+import UpdateAccomodation from './components/tab/UpdateAccomodation';
 
 
 const App = () => {
@@ -26,7 +27,9 @@ const App = () => {
           </Route>
           <Route path="/home/choicestation" element={<ChoiceStation />} />
           <Route path="/city-infos/:id_station/" element={<CityInfos />} >
-            <Route path="accomodation" element={<ParentAccomodation />} />
+            <Route path="accomodation" element={<ParentAccomodation />} >
+              <Route path="update" element={<UpdateAccomodation />} />
+            </Route>
             <Route path="eat" element={<Eat />} />
             <Route path="store" element={<Store />} />
           </Route>
