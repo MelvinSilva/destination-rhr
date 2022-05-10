@@ -71,9 +71,7 @@
                     }
                 }
 
-                span {
-                    color: $primary-blue;
-                }
+                
 
                 img {
                     margin: 20px 10px 10px 10px;
@@ -98,6 +96,7 @@
             background-color: $white;
             border-radius: 10px;
             box-shadow: $shadow;
+            position: relative;
 
             .update-services {
                 display: flex;

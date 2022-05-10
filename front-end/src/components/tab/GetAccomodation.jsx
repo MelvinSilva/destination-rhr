@@ -35,11 +35,11 @@ const GetAccomodation = (props) => {
                         <div className="container-center">
                             <h2>{props.dataAccomodation.accomodation} - {`${props.dataAccomodation.city}`.toUpperCase()}</h2>
                             <div className="info-accomodation">
-                                {props.dataAdress && <p><span><IoLocationSharp />&nbsp;Adresse :</span> {props.dataAccomodation.adress}, {props.dataAccomodation.postal_code}</p>}
-                                {props.dataAccomodation.email && <p><span><IoMail /> &nbsp;Mail : </span> {props.dataAccomodation.email}</p>}
-                                {props.dataAccomodation.phone_number && <p><span><IoPhonePortrait />&nbsp;Numéro :</span> {props.dataAccomodation.phone_number}</p>}
-                                {props.dataAccomodation.distance_station && <p><span><IoNavigateCircle />&nbsp;Distance gare : </span>{props.dataAccomodation.distance_station}</p>}
-                                {props.dataAccomodation.reception && <p><span><IoTime /> &nbsp;Horaire accueil : </span>{props.dataAccomodation.reception}</p>}
+                                {props.dataAccomodation.adress && <p><IoLocationSharp />&nbsp; {props.dataAccomodation.adress}, {props.dataAccomodation.postal_code}</p>}
+                                {props.dataAccomodation.email && <p><IoMail />&nbsp; {props.dataAccomodation.email}</p>}
+                                {props.dataAccomodation.phone_number && <p><IoPhonePortrait />&nbsp; {props.dataAccomodation.phone_number}</p>}
+                                {props.dataAccomodation.distance_station && <p><IoNavigateCircle />&nbsp; {props.dataAccomodation.distance_station}</p>}
+                                {props.dataAccomodation.reception && <p><IoTime />&nbsp; {props.dataAccomodation.reception}</p>}
                                 {props.dataAccomodation.website && <p>💻 <a target="blank" href={props.dataAccomodation.website}> &nbsp;Site internet</a></p>}
                                 <img src={props.dataAccomodation.picture_accomodation} alt="" />
                             </div>
@@ -49,7 +49,7 @@ const GetAccomodation = (props) => {
                             <div className="services-accomodation">
                                 {props.dataAccomodation.e_press === 1 && <p><IoNewspaper />&ensp;E-presse</p>}
                                 {props.dataAccomodation.bedroom_air_conditioning === 1 && <p><IoColorFilter />&ensp;Climatisation dans la chambre</p>}
-                                {props.dataAccomodation.kitchen === 1 && <p><MdMicrowave />&ensp;Cuisine équipée et salle à manger à disposition</p>}
+                                {props.dataAccomodation.kitchen === 1 && <p><MdMicrowave />&ensp;Cuisine équipée</p>}
                                 {props.dataAccomodation.bereage_dispenser === 1 && <p><IoBeer />&ensp;Distributeur automatique d'encas</p>}
                                 {props.dataAccomodation.tv_room === 1 && <p><IoTv />&ensp;Salle de télévision</p>}
                                 {props.dataAccomodation.cofee === 1 && <p><FaMugHot />&ensp;Café à disposition</p>}
@@ -59,8 +59,8 @@ const GetAccomodation = (props) => {
                                 {props.dataAccomodation.terrace === 1 && <p><MdTerrain />&ensp;Terrasse</p>}
                                 {props.dataAccomodation.board_games === 1 && <p><MdGames />&ensp;Jeux de sociétés</p>}
                                 <div className="update-services">
-                                    <button onClick={handleUpdate} className="btn">Modifier les informations</button>
-                                    <button className="btn btn--red">Supprimer la fiche</button>
+                                    <button onClick={handleUpdate} className="btn">MODIFIER LES SERVICES</button>
+                                    <button className="btn btn--red">SUPPRIMER LA FICHE</button>
                                 </div>
                             </div>
                         </div>
