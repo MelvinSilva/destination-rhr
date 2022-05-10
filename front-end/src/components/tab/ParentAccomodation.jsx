@@ -3,10 +3,9 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import GetAccomodation from './GetAccomodation';
 
-
 const ParentAccomodation = () => {
 
-    const { id_station } = useParams()
+    const { id_station } = useParams() 
     const [dataAccomodation, setDataAccomodation] = useState([])
 
     useEffect(() => {
@@ -17,7 +16,8 @@ const ParentAccomodation = () => {
 
     return (
         <div> 
-          <GetAccomodation  dataAccomodation={dataAccomodation}/>
+        {/* on passe en props dataAccomodation pour le recuperer dans GetAccomodation et setDataAccomododation pour le recuperer dans updateAccomodation */}
+          <GetAccomodation  dataAccomodation={dataAccomodation} setDataAccomodation={setDataAccomodation}/> 
         </div>
     );
 };
