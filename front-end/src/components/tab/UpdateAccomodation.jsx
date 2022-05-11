@@ -13,8 +13,9 @@ const UpdateAccomodation = (props) => {
         
         axios
             .put(`http://localhost:5001/accomodations/${props.dataAccomodation.id}`,props.dataAccomodation)
-            .then(props.setUpdate(true))
-            console.log(props.dataAccomodation)}
+            .then(()=>props.setUpdate(true))
+            .catch(error=>console.error(error))
+}
 
 
 
@@ -149,13 +150,13 @@ const UpdateAccomodation = (props) => {
                                 </label>
                             }
 
-                            {props.dataAccomodation.cofee === 1
+                            {props.dataAccomodation.coffee === 1
                                 ?
                                 <label>
                                     <p><FaMugHot />&ensp;Café à disposition&ensp;
                                         <input
                                             type="checkbox"
-                                            onClick={() => props.setDataAccomodation({ ...props.dataAccomodation, cofee: 0 })}
+                                            onClick={() => props.setDataAccomodation({ ...props.dataAccomodation, coffee: 0 })}
                                             defaultChecked
                                         />
                                     </p>
@@ -165,7 +166,7 @@ const UpdateAccomodation = (props) => {
                                     <p style={{ color: "#cbc8c8" }}><FaMugHot />&ensp;Café à disposition&ensp;
                                         <input
                                             type="checkbox"
-                                            onClick={() => props.setDataAccomodation({ ...props.dataAccomodation, cofee: 1 })}
+                                            onClick={() => props.setDataAccomodation({ ...props.dataAccomodation, coffee: 1 })}
                                         />
                                     </p>
                                 </label>
