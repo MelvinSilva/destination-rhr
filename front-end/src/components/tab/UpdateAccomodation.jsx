@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import axios from 'axios';
 import { IoMail, IoPhonePortrait, IoLocationSharp, IoNavigateCircle, IoTime, IoNewspaper, IoColorFilter, IoBeer, IoTv } from 'react-icons/io5'
 import { FaMugHot } from 'react-icons/fa'
@@ -10,11 +10,11 @@ const UpdateAccomodation = (props) => {
 
 
     const updateSubmit = () => {
+        
         axios
-            .put(`http://localhost:5001/accomodations/${props.dataAccomodation.id}`)
-            .then((response) => props.setDataAccomodation(response.data[0]));
-    };
-
+            .put(`http://localhost:5001/accomodations/${props.dataAccomodation.id}`,props.dataAccomodation)
+            .then(props.setUpdate(true))
+            console.log(props.dataAccomodation)}
 
 
 
@@ -41,21 +41,19 @@ const UpdateAccomodation = (props) => {
                                 ?
                                 <label>
                                     <p><IoNewspaper />&ensp;E-presse&ensp;
-                                    <span class="checkmark"><input
+                                    <input
                                             type="checkbox"
                                             onClick={() => props.setDataAccomodation({ ...props.dataAccomodation, e_press: 0 })}
                                             defaultChecked />
-                                        </span>
-                                    </p>
+                                            </p>
                                 </label>
                                 :
                                 <label>
                                     <p style={{ color: "#cbc8c8" }}><IoNewspaper />&ensp;E-presse&ensp;
-                                    <span class="checkmark"><input
+                                    <input
                                             type="checkbox"
                                             onClick={() => props.setDataAccomodation({ ...props.dataAccomodation, e_press: 1 })}
                                         />
-                                        </span>
                                     </p>
                                 </label>
                             }
@@ -281,7 +279,7 @@ const UpdateAccomodation = (props) => {
         
                             <div className="update-services">
                                 <button
-                                    onClick={() => props.setUpdate(true)}
+                                    onClick={updateSubmit}
                                     className="btn">
                                     Valider les changements
                                 </button>

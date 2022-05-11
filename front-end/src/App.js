@@ -5,7 +5,7 @@ import Register from './components/auth/Register';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import ChoiceStation from './components/station/ChoiceStation';
-import ParentAccomodation from './components/tab/ParentAccomodation';
+import GetAccomodation from './components/tab/GetAccomodation';
 import CityInfos from './components/tab/CityInfos';
 import Eat from './components/tab/Eat';
 import Store from './components/tab/Store';
@@ -27,7 +27,7 @@ const App = () => {
           </Route>
           <Route path="/home/choicestation" element={<ChoiceStation />} />
           <Route path="/city-infos/:id_station/" element={<CityInfos />} >
-            <Route path="accomodation" element={<ParentAccomodation />} >
+            <Route path="accomodation" element={<GetAccomodation />} >
               <Route path="update" element={<UpdateAccomodation />} />
             </Route>
             <Route path="eat" element={<Eat />} />
