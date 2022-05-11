@@ -23,8 +23,6 @@ const UpdateAccomodation = (props) => {
         <div>
             <div className="accomodation">
                 <div className="container-accomodation">
-                    <div className="container-left">
-                    </div>
                     <div className="container-center">
                         <h2>{props.dataAccomodation.accomodation} - {`${props.dataAccomodation.city}`.toUpperCase()}</h2>
                         <div className="info-accomodation">
@@ -284,11 +282,11 @@ const UpdateAccomodation = (props) => {
                                 <button
                                     onClick={updateSubmit}
                                     className="btn">
-                                    VALIDER LES CHANGEMENTS
+                                    Valider les changements
                                 </button>
                                 <button
                                     className="btn btn--red">
-                                    SUPPRIMER LA FICHE
+                                    Supprimer la fiche
                                 </button>
                             </div>
 

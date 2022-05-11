@@ -66,8 +66,8 @@ const GetAccomodation = () => {
                                 {dataAccomodation.terrace === 1 && <p><MdTerrain />&ensp;Terrasse</p>}
                                 {dataAccomodation.board_games === 1 && <p><MdGames />&ensp;Jeux de sociétés</p>}
                                 <div className="update-services">
-                                    <button onClick={handleUpdate} className="btn">MODIFIER LES SERVICES</button>
-                                    <button className="btn btn--red">SUPPRIMER LA FICHE</button>
+                                    <button onClick={handleUpdate} className="btn">Modifier les services</button>
+                                    <button className="btn btn--red">Supprimer la fiche</button>
                                 </div>
                             </div>
                         </div>
