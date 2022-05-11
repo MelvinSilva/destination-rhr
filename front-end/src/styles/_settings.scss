@@ -72,9 +72,10 @@ h1, .h1 {
     background-color: $primary-blue;
     color: $white;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 15px;
     border: none;
     cursor: pointer;
+    
 
     &--red {
       background-color: $red;
@@ -91,7 +92,7 @@ path {
 
 
 /////////// a mettre dans le SCSS update acoomodation ///////////
-.container-right {
+/* .container-right {
 
   input[type=checkbox] {
     -webkit-appearance: none;
@@ -104,28 +105,61 @@ path {
     width: 25px;
     border: 1px solid $primary-blue;
     cursor: pointer;
-  }
-  
-  input[type="checkbox"]:checked {
-  position: absolute;
-  right: 15px;
-  height: 25px;
-  width: 25px;
-  cursor: pointer;
-  background: $primary-blue;
 
-    &:before {
-      content: '✓';
-      position: absolute;
-      left: 3px;
-      top: -2px;
-      display: block;
-      text-align: center;
-      color: $white;
-      font-size: 23px;
+    &:checked {
+      background: $primary-blue;
+      transition: all 0.6s ease-in-out;
+
+      &::before {
+        content: '✓';
+        position: absolute;
+        left: 3px;
+        top: -2px;
+        display: block;
+        color: $white;
+        font-size: 23px;
+      }
     }
   }
-}
+} */
 
 ///////////////////////////////////////////////////////////
+//// VERSION 2 ///////////
+ 
+.container-right {
+  input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    position: absolute;
+    right: 8px;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 2.5rem;
+    height: 1.5rem;
+    border-radius: 1.5rem;
+    padding: 2.5px;
+    background-color: $middle-grey;
+    transition: all 0.5s;
+
+    &::before {
+      box-sizing: border-box;
+      display: block;
+      content: "";
+      height: calc(1.5rem - 5px);
+      width: calc(1.5rem - 5px);
+      border-radius: 50%;
+      background-color: $white;
+      transition: all 0.5s;
+    }
+  }
+
+  input[type="checkbox"]:checked {
+    background-color: $primary-blue;
+
+    &:before {
+      margin-left: 1.2em;
+    }
+  }
+} 
 
