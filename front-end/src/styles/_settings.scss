@@ -92,39 +92,7 @@ path {
 
 
 /////////// a mettre dans le SCSS update acoomodation ///////////
-/* .container-right {
 
-  input[type=checkbox] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
-    position: absolute;
-    right: 15px;
-    border-radius: 8px;
-    height: 25px;
-    width: 25px;
-    border: 1px solid $primary-blue;
-    cursor: pointer;
-
-    &:checked {
-      background: $primary-blue;
-      transition: all 0.6s ease-in-out;
-
-      &::before {
-        content: '✓';
-        position: absolute;
-        left: 3px;
-        top: -2px;
-        display: block;
-        color: $white;
-        font-size: 23px;
-      }
-    }
-  }
-} */
-
-///////////////////////////////////////////////////////////
-//// VERSION 2 ///////////
  
 .container-right {
   input[type="checkbox"] {

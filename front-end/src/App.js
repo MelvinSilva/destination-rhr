@@ -12,6 +12,7 @@ import Store from './components/tab/Store';
 import UpdateAccomodation from './components/tab/UpdateAccomodation';
 
 
+
 const App = () => {
 
 

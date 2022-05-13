@@ -5,27 +5,29 @@ import { FaMugHot } from 'react-icons/fa'
 import { MdIron, MdMicrowave, MdWifi, MdPedalBike, MdTerrain, MdGames } from 'react-icons/md'
 
 
+
 const UpdateAccomodation = (props) => {
 
 
 
     const updateSubmit = () => {
-        
+
         axios
-            .put(`http://localhost:5001/accomodations/${props.dataAccomodation.id}`,props.dataAccomodation)
-            .then(()=>props.setUpdate(true))
-            .catch(error=>console.error(error))
-}
+            .put(`http://localhost:5001/accomodations/${props.dataAccomodation.id}`, props.dataAccomodation)
+            .then(() => props.setUpdate(true))
+            .catch(error => console.error(error))
+        // alert("Les changement ont bien été pris en compte")    
+    }
 
 
 
     return (
         <div>
-            <div className="accomodation">
-                <div className="container-accomodation">
-                    <div className="container-center">
+            <div className="update">
+                <div className="container-update">
+                    <div className="update-left">
                         <h2>{props.dataAccomodation.accomodation} - {`${props.dataAccomodation.city}`.toUpperCase()}</h2>
-                        <div className="info-accomodation">
+                        <div className="info-update">
                             {props.dataAccomodation.adress && <p><IoLocationSharp />&nbsp; {props.dataAccomodation.adress}, {props.dataAccomodation.postal_code}</p>}
                             {props.dataAccomodation.email && <p><IoMail />&nbsp; {props.dataAccomodation.email}</p>}
                             {props.dataAccomodation.phone_number && <p><IoPhonePortrait />&nbsp; {props.dataAccomodation.phone_number}</p>}
@@ -35,23 +37,23 @@ const UpdateAccomodation = (props) => {
                             <img src={props.dataAccomodation.picture_accomodation} alt="" />
                         </div>
                     </div>
-                    <div className="container-right">
+                    <div className="update-right">
                         <h2>Ajouter/supprimer un service</h2>
-                        <div className="services-accomodation">
+                        <div className="update-service">
                             {props.dataAccomodation.e_press === 1
                                 ?
                                 <label>
                                     <p><IoNewspaper />&ensp;E-presse&ensp;
-                                    <input
+                                        <input
                                             type="checkbox"
                                             onClick={() => props.setDataAccomodation({ ...props.dataAccomodation, e_press: 0 })}
                                             defaultChecked />
-                                            </p>
+                                    </p>
                                 </label>
                                 :
                                 <label>
                                     <p style={{ color: "#cbc8c8" }}><IoNewspaper />&ensp;E-presse&ensp;
-                                    <input
+                                        <input
                                             type="checkbox"
                                             onClick={() => props.setDataAccomodation({ ...props.dataAccomodation, e_press: 1 })}
                                         />
@@ -277,16 +279,12 @@ const UpdateAccomodation = (props) => {
                                     </p>
                                 </label>
                             }
-        
-                            <div className="update-services">
+
+                            <div className="update-submit">
                                 <button
                                     onClick={updateSubmit}
                                     className="btn">
                                     Valider les changements
-                                </button>
-                                <button
-                                    className="btn btn--red">
-                                    Supprimer la fiche
                                 </button>
                             </div>
 

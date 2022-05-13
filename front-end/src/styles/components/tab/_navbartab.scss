@@ -20,8 +20,6 @@
         letter-spacing: 3px;
         font-size: 25px;
         
-        
-        
         &--active {
             background-color: $primary-blue;
             height: 60px;
@@ -32,7 +30,7 @@
             justify-content: center;
             color: $white;
 
-            path {
+            path { // icone
                 color: $white
             }
     
@@ -56,9 +54,10 @@
         width: 300px;
         height: 60px;
         border-radius: 5px;
-        background-color: $middle-grey;
+        background-color: $light-grey;
         font-size: 25px;
         letter-spacing: 3px;
+
 
         a {
             text-decoration: none;
