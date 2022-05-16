@@ -16,7 +16,7 @@ const Eat = () => {
     <div className="choice-eat">
         {/* {eat.length > 0 && <h1>☟ Se restaurer à {eat[0].city} ☟</h1>} Rendu conditionnel hors mapping    */}
         <div className="container-card">
-            {eat.slice(0, 6).map((restaurant) => (<li>
+            {eat.slice(0, 30).map((restaurant) => (<li>
                 <div className="container-global">
                     <div className="container-top">
 
@@ -28,8 +28,8 @@ const Eat = () => {
                         {restaurant.other_reduction !== "null" && <p><strong>Autre réduction : </strong> {restaurant.other_reduction}</p>}
                     </div>
                     <div className="container-bottom">
-                        <img src={restaurant.picture_eat} alt="" />
-                        <h3>{restaurant.name_eat}</h3>
+                        {restaurant.picture_eat ? <img src={restaurant.picture_eat} alt="image-eat" /> : <img src="/images/visuel-non-dispo.png" alt="no-image" />}
+                        {restaurant.name_eat && <h3>{restaurant.name_eat}</h3>}
                     </div>
                 </div>
             </li>))}
