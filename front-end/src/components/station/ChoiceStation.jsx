@@ -4,9 +4,11 @@ import React, { useEffect, useState } from 'react';
 
 
 
+
 const ChoiceStation = () => {
     const [locality, setLocality] = useState([])
 
+    
     useEffect(() => {
         axios
             .get("http://localhost:5001/stations")
@@ -28,11 +30,11 @@ const ChoiceStation = () => {
                     </div>
                 </li>
                 ))}
-            </div>
-        </div>
+            </div> 
+        </div> 
+     
     );
 };
-
 export default ChoiceStation;
 
 
