@@ -1,0 +1,86 @@
+.navbar-tab {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 10vh;
+
+
+    .tab {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 280px;
+        height: 55px;
+        border-radius: 30px;
+        background-color: $light-grey;
+        letter-spacing: 3px;
+        font-size: 25px;
+        @media (max-width: 1130px) {
+            width: 220px;
+            height: 55px;
+            font-size: 23px;
+        }
+        @media (max-width: 780px) {
+            width: 160px;
+            height: 55px;
+            font-size: 17px;
+        }
+        
+
+        
+        
+        &--active {
+            background-color: $primary-blue;
+            width: 280px;
+            height: 55px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $white;
+
+            path { // icone
+                color: $white
+            }
+            @media (max-width: 1130px) {
+                width: 220px;
+                height: 55px;
+                font-size: 23px;
+            }
+            @media (max-width: 780px) {
+                width: 160px;
+                height: 55px;
+                font-size: 17px;
+            }
+        }  
+        
+
+        a {
+            text-decoration: none;
+        }
+
+    }
+
+    .tab-return {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 280px;
+        height: 55px;
+        border-radius: 30px;
+        background-color: $light-grey;
+        font-size: 25px;
+        letter-spacing: 3px;
+
+
+        a {
+            text-decoration: none;
+        }
+
+        @media (max-width: 1130px) {
+            width: 100px;
+            height: 55px;
+            font-size: 15px;
+        }
+    }
+}
