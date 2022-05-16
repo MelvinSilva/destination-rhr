@@ -2,7 +2,7 @@ const authModel = require('../models/auth.model')
 const jwt = require('jsonwebtoken')
 const argon2 = require('argon2')
 
-const maxAge = 24 * 60 * 1000 // calcul de la duree du tokent (24h)
+const maxAge = 24 * 60 * 1000 // calcul de la duree du token (24 minutes)
 
 class AuthController {
 
