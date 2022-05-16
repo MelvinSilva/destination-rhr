@@ -15,7 +15,7 @@ const Login = () => {
         e.preventDefault()
         axios.post('http://localhost:5001/users/login', { login: login.current.value, password: password.current.value })
             .then((res) => {
-                choiceStation("choicestation") // useNavigate pour atteidre la page "choice station"
+                choiceStation("choice-station") // useNavigate pour atteidre la page "choice station"
 
             }).catch((error) => {
                 setError(error.response.data.error) // reponse de l'API
@@ -33,7 +33,6 @@ const Login = () => {
                         <input type="text" placeholder='Numéro de CP*' ref={login} />
                         <input type={passwordIsVisible ? "text" : "password"} placeholder='Mot de passe*' ref={password}  />
                         <i className={passwordIsVisible ? "password-is-visible-login far fa-eye-slash" :  "password-is-visible-login fa fa-eye"} onClick={() => setPasswordIsVisible(!passwordIsVisible)}></i>
-                        <p>Mot de passe oublié ?</p>
                         <button type="submit" className='btn-login'>SE CONNECTER</button>
                         <h3>{error}</h3>
                         <p className="line_horizontal">&nbsp; OU &nbsp;</p>

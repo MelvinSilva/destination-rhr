@@ -22,7 +22,7 @@ const ChoiceStation = () => {
                 {locality.map((town) => (<li>
                     <div className="card-station">
 
-                        <Link to={`/city-infos/${town.id}/accomodation`}><h3>{town.city}</h3>
+                        <Link to={`/stations/${town.id}/accomodation`}><h3>{town.city}</h3>
 
                         <img src={town.picture} alt="" /> </Link>
                     </div>

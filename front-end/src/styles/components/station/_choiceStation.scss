@@ -25,17 +25,15 @@
     }
     
     h1 {
-        margin: 15px auto;
+        margin: 20px auto;
         border-radius: 10px;
-        font-size: 25px;
+        font-size: 20px;
         color: $dark-grey;
         text-align: center;
-        padding: 5px;
-        background-color: $white;
     }
 
     .container-card {
-        margin: 10px auto;
+        margin: 0 auto;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;

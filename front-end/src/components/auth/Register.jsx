@@ -29,7 +29,7 @@ const Register = () => {
 
             })
                 .then((res) => {
-                    alert('Votre inscription est bien prise en compte')
+                    
                     returnLogin("/")
 
                 }).catch((error) => {
