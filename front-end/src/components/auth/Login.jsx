@@ -1,6 +1,8 @@
 import axios from 'axios';
-import React, { useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { decodeToken } from 'react-jwt';
+import AuthTokenContext from '../context/AuthTokenContext';
 
 
 
@@ -10,17 +12,23 @@ const Login = () => {
     const choiceStation = useNavigate()
     const [error, setError] = useState()
     const [passwordIsVisible, setPasswordIsVisible] = useState(false)
+    const { setUser } = useContext(AuthTokenContext)
+    
+  
+
 
     const handleLogin = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:5001/users/login', { login: login.current.value, password: password.current.value })
+        axios.post('http://localhost:5001/users/login', { login: login.current.value, password: password.current.value}, {withCredentials: true})
             .then((res) => {
+                setUser(decodeToken(res.data))
                 choiceStation("choice-station") // useNavigate pour atteidre la page "choice station"
-
+                
             }).catch((error) => {
                 setError(error.response.data.error) // reponse de l'API
             });
     }
+    
 
 
 

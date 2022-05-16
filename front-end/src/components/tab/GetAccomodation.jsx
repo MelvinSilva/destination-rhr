@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { IoMail, IoPhonePortrait, IoLocationSharp, IoNavigateCircle, IoTime, IoNewspaper, IoColorFilter, IoBeer, IoTv } from 'react-icons/io5'
 import { FaMugHot } from 'react-icons/fa'
 import { MdIron, MdMicrowave, MdWifi, MdPedalBike, MdTerrain, MdGames } from 'react-icons/md'
@@ -7,6 +7,8 @@ import { useParams } from 'react-router-dom';
 import UpdateAccomodation from './UpdateAccomodation';
 import Aos from 'aos';
 import "aos/dist/aos.css";
+import AuthTokenContext from '../context/AuthTokenContext';
+
 
 
 const GetAccomodation = () => {
@@ -29,10 +31,13 @@ const GetAccomodation = () => {
             .then((response) => setDataAccomodation(response.data[0]));
     }, []);
 
-    useEffect(() => { // effet d'apparition des articles avec le scroll
+    useEffect(() => { // effet d'apparition ZOOM des cartes
         Aos.init({ duration: 1000 })
 
     }, [])
+
+    const { token } = useContext(AuthTokenContext)
+
 
     return (
         <div>
