@@ -28,20 +28,20 @@ class AccomodationController {
             res.status(200).send(putAccomodation)
         }
         catch (error) {
-            res.status(404).send({ error: error.message })
+            res.status(204).send({ error: error.message })
         }
     }
-     //******** SUPPRIMER UN UTILISATEUR ********//
-     async deleteAccomodation(req, res) {
+    //******** SUPPRIMER UN UTILISATEUR ********//
+    async deleteAccomodation(req, res) {
         try {
             const deleteAccomodation = await accomodationModel.deleteAccomodation(req.params.id)
-            res.status(200).send({message: "la fiche a été supprimée"})
+            res.status(204).send({ message: "la fiche a été supprimée" })
         }
         catch (error) {
             res.status(500).send({ error: error.message })
         }
     }
-    
+
 }
 
 
