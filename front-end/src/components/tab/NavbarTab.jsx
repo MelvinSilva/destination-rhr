@@ -8,11 +8,7 @@ const NavbarTab = () => {
     return (
         <div className='navbar-tab'>
             <div className="tab-return">
-<<<<<<< HEAD
-                <Link to="/home/choicestation"><BsHouseDoorFill />&nbsp;accueil</Link>
-=======
                 <Link to="/home/choice-station"><BsHouseDoorFill />&nbsp;accueil</Link>
->>>>>>> e5cb852bb7005c1e92aa2da956f3a3e75761db63
             </div>
             <div className="tab">
                 <NavLink to="accomodation" className={({ isActive }) =>
