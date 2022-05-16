@@ -38,19 +38,18 @@ const GetAccomodation = () => {
         <div>
             {update // nom a modifier
                 ?
-                <div className="accomodation">
+                <div className="get-accomodation">
                     <div data-aos="zoom-in-up">
-                        <div className="container-accomodation">
-
-                            <div className="container-left">
+                        <div className="container-get">
+                            <div className="card-left">
                                 <div className="map">
                                     <h2>Localisation</h2>
                                     <iframe src={dataAccomodation.location} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                                 </div>
                             </div>
-                            <div className="container-center">
+                            <div className="card-center">
                                 <h2>{dataAccomodation.accomodation} - {`${dataAccomodation.city}`.toUpperCase()}</h2>
-                                <div className="info-accomodation">
+                                <div className="infos-get">
                                     {dataAccomodation.adress && <p><IoLocationSharp />&nbsp; {dataAccomodation.adress}, {dataAccomodation.postal_code}</p>}
                                     {dataAccomodation.email && <p><IoMail />&nbsp; {dataAccomodation.email}</p>}
                                     {dataAccomodation.phone_number && <p><IoPhonePortrait />&nbsp; {dataAccomodation.phone_number}</p>}
@@ -60,9 +59,9 @@ const GetAccomodation = () => {
                                     <img src={dataAccomodation.picture_accomodation} alt="" />
                                 </div>
                             </div>
-                            <div className="container-right">
+                            <div className="card-right">
                                 <h2>Services inclus</h2>
-                                <div className="services-accomodation">
+                                <div className="services-get">
 
                                     {dataAccomodation.e_press === 1 && <p><IoNewspaper />&ensp;E-presse</p>}
                                     {dataAccomodation.bedroom_air_conditioning === 1 && <p><IoColorFilter />&ensp;Climatisation dans la chambre</p>}
@@ -75,10 +74,10 @@ const GetAccomodation = () => {
                                     {dataAccomodation.bike === 1 && <p><MdPedalBike />&ensp;Vélos à disposition à l'accueil</p>}
                                     {dataAccomodation.terrace === 1 && <p><MdTerrain />&ensp;Terrasse</p>}
                                     {dataAccomodation.board_games === 1 && <p><MdGames />&ensp;Jeux de sociétés</p>}
-                                    <div className="update-services">
-                                        <button onClick={handleUpdate} className="btn">Modifier les services</button>
-                                        <button className="btn btn--red">Supprimer la fiche</button>
-                                    </div>
+                                    <br />
+                                    <button onClick={handleUpdate} className="btn">MODIFIER LES SERVICES</button>
+        
+                                    
                                 </div>
                             </div>
                         </div>

@@ -23,11 +23,11 @@ const UpdateAccomodation = (props) => {
 
     return (
         <div>
-            <div className="update">
+            <div className="update-accomodation">
                 <div className="container-update">
-                    <div className="update-left">
+                    <div className="card-left">
                         <h2>{props.dataAccomodation.accomodation} - {`${props.dataAccomodation.city}`.toUpperCase()}</h2>
-                        <div className="info-update">
+                        <div className="infos-update">
                             {props.dataAccomodation.adress && <p><IoLocationSharp />&nbsp; {props.dataAccomodation.adress}, {props.dataAccomodation.postal_code}</p>}
                             {props.dataAccomodation.email && <p><IoMail />&nbsp; {props.dataAccomodation.email}</p>}
                             {props.dataAccomodation.phone_number && <p><IoPhonePortrait />&nbsp; {props.dataAccomodation.phone_number}</p>}
@@ -37,9 +37,9 @@ const UpdateAccomodation = (props) => {
                             <img src={props.dataAccomodation.picture_accomodation} alt="" />
                         </div>
                     </div>
-                    <div className="update-right">
+                    <div className="card-right">
                         <h2>Ajouter/supprimer un service</h2>
-                        <div className="update-service">
+                        <div className="services-update">
                             {props.dataAccomodation.e_press === 1
                                 ?
                                 <label>
@@ -279,14 +279,13 @@ const UpdateAccomodation = (props) => {
                                     </p>
                                 </label>
                             }
+                            <br />
+                            <button
+                                onClick={updateSubmit}
+                                className="btn">
+                                VALIDER LES CHANGEMENTS
+                            </button>
 
-                            <div className="update-submit">
-                                <button
-                                    onClick={updateSubmit}
-                                    className="btn">
-                                    Valider les changements
-                                </button>
-                            </div>
 
                         </div>
                     </div>

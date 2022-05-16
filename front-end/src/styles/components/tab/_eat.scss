@@ -5,7 +5,12 @@
     height: 70vh;
     background-image: url(../../../../public/images/bg-eat.png);
     background-size: cover;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
     overflow-y: auto;
+    &::-webkit-scrollbar {
+        display: none;
+    }
     
 
     h1 {
@@ -81,7 +86,7 @@
             text-align: center;
             img {
                 width: 320px;
-                height: 150px;
+                height: 170px;
                 background-size: cover;
                 border-radius: 10px;
             }

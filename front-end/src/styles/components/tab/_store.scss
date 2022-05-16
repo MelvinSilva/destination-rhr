@@ -5,6 +5,8 @@
     height: 70vh;
     background-image: url(../../../../public/images/bg-eat.png);
     background-size: cover;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
     overflow-y: auto;
     &::-webkit-scrollbar {
         display: none;

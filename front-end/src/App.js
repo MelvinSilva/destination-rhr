@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import ChoiceStation from './components/station/ChoiceStation';
 import GetAccomodation from './components/tab/GetAccomodation';
-import CityInfos from './components/tab/CityInfos';
+import HomeStation from './components/tab/HomeStation';
 import Eat from './components/tab/Eat';
 import Store from './components/tab/Store';
 import UpdateAccomodation from './components/tab/UpdateAccomodation';
@@ -26,8 +26,8 @@ const App = () => {
             <Route index element={<Login />} />
             <Route path="register" element={<Register />} />
           </Route>
-          <Route path="/home/choicestation" element={<ChoiceStation />} />
-          <Route path="/city-infos/:id_station/" element={<CityInfos />} >
+          <Route path="/home/choice-station" element={<ChoiceStation />} />
+          <Route path="/stations/:id_station/" element={<HomeStation />} >
             <Route path="accomodation" element={<GetAccomodation />} >
               <Route path="update" element={<UpdateAccomodation />} />
             </Route>

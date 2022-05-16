@@ -1,6 +1,6 @@
 .login {
 
-    .link-login { // gestion de la balise LINK suite conflit avec le CSS appliqué auparavant 
+    .link-login { // gestion de la balise LINK suite conflit avec CSS appliqué auparavant 
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -20,6 +20,8 @@
         width: 70px;
         height: 70px;
     }
+
+
 
     h3 {
         font-size: 18px;
@@ -56,10 +58,11 @@
         border-radius: 5px;
         background-color: $white;
         color: $primary-blue;
-        font-weight: 600;
         font-size: 15px;
+        font-weight: 600;
         border: 3px solid $primary-blue;
         cursor: pointer;
+        letter-spacing: 3px;
 
         &:hover {
             background-color: $primary-blue;

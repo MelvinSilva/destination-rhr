@@ -2,7 +2,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import NavbarTab from './NavbarTab';
 
-const CityInfos = () => {
+const HomeStation = () => {
     return (
         <div>
             <NavbarTab />
@@ -13,4 +13,4 @@ const CityInfos = () => {
     );
 };
 
-export default CityInfos;
+export default HomeStation;

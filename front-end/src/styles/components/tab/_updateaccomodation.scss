@@ -1,4 +1,4 @@
-.update {
+.update-accomodation {
 	display: flex;
 	flex-direction: column;
 	background-color: $light-grey;
@@ -6,6 +6,8 @@
 	background-position: center;
 	background-size: cover;
 	height: 70vh;
+	border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
 	overflow-y: auto;
 
 	.container-update {
@@ -25,11 +27,11 @@
 		}
 
 		p {
-			margin: 12px;
+			margin: 7px;
 			font-size: 20px;
 		}
 
-		.update-left {
+		.card-left {
 			margin: 10px;
 			display: flex;
 			flex-direction: column;
@@ -39,7 +41,7 @@
 			border-radius: 10px;
 			box-shadow: $shadow;
 
-			.info-update {
+			.infos-update {
 				a {
 					color: $primary-blue;
 					font-weight: 900;
@@ -63,7 +65,7 @@
 				}
 			}
 		}
-		.update-right {
+		.card-right {
 			margin: 10px;
 			display: flex;
 			flex-direction: column;
@@ -74,48 +76,51 @@
 			box-shadow: $shadow;
 			position: relative;
 
-			input[type="checkbox"] {
-				-webkit-appearance: none;
-				-moz-appearance: none;
-				-ms-appearance: none;
-				position: absolute;
-				right: 8px;
-				box-sizing: border-box;
-				display: inline-block;
-				width: 2.5rem;
-				height: 1.5rem;
-				border-radius: 1.5rem;
-				padding: 2.5px;
-				background-color: $middle-grey;
-				transition: all 0.6s;
+			.services-update {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
 
-				&::before {
+				input[type="checkbox"] {
+					-webkit-appearance: none;
+					-moz-appearance: none;
+					-ms-appearance: none;
+					position: absolute;
+					right: 8px;
 					box-sizing: border-box;
-					display: block;
-					content: "";
-					height: calc(1.5rem - 5px);
-					width: calc(1.5rem - 5px);
-					border-radius: 50%;
-					background-color: $white;
+					display: inline-block;
+					width: 2.5rem;
+					height: 1.5rem;
+					border-radius: 1.5rem;
+					padding: 2.5px;
+					background-color: $middle-grey;
 					transition: all 0.6s;
-				}
+					cursor: pointer;
 
-				&:checked {
-					background-color: $primary-blue;
 
-					&:before {
-						margin-left: 1.2em;
+					&::before {
+						box-sizing: border-box;
+						display: block;
+						content: "";
+						height: calc(1.5rem - 5px);
+						width: calc(1.5rem - 5px);
+						border-radius: 50%;
+						background-color: $white;
+						transition: all 0.6s;
+					}
+
+					&:checked {
+						background-color: $primary-blue;
+
+						&:before {
+							margin-left: 1.2em;
+						}
 					}
 				}
-			}
 
-			.update-submit {
-				display: flex;
-				justify-content: center;
-				
 				.btn {
 					width: 90%;
-					text-align: center;
+
 				}
 			}
 		}

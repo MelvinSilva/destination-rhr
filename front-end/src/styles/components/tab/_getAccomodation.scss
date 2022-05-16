@@ -1,4 +1,4 @@
-.accomodation {
+.get-accomodation {
     display: flex;
     flex-direction: column;
     background-color: $light-grey;
@@ -6,10 +6,16 @@
     background-position: center;
     background-size: cover;
     height: 70vh;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
     overflow-y: auto;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+  
 
 
-    .container-accomodation {
+    .container-get {
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
@@ -24,12 +30,12 @@
         }
         
         p {
-            margin: 12px;
+            margin: 7px;
             font-size: 20px;    
         }
         
 
-        .container-left {
+        .card-left {
             margin: 10px;
             display: flex;
             flex-direction: column;
@@ -54,7 +60,7 @@
             }
         }
 
-        .container-center {
+        .card-center {
             margin: 10px;
             display: flex;
             flex-direction: column;
@@ -64,7 +70,8 @@
             border-radius: 10px;
             box-shadow: $shadow;
 
-            .info-accomodation {
+            .infos-get {
+
                 a {
                     color: $primary-blue;
                     font-weight: 900;
@@ -90,7 +97,7 @@
                 }
             }
         }
-        .container-right {
+        .card-right {
             margin: 10px;
             display: flex;
             flex-direction: column;
@@ -101,11 +108,11 @@
             box-shadow: $shadow;
             position: relative;
 
-            .update-services {
+            .services-get {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                margin-top: 20px;
+                
 
                 .btn {
                     width: 90%;
