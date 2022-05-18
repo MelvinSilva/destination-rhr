@@ -30,29 +30,38 @@ function Admin() {
   return (
 
     <div className="choice-eat">
+      <h1>Page administration</h1>
+      <div>
+        <button className="btn" type="submit" onClick={submit}>Effacer un utilisateur</button>
+      </div>
       {/* {eat.length > 0 && <h1>☟ Se restaurer à {eat[0].city} ☟</h1>} Rendu conditionnel hors mapping    */}
       <div className="container-card">
         {users.map((user) => (
           <li>
             <div className="container-global">
 
-              <h2>{user.id}</h2>
-              <h2>{user.firstname}</h2>
-              <h3>{user.lastname}</h3>
-              <h3>{user.email}</h3>
-              <h3>{user.profil_user}</h3>
-              <h3>{user.login}</h3>
+              <p>{user.id}</p>
+              <br />
+              <p>{user.firstname}</p>
+              <br />
+              <p>{user.lastname}</p>
+              <br />
+              <p>{user.email}</p>
+              <br />
+              <p>{user.profil_user}</p>
+              <br />
+              <p>{user.login}</p>
+              <br />
 
               {popup ? (
                 <div className="popup">
 
-                  <button type="button" onClick={() => deleteUser(user.id)} className="btn--red">Valider la suppression</button>
-                  <button type="submit" onClick={submit}>Retour</button>
+                  <button className="btn--red" type="button" onClick={() => deleteUser(user.id)}>Valider la suppression</button>
+                  <br />
+                  <button className="btn--red" type="submit" onClick={submit}>Retour</button>
                 </div>
               ) : null}
-              <div>
-                <button type="submit" onClick={submit}>Effacer un utilisateur</button>
-              </div>
+
             </div>
           </li>
         ))}
