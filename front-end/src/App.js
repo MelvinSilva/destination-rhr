@@ -14,6 +14,7 @@ import Eat from './components/tab/Eat';
 import Store from './components/tab/Store';
 import UpdateAccomodation from './components/tab/UpdateAccomodation';
 import AuthTokenContext from './components/context/AuthTokenContext';
+import Admin from './components/tab/Admin';
 
 function App() {
   // on initialise les accolodes pour entrer directmeent dans l'objet USER
@@ -27,8 +28,14 @@ function App() {
         <Header />
         <BrowserRouter>
           <Routes>
+            <Route path="/administration" element={<Admin />} />
             <Route path="/" element={<Navigate to="/home" />} />
+<<<<<<< HEAD
             <Route path="/home" element={<Auth />}>
+=======
+
+            <Route path="/home" element={<Auth />} >
+>>>>>>> 5036116e349f92ddfb290e013c09d7c233bf321f
               <Route index element={<Login />} />
               <Route path="register" element={<Register />} />
             </Route>
@@ -40,8 +47,13 @@ function App() {
               </Route>
               <Route path="eat" element={<Eat />} />
               <Route path="store" element={<Store />} />
+<<<<<<< HEAD
             </Route>
             )}
+=======
+            </Route>}
+
+>>>>>>> 5036116e349f92ddfb290e013c09d7c233bf321f
           </Routes>
         </BrowserRouter>
         <Footer />
