@@ -7,7 +7,6 @@ function HomeStation() {
     <div>
       <NavbarTab />
       <Outlet />
-
     </div>
   );
 }

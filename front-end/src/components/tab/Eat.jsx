@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -14,7 +15,7 @@ function Eat() {
 
   return (
     <div className="choice-eat">
-      {/* {eat.length > 0 && <h1>☟ Se restaurer à {eat[0].city} ☟</h1>} Rendu conditionnel hors mapping    */}
+      {/* {eat.length > 0 && <h1>☟ Se restaurer à {eat[0].city} ☟</h1>}Rendu condit hors mapping */}
       <div className="container-card">
         {eat.slice(0, 30).map((restaurant) => (
           <li>
@@ -46,7 +47,7 @@ function Eat() {
                 )}
               </div>
               <div className="container-bottom">
-                {restaurant.picture_eat ? <img src={restaurant.picture_eat} alt="image-eat" /> : <img src="/images/visuel-non-dispo.png" alt="no-image" />}
+                {restaurant.picture_eat ? <img src={restaurant.picture_eat} alt="eat" /> : <img src="/images/visuel-non-dispo.png" alt="no-eat" />}
                 {restaurant.name_eat && <h3>{restaurant.name_eat}</h3>}
               </div>
             </div>

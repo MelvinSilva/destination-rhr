@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import axios from 'axios';
 import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -12,7 +13,7 @@ function Register() {
 
   const returnLogin = useNavigate();
 
-  const [error, setError] = useState();
+  const [errorPassword, setErrorPassword] = useState();
   const [passwordIsVisible, setPasswordIsVisible] = useState(false);
 
   const handleRegister = (e) => {
@@ -26,11 +27,10 @@ function Register() {
         email: email.current.value,
 
       })
-        .then((res) => {
+        .then(() => {
           returnLogin('/');
         }).catch((error) => {
-          setError(error.response.data.error); // reponse de l'API
-          console.log(error.response.data.error);
+          setErrorPassword(error.response.data.error); // reponse de l'API
         });
     } else alert('Votre mot de passe est différent');
   };
@@ -48,10 +48,10 @@ function Register() {
             <input type="text" placeholder="Prénom*" ref={firstname} required />
             <input type="email" placeholder="Email*" ref={email} required />
             <input type={passwordIsVisible ? 'text' : 'password'} placeholder="Mot de passe*" ref={password} required />
-            <i className={passwordIsVisible ? 'password-is-visible-register far fa-eye-slash' : 'password-is-visible-register fa fa-eye'} onClick={() => setPasswordIsVisible(!passwordIsVisible)} />
-            <h5>{error}</h5>
+            <i className={passwordIsVisible ? 'password-is-visible-register far fa-eye-slash' : 'password-is-visible-register fa fa-eye'} onClick={() => setPasswordIsVisible(!passwordIsVisible)} onKeyPress="icon" role="button" tabIndex={0} label htmlFor="password-visible" />
+            <h5>{errorPassword}</h5>
             <input type={passwordIsVisible ? 'text' : 'password'} placeholder="Confirmation mot de passe*" ref={confirmPassword} required />
-            <button className="btn" type="submit">VALIDER L'INSCRIPTION</button>
+            <button className="btn" type="submit">VALIDER L&apos;INSCRIPTION</button>
           </form>
         </div>
       </div>
