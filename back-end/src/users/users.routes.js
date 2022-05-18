@@ -4,7 +4,7 @@ const userController = require('./controllers/user.controller')
 const authMiddleware = require('./middlewares/auth.middleware')
 const router = express.Router()
 
-
+router.get('/reconnect', authController.reconnect)
 router.post('/login', [authMiddleware.checkAuthUser, authController.signIn])
 router.post('/register',[
     authMiddleware.checkFormRegister,
