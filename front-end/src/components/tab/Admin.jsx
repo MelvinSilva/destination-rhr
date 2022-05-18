@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 
 const Admin = () => {
 const [users, setUsers] = useState([])
+const [popup, setPopup] = useState(false)
 
 
    
@@ -31,7 +32,10 @@ useEffect(() => {
      }
      // supp permet de réafficher les id non supprimer gràce au filter
 
-  
+     const submit=()=>{
+        setPopup(!popup)
+      }
+   
 
     return (
 
@@ -47,9 +51,20 @@ useEffect(() => {
                         <h3>{user.email}</h3>
                         <h3>{user.profil_user}</h3>
                         <h3>{user.login}</h3>
-                        <button   onClick={()=>deleteUser(user.id)} className='btn--red'>Effacer un utilisateur</button>
+                        
+                        {popup? <div className="popup">
+                            
+                            <button   onClick={()=>deleteUser(user.id)} className='btn--red'>Valider la suppression</button>
+                            <button onClick={submit}>Retour</button>
+                        </div>: null}
+                        <div>
+                        <button onClick={submit}>Effacer un utilisateur</button>
+                        </div>
                 </div>
             </li>))}
+        </div>
+        <div>
+            
         </div>
     </div >
     );
