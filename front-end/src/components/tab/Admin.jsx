@@ -1,6 +1,10 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import {
+  MdDeleteForever, MdKeyboardReturn,
+} from 'react-icons/md';
 
 function Admin() {
   const [users, setUsers] = useState([]);
@@ -29,36 +33,55 @@ function Admin() {
 
   return (
 
-    <div className="choice-eat">
-      <h1>Page administration</h1>
-      <div>
-        <button className="btn" type="submit" onClick={submit}>Effacer un utilisateur</button>
-      </div>
+    <div className="admin">
+      <h1>Liste des utilisateurs</h1>
       {/* {eat.length > 0 && <h1>☟ Se restaurer à {eat[0].city} ☟</h1>} Rendu conditionnel hors mapping    */}
-      <div className="container-card">
+      <div className="delete-card">
         {users.map((user) => (
           <li>
-            <div className="container-global">
-
-              <p>{user.id}</p>
-              <br />
-              <p>{user.firstname}</p>
-              <br />
-              <p>{user.lastname}</p>
-              <br />
-              <p>{user.email}</p>
-              <br />
-              <p>{user.profil_user}</p>
-              <br />
-              <p>{user.login}</p>
-              <br />
+            <div className="user-informations">
+              <p>
+                Prénom :
+                {' '}
+                <span>{`${user.firstname}`.toUpperCase()}</span>
+              </p>
+              <p>
+                Nom :
+                {' '}
+                <span>{`${user.lastname}`.toUpperCase()}</span>
+              </p>
+              <p>
+                Email :
+                {' '}
+                <span>{`${user.email}`.toUpperCase()}</span>
+              </p>
+              <p>
+                Login :
+                {' '}
+                <span>{user.login}</span>
+              </p>
+              <p>
+                Type de profil :
+                {' '}
+                <span>{`${user.profil_user}`.toUpperCase()}</span>
+              </p>
+              <p>
+                ID :
+                {' '}
+                <span>{user.id}</span>
+              </p>
 
               {popup ? (
                 <div className="popup">
 
-                  <button className="btn--red" type="button" onClick={() => deleteUser(user.id)}>Valider la suppression</button>
-                  <br />
-                  <button className="btn--red" type="submit" onClick={submit}>Retour</button>
+                  <button className="btn--red" type="button" onClick={() => deleteUser(user.id)}>
+                    <MdDeleteForever />
+                    Supprimer
+                  </button>
+                  <button className="btn" type="submit" onClick={submit}>
+                    <MdKeyboardReturn />
+                    Retour
+                  </button>
                 </div>
               ) : null}
 
@@ -66,7 +89,9 @@ function Admin() {
           </li>
         ))}
       </div>
-      <div />
+      <div className="button-delete">
+        <button className="btn" type="submit" onClick={submit}>GESTION DES UTILISATEURS</button>
+      </div>
     </div>
   );
 }

@@ -38,7 +38,7 @@ $chars: "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O
         width: 40px;
     }
     .letter::before {
-        border-bottom: 1px solid $light-grey;
+        //border-bottom: 1px solid $light-grey;
         background-color: #fff;
         font-size: 30px;
         height: 20px;
@@ -81,7 +81,7 @@ $chars: "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O
         }
     }
     /* Letter animations */
-    @for $i from 1 through 50 {
+    @for $i from 1 through 30 {
         .title-board span:nth-child(#{$i}):before {
             animation: flip 1s 1 ease-in-out;
             animation-delay: #{$i/4}s;

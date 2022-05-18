@@ -10,52 +10,6 @@ $border-blue: 1px solid $primary-blue; // bordure bleu canard sncf
 $shadow: 0 3px 20px rgba(0, 0, 0, 0.168); // ombre à utiliser par défaut
 
 
-h1, .h1 {
-    font-size: calc(1.375rem + 1.5vw);
-  }
-  @media (min-width: 1200px) {
-    h1, .h1 {
-      font-size: 2.5rem;
-    }
-  }
-  
-  h2, .h2 {
-    font-size: calc(1.325rem + 0.9vw);
-  }
-  @media (min-width: 1200px) {
-    h2, .h2 {
-      font-size: 2rem;
-    }
-  }
-  
-  h3, .h3 {
-    font-size: calc(1.3rem + 0.6vw);
-  }
-  @media (min-width: 1200px) {
-    h3, .h3 {
-      font-size: 1.75rem;
-    }
-  }
-  
-  h4, .h4 {
-    font-size: calc(1.275rem + 0.3vw);
-  }
-  @media (min-width: 1200px) {
-    h4, .h4 {
-      font-size: 1.5rem;
-    }
-  }
-  
-  h5, .h5 {
-    font-size: 1.0rem;
-    color: $white;
-  }
-  
-  h6, .h6 {
-    font-size: 1rem;
-  }
-
-
 * {
     margin: 0;
     padding: 0;
@@ -66,7 +20,7 @@ h1, .h1 {
 
 .btn {
     margin: 10px auto;
-    width: 100%;
+    width: 90%;
     height: 45px;
     border-radius: 5px;
     background-color: $primary-blue;
@@ -76,13 +30,8 @@ h1, .h1 {
     cursor: pointer;
     letter-spacing: 2px;
     
-
-    &--red {
-      background-color: $red;
-    }
-
     &:hover {
-        opacity: 0.70;
+      opacity: 0.70;
     }
 }
 

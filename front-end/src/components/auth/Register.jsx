@@ -1,7 +1,7 @@
 /* eslint-disable no-alert */
 import axios from 'axios';
 import React, { useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Register() {
   const login = useRef();
@@ -52,6 +52,7 @@ function Register() {
             <h5>{errorPassword}</h5>
             <input type={passwordIsVisible ? 'text' : 'password'} placeholder="Confirmation mot de passe*" ref={confirmPassword} required />
             <button className="btn" type="submit">VALIDER L&apos;INSCRIPTION</button>
+            <Link to="/"><button className="btn-return-home" type="button">Retour accueil</button></Link>
           </form>
         </div>
       </div>

@@ -1,0 +1,115 @@
+.admin {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 80vh;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    
+    h1 {
+        margin: 20px auto;
+        border-radius: 10px;
+        font-size: 20px;
+        color: $dark-grey;
+        text-align: center;
+    }
+    
+
+    .delete-card {
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        width: 100%;
+        background-color: $dark-grey;
+        padding: 40px;
+    
+        li {
+            list-style-type: none;
+        }
+
+        a:link { 
+            text-decoration:none; 
+        } 
+
+        .user-informations {
+            width: 370px;
+            padding: 5px;
+            height: max-content;
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            border-radius: 12px;
+            box-shadow: $shadow;
+            background-color: $white;
+         
+
+            p {
+                font-weight: bold;
+                font-size: 15px;
+                margin: 2px 10px 2px 10px;
+            }
+
+            span {
+                font-weight: 100;
+                color: $primary-blue;
+            }
+
+            .popup {
+                display: flex;
+                margin: auto;
+
+                .btn {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 2px;
+                    width: 100px;
+                    margin: 10px; 
+                    background-color: $dark-grey;
+                    path {
+                        color: $white;
+                    }
+                    
+                }
+
+                .btn--red {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 10px;
+                    width: 100px;
+                    height: 45px;
+                    border-radius: 5px;
+                    background-color: $red;
+                    color: $light-grey;
+                    font-size: 15px;
+                    border: none;
+                    cursor: pointer;
+                    letter-spacing: 2px;
+                    
+                    &:hover {
+                        opacity: 0.70;
+                    }
+                    path {
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+    .button-delete {
+        margin: 10px auto;
+        .btn {
+            width: 300px;
+            font-weight: bold;
+            
+        }
+    }
+}

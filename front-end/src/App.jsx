@@ -1,5 +1,5 @@
-/* eslint-disable max-len */
 /* eslint-disable react/jsx-no-constructed-context-values */
+/* eslint-disable max-len */
 import {
   BrowserRouter, Route, Routes, Navigate,
 } from 'react-router-dom';

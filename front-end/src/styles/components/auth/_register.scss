@@ -17,4 +17,26 @@
     input {
         height: 200px;
     }
+
+    hr {
+        width: 90%;
+    }
+
+    .btn-return-home {
+        margin: 10px;
+        height: 45px;
+        width: 350px;
+        border-radius: 5px;
+        background-color: $opacity-white;
+        color: $dark-grey;
+        font-size: 15px;
+        border: none;
+        cursor: pointer;
+        letter-spacing: 3px;
+
+        &:hover {
+            background-color: $light-grey;
+        }
+
+    }
 }

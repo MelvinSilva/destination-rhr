@@ -17,14 +17,13 @@ function ChoiceStation() {
       <video id="background-video" autoPlay loop muted>
         <source src="/images/production ID_4789847.mp4" type="video/mp4" />
       </video>
-      <h1>CHOISISSEZ VOTRE GARE</h1>
       {user && user.firstname && (
-      <p>
+      <h1>
         Bienvenue
         {' '}
         {user.firstname}
-        , vous etes connecté
-      </p>
+        , veuillez choisir votre gare d&apos;arrivée.
+      </h1>
       )}
       <div className="container-card">
         {locality.map((town) => (
@@ -36,7 +35,6 @@ function ChoiceStation() {
 
                 <img src={town.picture} alt="" />
                 {' '}
-
               </Link>
             </div>
           </li>
