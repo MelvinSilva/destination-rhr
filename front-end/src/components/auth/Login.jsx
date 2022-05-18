@@ -13,22 +13,22 @@ const Login = () => {
     const [error, setError] = useState()
     const [passwordIsVisible, setPasswordIsVisible] = useState(false)
     const { setUser } = useContext(AuthTokenContext)
-    
-  
+
+
 
 
     const handleLogin = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:5001/users/login', {login: login.current.value, password: password.current.value}, {withCredentials: true})
+        axios.post('http://localhost:5001/users/login', { login: login.current.value, password: password.current.value }, { withCredentials: true })
             .then((res) => {
                 setUser(decodeToken(res.data))
                 choiceStation("choice-station") // useNavigate pour atteidre la page "choice station"
-                
+
             }).catch((error) => {
                 setError(error.response.data.error) // reponse de l'API
             });
     }
-    
+
 
 
 
@@ -39,8 +39,8 @@ const Login = () => {
                     <form onSubmit={e => handleLogin(e)}>
                         <img src='/images/logo.png' alt='logo' />
                         <input type="text" placeholder='Numéro de CP*' ref={login} />
-                        <input type={passwordIsVisible ? "text" : "password"} placeholder='Mot de passe*' ref={password}  />
-                        <i className={passwordIsVisible ? "password-is-visible-login far fa-eye-slash" :  "password-is-visible-login fa fa-eye"} onClick={() => setPasswordIsVisible(!passwordIsVisible)}></i>
+                        <input type={passwordIsVisible ? "text" : "password"} placeholder='Mot de passe*' ref={password} />
+                        <i className={passwordIsVisible ? "password-is-visible-login far fa-eye-slash" : "password-is-visible-login fa fa-eye"} onClick={() => setPasswordIsVisible(!passwordIsVisible)}></i>
                         <h3>{error}</h3>
                         <button type="submit" className='btn-login'>SE CONNECTER</button>
                         <p className="line_horizontal">&nbsp; OU &nbsp;</p>

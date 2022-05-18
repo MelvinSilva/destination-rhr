@@ -15,6 +15,7 @@ import AuthTokenContext from './components/context/AuthTokenContext';
 import { decodeToken } from 'react-jwt';
 import axios from 'axios'
 import NoResult from './components/NoResult';
+import Admin from './components/tab/Admin';
 
 
 
@@ -40,7 +41,9 @@ const App = () => {
         <Header />
         <BrowserRouter>
           <Routes>
+            <Route path="/administration" element={<Admin />} />
             <Route path="/" element={<Navigate to="/home" />} />
+
             <Route path="/home" element={<Auth />} >
               <Route index element={<Login />} />
               <Route path="register" element={<Register />} />
