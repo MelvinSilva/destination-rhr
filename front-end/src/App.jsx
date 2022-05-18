@@ -41,9 +41,8 @@ function App() {
         <Header />
         <BrowserRouter>
           <Routes>
-            <Route path="/administration" element={<Admin />} />
+            {user && user.profil_user === 'admin' && <Route path="/administration" element={<Admin />} />}
             <Route path="/" element={<Navigate to="/home" />} />
-
             <Route path="/home" element={<Auth />}>
               <Route index element={<Login />} />
               <Route path="register" element={<Register />} />

@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 /* eslint-disable max-len */
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -10,14 +11,14 @@ function NoResult() {
 
   useEffect(() => {
     const redirect = () => {
-      if (!user && reloaded) { // si il n'y a pas de user connecté
+        // si user n'est pas connecté et que RELOADED est VRAI tu retournes sur login
+      if (!user && reloaded === true) { 
         setTimeout(() => { // methode setTimeout qui permet d'attendre 2s avant de passer à la ligne suivante
           returnLogin('/'); // redirection vers la page login
           setReloaded(false);
-        }, 2000);
+        }, 5000);
       }
     };
-
     redirect();
     setTimeout(() => {
       setReloaded(true);
