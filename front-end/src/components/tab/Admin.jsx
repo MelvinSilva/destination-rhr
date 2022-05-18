@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useState, useEffect } from 'react';
 
 
-const Admin = () => {
-const [users, setUsers] = useState([])
-const [popup, setPopup] = useState(false)
+function Admin() {
+  const [users, setUsers] = useState([]);
+  const submit=()=>{
+    setPopup(!popup)
+  }
+  // supp permet de réafficher les id non supprimer gràce au filter
 
 
    
@@ -16,12 +18,11 @@ useEffect(() => {
         }, []);
 
 
-    const deleteUser = (userId) => {
-
-        axios
+        const deleteUser = (userId) => {
+          axios
             .delete(`http://localhost:5001/users/${userId}`)
-            .then(supp(userId))
-    }
+            .then(supp(userId));
+        };
   
 
     const supp=(userId)=>{
@@ -32,9 +33,7 @@ useEffect(() => {
      }
      // supp permet de réafficher les id non supprimer gràce au filter
 
-     const submit=()=>{
-        setPopup(!popup)
-      }
+
    
 
     return (
