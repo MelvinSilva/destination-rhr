@@ -1,7 +1,8 @@
+/* eslint-disable react/jsx-no-constructed-context-values */
 import {
   BrowserRouter, Route, Routes, Navigate,
 } from 'react-router-dom';
-import { useState } from 'react';
+import { React, useState } from 'react';
 import Auth from './components/auth/Auth';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
@@ -31,7 +32,7 @@ function App() {
             <Route path="/administration" element={<Admin />} />
             <Route path="/" element={<Navigate to="/home" />} />
 
-            <Route path="/home" element={<Auth />} >
+            <Route path="/home" element={<Auth />}>
               <Route index element={<Login />} />
               <Route path="register" element={<Register />} />
             </Route>
@@ -43,7 +44,8 @@ function App() {
               </Route>
               <Route path="eat" element={<Eat />} />
               <Route path="store" element={<Store />} />
-            </Route>)}
+            </Route>
+            )}
 
           </Routes>
         </BrowserRouter>
