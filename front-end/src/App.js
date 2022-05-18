@@ -12,6 +12,7 @@ import Store from './components/tab/Store';
 import UpdateAccomodation from './components/tab/UpdateAccomodation';
 import { useState } from 'react';
 import AuthTokenContext from './components/context/AuthTokenContext';
+import Admin from './components/tab/Admin';
 
 
 
@@ -30,7 +31,9 @@ const App = () => {
         <Header />
         <BrowserRouter>
           <Routes>
+            <Route path="/administration" element={<Admin />} />
             <Route path="/" element={<Navigate to="/home" />} />
+
             <Route path="/home" element={<Auth />} >
               <Route index element={<Login />} />
               <Route path="register" element={<Register />} />
@@ -43,6 +46,7 @@ const App = () => {
               <Route path="eat" element={<Eat />} />
               <Route path="store" element={<Store />} />
             </Route>}
+
           </Routes>
         </BrowserRouter>
         <Footer />
