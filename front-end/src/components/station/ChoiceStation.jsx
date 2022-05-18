@@ -1,12 +1,15 @@
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import AuthTokenContext from '../context/AuthTokenContext';
+
 
 
 
 
 const ChoiceStation = () => {
     const [locality, setLocality] = useState([])
+    const { user } = useContext(AuthTokenContext)
 
     
     useEffect(() => {
@@ -20,6 +23,7 @@ const ChoiceStation = () => {
                 <source src="/images/production ID_4789847.mp4" type="video/mp4" />
             </video>
             <h1>CHOISISSEZ VOTRE GARE</h1>
+            {user && user.firstname && <p>Bienvenue {user.firstname}, vous etes connecté</p>}
             <div className="container-card">
                 {locality.map((town) => (<li>
                     <div className="card-station">

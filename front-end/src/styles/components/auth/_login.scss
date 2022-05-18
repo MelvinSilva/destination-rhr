@@ -24,15 +24,20 @@
 
 
     h3 {
-        font-size: 18px;
+        font-size: 13px;
         text-align: center;
-        color: $white;
+        color: $red;
+        padding: 3px;
+        border-radius: 5px;
+        background-color: $opacity-white;
     }
 
     p {
-        font-size: 12px;
+
+        margin: 0 10px 0 10px;
+        font-size: 15px;
         text-align: center;
-        color: $opacity-white;
+        color: $light-grey;
     }
 
     .line_horizontal {

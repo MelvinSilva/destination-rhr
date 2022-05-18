@@ -7,8 +7,7 @@ const HomeStation = () => {
         <div>
             <NavbarTab />
             <Outlet />
-
-            
+  
         </div>
     );
 };

@@ -19,7 +19,7 @@ const Login = () => {
 
     const handleLogin = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:5001/users/login', { login: login.current.value, password: password.current.value}, {withCredentials: true})
+        axios.post('http://localhost:5001/users/login', {login: login.current.value, password: password.current.value}, {withCredentials: true})
             .then((res) => {
                 setUser(decodeToken(res.data))
                 choiceStation("choice-station") // useNavigate pour atteidre la page "choice station"
@@ -41,10 +41,11 @@ const Login = () => {
                         <input type="text" placeholder='Numéro de CP*' ref={login} />
                         <input type={passwordIsVisible ? "text" : "password"} placeholder='Mot de passe*' ref={password}  />
                         <i className={passwordIsVisible ? "password-is-visible-login far fa-eye-slash" :  "password-is-visible-login fa fa-eye"} onClick={() => setPasswordIsVisible(!passwordIsVisible)}></i>
-                        <button type="submit" className='btn-login'>SE CONNECTER</button>
                         <h3>{error}</h3>
+                        <button type="submit" className='btn-login'>SE CONNECTER</button>
                         <p className="line_horizontal">&nbsp; OU &nbsp;</p>
                     </form>
+                    <p>Je pars en RHR, je découvre les services proposés dans les résidences, les hôtels et les magasins.</p>
                     <Link className="link-login" to="register"><button className="btn">S'INSCRIRE</button></Link>
                 </div>
             </div>

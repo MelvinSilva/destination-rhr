@@ -10,22 +10,32 @@ import HomeStation from './components/tab/HomeStation';
 import Eat from './components/tab/Eat';
 import Store from './components/tab/Store';
 import UpdateAccomodation from './components/tab/UpdateAccomodation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import AuthTokenContext from './components/context/AuthTokenContext';
+import { decodeToken } from 'react-jwt';
+import axios from 'axios'
+import NoResult from './components/NoResult';
 
 
 
 
 const App = () => {
 
-  // on initialise les accolodes pour entrer directmeent dans l'objet USER
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState() 
 
+  useEffect(() => {
+    axios
+        // route reconnect pour verifier si le token n'est pas expiré lors d'un rechargement de page //
+        // nous allons chercher l'information coté serveur car il est impossible coté client        //
+        .get(`http://localhost:5001/users/reconnect`, {withCredentials: true})                                                                    
+        .then(res => {
+          setUser(decodeToken(res.data))
+        });
+}, []);
 
   return (
 
     <AuthTokenContext.Provider value={{ user, setUser }}>
-
       <div>
         <Header />
         <BrowserRouter>
@@ -35,14 +45,16 @@ const App = () => {
               <Route index element={<Login />} />
               <Route path="register" element={<Register />} />
             </Route>
-            {user.profil_user && <Route path="/home/choice-station" element={<ChoiceStation />} />}
-            {user.profil_user && <Route path="/stations/:id_station/" element={<HomeStation />} >
+            {/* si user est different de false = user existant avec token donc tu m'affiches les composant*/}
+            {user &&  <Route path="/home/choice-station" element={<ChoiceStation />} />}
+            {user && <Route path="/stations/:id_station/" element={<HomeStation />} >
               <Route path="accomodation" element={<GetAccomodation />} >
                 <Route path="update" element={<UpdateAccomodation />} />
               </Route>
               <Route path="eat" element={<Eat />} />
               <Route path="store" element={<Store />} />
             </Route>}
+            <Route path="*" element={<NoResult />} />
           </Routes>
         </BrowserRouter>
         <Footer />
