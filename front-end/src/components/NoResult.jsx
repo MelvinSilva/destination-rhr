@@ -28,7 +28,9 @@ function NoResult() {
   return (
     <div className="no-result">
       <h1>
-        Vous n&apos;étes pas connecté ou non autorisé à consulter cette page, redirection en cours...
+        Vous n&apos;étes pas connecté ou non autorisé à consulter cette page.
+        <br />
+        Redirection en cours...
 
       </h1>
       <p>(si la page ne se recharge pas cliquer sur le bouton ci dessous)</p>

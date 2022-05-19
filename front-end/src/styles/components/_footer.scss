@@ -5,7 +5,24 @@
     height: 10vh;
     background-color: $primary-blue;
 
-    
+    .logo-footer-left {
+        .logo {
+            margin-left: 30px;
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+        }
+    }
+
+    .logo-footer-right {
+        .logo {
+            margin-right: 30px;
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+        }
+    }
+
     .infos-footer {
         margin: auto;
         display: flex;
@@ -16,18 +33,23 @@
             color: $opacity-white;
             font-size: 15px;
         }
-        a { 
-            text-decoration:none; 
-        } 
+
+        a {
+            text-decoration: none;
+        }
+
         .link-admin {
             margin-top: 5px;
             color: $dark-grey;
             font-size: 17px;
+
             &:hover {
                 color: $white;
             }
+
             path {
                 color: $dark-grey;
+
                 &:hover {
                     color: $white;
                 }
