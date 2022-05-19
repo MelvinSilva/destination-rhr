@@ -38,7 +38,7 @@ function Login() {
             <button type="submit" className="btn-login">SE CONNECTER</button>
             <p className="line_horizontal">&nbsp; OU &nbsp;</p>
           </form>
-          <p>Je pars en RHR, je découvre les services proposés dans les résidences, les hôtels et les magasins.</p>
+          <p className="text-rhr">Je pars en RHR, je découvre les services proposés dans les résidences, les hôtels et les magasins.</p>
           <Link className="link-login" to="register"><button type="button" className="btn">S&apos;INSCRIRE</button></Link>
         </div>
       </div>

@@ -5,6 +5,7 @@ import axios from 'axios';
 import {
   MdDeleteForever, MdKeyboardReturn,
 } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 function Admin() {
   const [users, setUsers] = useState([]);
@@ -89,8 +90,9 @@ function Admin() {
           </li>
         ))}
       </div>
-      <div className="button-delete">
+      <div className="button-bottom">
         <button className="btn" type="submit" onClick={submit}>GESTION DES UTILISATEURS</button>
+        <Link to="/"><button className="btn-return-home" type="button">RETOUR ACCUEIL</button></Link>
       </div>
     </div>
   );

@@ -21,8 +21,6 @@
         height: 70px;
     }
 
-
-
     h3 {
         font-size: 13px;
         text-align: center;
@@ -33,13 +31,22 @@
     }
 
     p {
-
         margin: 0 10px 0 10px;
         font-size: 15px;
         text-align: center;
         color: $light-grey;
     }
 
+    .text-rhr {
+        margin: auto;
+        font-size: 13px;
+        text-align: center;
+        color: $white;
+        background-color: rgba(0, 0, 0, 0.217);
+        width: 100%;
+        padding: 5px;
+
+    }
     .line_horizontal {
         font-size: 18px;
         width: 90%;

@@ -4,6 +4,10 @@
     align-items: center;
     height: 10vh;
 
+    a {
+        text-decoration: none;
+    }
+
 
     .tab {
         display: flex;
@@ -14,7 +18,8 @@
         border-radius: 30px;
         background-color: $light-grey;
         font-size: 25px;
-
+        
+        // media queries navbar onglet
         @media (max-width: 1130px) {
             width: 220px;
             height: 55px;
@@ -43,10 +48,17 @@
             display: flex;
             align-items: center;
             justify-content: center;
-                        
-            path { // icone
+
+            p { 
+                color: $white;
+            }
+
+            // icon navbar qui passe de couleur blanche lorsque l'onglet est actif           
+            path { 
                 color: $white
             }
+
+            // media queries navbar onglet active
             @media (max-width: 1130px) {
                 width: 220px;
                 height: 55px;
@@ -67,15 +79,12 @@
                 font-size: 35px;
             }
         }  
-        
-        a {
-            text-decoration: none;
-        }
 
         p {
             letter-spacing: 3px;
-            font-size: 20px;
+            font-size: 25px;
 
+            // media queries supression texte navbar
             @media (max-width: 780px) {
                 display: none;
             }
@@ -93,11 +102,6 @@
         background-color: $light-grey;
         font-size: 25px;
         letter-spacing: 3px;
-
-
-        a {
-            text-decoration: none;
-        }
 
         @media (max-width: 420px) {
             width: 80px;

@@ -52,7 +52,7 @@ function Register() {
             <h5>{errorPassword}</h5>
             <input type={passwordIsVisible ? 'text' : 'password'} placeholder="Confirmation mot de passe*" ref={confirmPassword} required />
             <button className="btn" type="submit">VALIDER L&apos;INSCRIPTION</button>
-            <Link to="/"><button className="btn-return-home" type="button">Retour accueil</button></Link>
+            <Link to="/"><button className="btn-return-home" type="button">RETOUR ACCUEIL</button></Link>
           </form>
         </div>
       </div>
