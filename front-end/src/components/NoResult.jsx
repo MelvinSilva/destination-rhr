@@ -34,7 +34,7 @@ function NoResult() {
 
       </h1>
       <p>(si la page ne se recharge pas cliquer sur le bouton ci dessous)</p>
-      <Link to="/"><button className="btn" type="button">Retour accueil</button></Link>
+      <Link to="/home/choice-station"><button className="btn" type="button">RETOUR</button></Link>
     </div>
   );
 }

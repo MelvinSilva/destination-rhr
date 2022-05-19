@@ -9,7 +9,7 @@ function Footer() {
         <a href="https://www.orfea.fr/fr"><img className="logo" src="/images/footer/orfea.jpg" alt="logo-orfea" /></a>
       </div>
       <div className="infos-footer">
-        <p>Destination RHR by Jean-Mi, Fred, Steph & Melvin @ Wild Code School</p>
+        <p>Destination RHR by Jean-Mi, Fred, Steph & Melvin @Wild Code School</p>
         <a href="/administration">
           <p className="link-admin">
             <RiAdminFill />
