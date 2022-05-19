@@ -21,11 +21,33 @@ $chars: "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O
         margin-left: 30px;
         width: 55px;
         height: 55px;
+        @media (max-width: 600px) {
+            display: none;
+        }
+    }
+
+    .title {
+        display: none;
+        font-size: 40px;
+        font-weight: 600;
+        color: $white;
+        @media (max-width: 830px) {
+            display: inline-flex;
+        }
+        @media (max-width: 600px) {
+            display: inline-flex;
+            margin: auto;
+            font-size: 35px;
+        }
     }
 
     .title-board {
         margin: 20px;
         display: inline-flex;
+        @media (max-width: 830px) {
+            display: none;
+        }
+        
     }
 
     .letter {
@@ -137,5 +159,8 @@ $chars: "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O
         width: 70px;
         height: 35px;
         opacity: 0.9;
+        @media (max-width: 600px) {
+            display: none;
+        }
     }
 }

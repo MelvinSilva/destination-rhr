@@ -13,21 +13,27 @@
         height: 55px;
         border-radius: 30px;
         background-color: $light-grey;
-        letter-spacing: 3px;
         font-size: 25px;
+
         @media (max-width: 1130px) {
             width: 220px;
             height: 55px;
-            font-size: 23px;
         }
         @media (max-width: 780px) {
             width: 160px;
             height: 55px;
-            font-size: 17px;
+            font-size: 30px;
         }
-        
-
-        
+        @media (max-width: 620px) {
+            width: 100px;
+            height: 55px;
+            font-size: 30px;
+        }
+        @media (max-width: 420px) {
+            width: 80px;
+            height: 55px;
+            font-size: 35px;
+        }
         
         &--active {
             background-color: $primary-blue;
@@ -37,26 +43,42 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: $white;
-
+                        
             path { // icone
                 color: $white
             }
             @media (max-width: 1130px) {
                 width: 220px;
                 height: 55px;
-                font-size: 23px;
             }
             @media (max-width: 780px) {
                 width: 160px;
                 height: 55px;
-                font-size: 17px;
+                font-size: 30px;
+            }
+            @media (max-width: 620px) {
+                width: 100px;
+                height: 55px;
+                font-size: 30px;
+            }
+            @media (max-width: 420px) {
+                width: 80px;
+                height: 55px;
+                font-size: 35px;
             }
         }  
         
-
         a {
             text-decoration: none;
+        }
+
+        p {
+            letter-spacing: 3px;
+            font-size: 20px;
+
+            @media (max-width: 780px) {
+                display: none;
+            }
         }
 
     }
@@ -65,7 +87,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 280px;
+        width: 80px;
         height: 55px;
         border-radius: 30px;
         background-color: $light-grey;
@@ -77,10 +99,10 @@
             text-decoration: none;
         }
 
-        @media (max-width: 1130px) {
-            width: 100px;
+        @media (max-width: 420px) {
+            width: 80px;
             height: 55px;
-            font-size: 15px;
+            font-size: 35px;
         }
     }
 }

@@ -1,4 +1,8 @@
 .register {
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+        display: none;
+    }
     
     .link-register {
         text-align: center;
