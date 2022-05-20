@@ -1,7 +1,25 @@
-import React from 'react';
+/* eslint-disable no-unused-vars */
+import axios from 'axios';
+import React, { useContext, useState } from 'react';
 import { RiAdminFill } from 'react-icons/ri';
+import { BiLogOut } from 'react-icons/bi';
+import { decodeToken } from 'react-jwt';
+import AuthTokenContext from './context/AuthTokenContext';
 
 function Footer() {
+  const [errorConnect, setErrorConnect] = useState();
+  const { setUser } = useContext(AuthTokenContext);
+
+  const handleLogOut = (e) => {
+    e.preventDefault();
+    axios.get('http://localhost:5001/users/logout', { withCredentials: true })
+      .then((res) => {
+        setUser(decodeToken(res.data));
+      }).catch((error) => {
+        setErrorConnect(error.response.data.error); // reponse de l'API
+      });
+  };
+
   return (
     <div className="footer">
       <div className="logo-footer-left">
@@ -14,9 +32,16 @@ function Footer() {
           <p className="link-admin">
             <RiAdminFill />
             {' '}
-            espace administration
+            Espace administration
           </p>
         </a>
+        <p className="link-logout">
+          <a onClick={handleLogOut} href="/" alt="logout">
+            <BiLogOut />
+            {' '}
+            Se déconnecter
+          </a>
+        </p>
       </div>
       <div className="logo-footer-right">
         <a href="https://www.sncf-connect.com/"><img className="logo" src="/images/footer/connect.jpg" alt="logo-connect" /></a>
