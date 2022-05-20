@@ -6,6 +6,7 @@ const router = express.Router()
 
 router.get('/reconnect', authController.reconnect)
 router.post('/login', [authMiddleware.checkAuthUser, authController.signIn])
+router.get ('/logout', [authController.logout])
 router.post('/register',[
     authMiddleware.checkFormRegister,
     authMiddleware.checkEmailUsed,

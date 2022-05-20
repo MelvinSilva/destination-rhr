@@ -6,6 +6,8 @@ const argon2 = require('argon2')
 
 const maxAge = 24 * 60 * 1000 // calcul de la duree du token (24 minutes)
 
+const maxAgeLogOut  = 1 // calcul 1 miniseconde pour le logout
+
 class AuthController {
 
     //******** S'INSCRIRE ********//
@@ -41,6 +43,19 @@ class AuthController {
         res.status(200).send(token) // on renvoie dans la reponse le cookie qui contient le token
     }
 
+       //******** SE DECONNECTER ********//
+
+       async logout (req, res) {
+        try {
+            const token = jwt.sign({}, process.env.TOKEN_SECRET, { expiresIn: maxAgeLogOut})
+            res.cookie('user_token', token, { httpOnly: true, maxAge:maxAgeLogOut})
+            res.status(200).send(token)
+            
+        }
+        catch (error) {
+            res.status(500).send({ error: error.message })
+        }
+    }   
 
     
 }
