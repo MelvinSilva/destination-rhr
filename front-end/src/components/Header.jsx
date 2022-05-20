@@ -22,6 +22,8 @@ function Header() {
     <div className="header">
       <a onClick={handleLogOut} href="/"><h1>Déconnecter</h1></a>
       <a href="/"><img className="logo" src="/images/logo.png" alt="logo" /></a>
+      <a href="/home/choice-station"><img className="logo" src="/images/logo.png" alt="logo" /></a>
+      <span className="title">DESTINATION RHR</span>
       <div className="title-board">
         <span className="letter letter-D" />
         <span className="letter letter-E" />

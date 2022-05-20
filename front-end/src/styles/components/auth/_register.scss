@@ -1,4 +1,8 @@
 .register {
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+        display: none;
+    }
     
     .link-register {
         text-align: center;
@@ -29,7 +33,7 @@
         border-radius: 5px;
         background-color: $opacity-white;
         color: $dark-grey;
-        font-size: 15px;
+        font-size: 12px;
         border: none;
         cursor: pointer;
         letter-spacing: 3px;

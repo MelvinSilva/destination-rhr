@@ -4,7 +4,7 @@ const argon2 = require('argon2')
 
 
 
-const maxAge = 24 * 60 * 1000 // calcul de la duree du token (24 minutes)
+const maxAge = 24 * 60 * 1000 / 3 // calcul de la duree du token (8 minutes)
 
 const maxAgeLogOut  = 1 // calcul 1 miniseconde pour le logout
 

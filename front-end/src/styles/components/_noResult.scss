@@ -8,5 +8,12 @@
 
     h1 {
         font-size: 30px;
+        text-align: center;
+    }
+    .btn {
+        margin-top: 10px;
+        width: 150px;
+        height: 30px;
+        background-color: $middle-grey;
     }
 }

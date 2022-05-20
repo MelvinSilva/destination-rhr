@@ -8,8 +8,6 @@
         display: none;
     }
 
-
-    
     h1 {
         margin: 20px auto;
         border-radius: 10px;
@@ -17,7 +15,6 @@
         color: $dark-grey;
         text-align: center;
     }
-    
 
     .delete-card {
         margin: 0 auto;
@@ -27,14 +24,14 @@
         width: 100%;
         background-color: $light-grey;
         padding: 40px;
-    
+
         li {
             list-style-type: none;
         }
 
-        a:link { 
-            text-decoration:none; 
-        } 
+        a:link {
+            text-decoration: none;
+        }
 
         .user-informations {
             width: 370px;
@@ -46,7 +43,6 @@
             border-radius: 12px;
             box-shadow: $shadow;
             background-color: $white;
-         
 
             p {
                 font-weight: bold;
@@ -70,12 +66,11 @@
                     justify-content: center;
                     padding: 2px;
                     width: 100px;
-                    margin: 10px; 
+                    margin: 10px;
                     background-color: $dark-grey;
                     path {
                         color: $white;
                     }
-                    
                 }
 
                 .btn--red {
@@ -93,9 +88,9 @@
                     border: none;
                     cursor: pointer;
                     letter-spacing: 2px;
-                    
+
                     &:hover {
-                        opacity: 0.70;
+                        opacity: 0.7;
                     }
                     path {
                         color: $white;
@@ -104,12 +99,30 @@
             }
         }
     }
-    .button-delete {
+    .button-bottom {
+        display: flex;
+        flex-direction: column;
         margin: 10px auto;
+
         .btn {
+            height: 45px;
             width: 300px;
             font-weight: bold;
-            
+        }
+        .btn-return-home {
+            height: 45px;
+            width: 300px;
+            border-radius: 5px;
+            background-color: $light-grey;
+            color: $dark-grey;
+            font-size: 12px;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 3px;
+
+            &:hover {
+                opacity: 0.70;
+            }
         }
     }
 }

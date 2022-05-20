@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { BsHouseDoorFill } from 'react-icons/bs';
 import { IoBedOutline, IoRestaurantOutline } from 'react-icons/io5';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
@@ -8,10 +8,11 @@ function NavbarTab() {
   return (
     <div className="navbar-tab">
       <div className="tab-return">
-        <Link to="/home/choice-station">
+        <NavLink
+          to="/home/choice-station"
+        >
           <BsHouseDoorFill />
-&nbsp;accueil
-        </Link>
+        </NavLink>
       </div>
       <div className="tab">
         <NavLink
@@ -19,8 +20,7 @@ function NavbarTab() {
           className={({ isActive }) => `tab${isActive ? '--active' : ''}`}
         >
           <IoBedOutline />
-          {' '}
-&nbsp;couchage
+          <p>&nbsp;couchage</p>
         </NavLink>
       </div>
       <div className="tab">
@@ -29,8 +29,7 @@ function NavbarTab() {
           className={({ isActive }) => `tab${isActive ? '--active' : ''}`}
         >
           <IoRestaurantOutline />
-          {' '}
-&nbsp;se restaurer
+          <p>&nbsp;se restaurer</p>
         </NavLink>
       </div>
       <div className="tab">
@@ -39,8 +38,8 @@ function NavbarTab() {
           className={({ isActive }) => `tab${isActive ? '--active' : ''}`}
         >
           <AiOutlineShoppingCart />
-          {' '}
-&nbsp;shopping
+          <p>&nbsp;shop</p>
+
         </NavLink>
       </div>
 
