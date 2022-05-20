@@ -3,18 +3,19 @@ import axios from 'axios';
 import React, { useContext, useState } from 'react';
 import { RiAdminFill } from 'react-icons/ri';
 import { BiLogOut } from 'react-icons/bi';
-import { decodeToken } from 'react-jwt';
-import AuthTokenContext from './context/AuthTokenContext';
 
 function Footer() {
   const [errorConnect, setErrorConnect] = useState();
-  const { setUser } = useContext(AuthTokenContext);
+
+  const refreshPage = () => { // actualisation automatique de la page
+    window.location.reload();
+  };
 
   const handleLogOut = (e) => {
     e.preventDefault();
     axios.get('http://localhost:5001/users/logout', { withCredentials: true })
       .then((res) => {
-        setUser(decodeToken(res.data));
+        refreshPage();
       }).catch((error) => {
         setErrorConnect(error.response.data.error); // reponse de l'API
       });
@@ -27,14 +28,6 @@ function Footer() {
         <a href="https://www.orfea.fr/fr"><img className="logo" src="/images/footer/orfea.jpg" alt="logo-orfea" /></a>
       </div>
       <div className="infos-footer">
-        <p className="text-dedication">Destination RHR by Jean-Mi, Fred, Steph & Melvin @Wild Code School</p>
-        <a href="/administration">
-          <p className="link-admin">
-            <RiAdminFill />
-            {' '}
-            Espace administration
-          </p>
-        </a>
         <p className="link-logout">
           <a onClick={handleLogOut} href="/" alt="logout">
             <BiLogOut />
@@ -42,6 +35,14 @@ function Footer() {
             Se déconnecter
           </a>
         </p>
+        <a href="/administration">
+          <p className="link-admin">
+            <RiAdminFill />
+            {' '}
+            Espace administration
+          </p>
+        </a>
+        <p className="text-dedication">Destination RHR by Jean-Mi, Fred, Steph & Melvin @Wild Code School</p>
       </div>
       <div className="logo-footer-right">
         <a href="https://www.sncf-connect.com/"><img className="logo" src="/images/footer/connect.jpg" alt="logo-connect" /></a>

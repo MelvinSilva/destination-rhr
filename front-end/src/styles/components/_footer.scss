@@ -60,12 +60,11 @@
 
         p {
             color: $opacity-white;
-            font-size: 15px;
-
+            font-size: 13px;
         }
 
         .text-dedication {
-
+            margin-top: 2px;
             @media (max-width: 790px) {
                 display: none;
             }
@@ -76,9 +75,9 @@
         }
 
         .link-admin {
-            margin-top: 5px;
+            margin-top: 2px;
             color: $dark-grey;
-            font-size: 17px;
+            font-size: 15px;
 
             &:hover {
                 color: $white;
@@ -92,5 +91,28 @@
                 }
             }
         }
+<<<<<<< HEAD
+=======
+
+        .link-logout {
+            margin-top: 2px;
+            color: $dark-grey;
+            font-size: 15px;
+
+            a {
+                &:hover {
+                    color: $white;    
+                }
+            }
+
+            path {
+                color: $dark-grey;
+
+                &:hover {
+                    color: $white;
+                }
+            }
+        }
+>>>>>>> b872cf3fc41ca109bcfcc2563e3eb1a7da44707e
     }
 }

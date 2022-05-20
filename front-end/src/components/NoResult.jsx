@@ -1,3 +1,4 @@
+/* eslint-disable no-mixed-operators */
 /* eslint-disable indent */
 /* eslint-disable max-len */
 import React, { useContext, useEffect, useState } from 'react';
@@ -11,8 +12,8 @@ function NoResult() {
 
   useEffect(() => {
     const redirect = () => {
-        // si user n'est pas connecté et que RELOADED est VRAI tu retournes sur login
-      if (!user && reloaded === true) {
+      // si user n'est pas connecté et que RELOADED est VRAI tu retournes sur login
+      if (!user && reloaded || user && user.profil_user === 'user') { // reloaded est sur true ici
         setTimeout(() => { // methode setTimeout qui permet d'attendre 2s avant de passer à la ligne suivante
           returnLogin('/'); // redirection vers la page login
           setReloaded(false);

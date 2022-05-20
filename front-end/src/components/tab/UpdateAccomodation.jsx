@@ -19,7 +19,6 @@ function UpdateAccomodation(props) {
       .put(`http://localhost:5001/accomodations/${props.dataAccomodation.id}`, props.dataAccomodation)
       .then(() => props.setUpdate(true))
       .catch((error) => console.error(error));
-    // alert("Les changement ont bien été pris en compte")
   };
 
   return (
