@@ -1,14 +1,26 @@
-import React, { useEffect } from 'react';
-import Aos from 'aos';
-import 'aos/dist/aos.css';
+import axios from 'axios';
+import React, { useContext, useState } from 'react';
+
+import { decodeToken } from 'react-jwt';
+import AuthTokenContext from './context/AuthTokenContext';
 
 function Header() {
-  useEffect(() => { // effet d'apparition title header
-    Aos.init({ duration: 1500 });
-  }, []);
+  const [errorConnect, setErrorConnect] = useState();
+  const { setUser } = useContext(AuthTokenContext);
+
+  const handleLogOut = (e) => {
+    e.preventDefault();
+    axios.get('http://localhost:5001/users/logout', { withCredentials: true })
+      .then((res) => {
+        setUser(decodeToken(res.data));
+      }).catch((error) => {
+        setErrorConnect(error.response.data.error); // reponse de l'API
+      });
+  };
 
   return (
     <div className="header">
+      <a onClick={handleLogOut} href="/"><h1>Déconnecter</h1></a>
       <a href="/"><img className="logo" src="/images/logo.png" alt="logo" /></a>
       <div className="title-board">
         <span className="letter letter-D" />
@@ -28,6 +40,7 @@ function Header() {
         <span className="letter letter-R" />
       </div>
       <img className="logo-sncf" src="/images/logosncf.png" alt="logo-sncf" />
+      {errorConnect && <h3>{errorConnect}</h3>}
     </div>
   );
 }
