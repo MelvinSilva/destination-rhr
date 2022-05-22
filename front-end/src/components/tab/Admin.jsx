@@ -92,7 +92,7 @@ function Admin() {
       </div>
       <div className="button-bottom">
         <button className="btn" type="submit" onClick={submit}>GESTION DES UTILISATEURS</button>
-        <Link to="/"><button className="btn-return-home" type="button">RETOUR ACCUEIL</button></Link>
+        <Link to="/home/choice-station"><button className="btn-return-home" type="button">RETOUR ACCUEIL</button></Link>
       </div>
     </div>
   );

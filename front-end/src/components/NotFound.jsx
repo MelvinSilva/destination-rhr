@@ -2,20 +2,26 @@
 /* eslint-disable indent */
 /* eslint-disable max-len */
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import AuthTokenContext from './context/AuthTokenContext';
 
 function NoResult() {
   const returnLogin = useNavigate();
+  const returnChoiceStation = useNavigate();
   const { user } = useContext(AuthTokenContext);
   const [reloaded, setReloaded] = useState(false);
 
   useEffect(() => {
     const redirect = () => {
       // si user n'est pas connecté et que RELOADED est VRAI tu retournes sur login
-      if (!user && reloaded || user && user.profil_user === 'user') { // reloaded est sur true ici
-        setTimeout(() => { // methode setTimeout qui permet d'attendre 2s avant de passer à la ligne suivante
-          returnLogin('/'); // redirection vers la page login
+      if (!user && reloaded) { // reloaded est sur true ici
+        setTimeout(() => { // methode setTimeout qui permet d'attendre 3s avant de passer à la ligne suivante
+          returnLogin('/'); // redirection vers la page login si pas de USER connecté
+          setReloaded(false);
+        }, 3000);
+      } else if (user && user.profil_user === 'user') {
+        setTimeout(() => {
+          returnChoiceStation('home/choice-station'); // redirection vers la page choice station pour un USER deja connecté
           setReloaded(false);
         }, 3000);
       }
@@ -28,14 +34,11 @@ function NoResult() {
 
   return (
     <div className="no-result">
+      <img src="/images/error404.png" alt="" />
       <h1>
-        Vous n&apos;étes pas connecté ou non autorisé à consulter cette page.
-        <br />
-        Redirection en cours...
-
+        Vous n&apos;étes pas connecté ou non autorisé.
       </h1>
-      <p>(si la page ne se recharge pas cliquer sur le bouton ci dessous)</p>
-      <Link to="/home/choice-station"><button className="btn" type="button">RETOUR</button></Link>
+      <img className="loading" src="/images/loading.gif" alt="" />
     </div>
   );
 }

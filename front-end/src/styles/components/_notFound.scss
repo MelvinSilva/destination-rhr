@@ -6,8 +6,22 @@
     justify-content: center;
     height: 80vh;
 
+    img {
+        width: 370px;
+        height: 250px;
+    }
+
+    .loading {
+        margin: 10px;
+        width: 70px;
+        height: 70px;
+
+    }
+
     h1 {
-        font-size: 30px;
+        margin: 10px;
+        width: 370px;
+        font-size: 25px;
         text-align: center;
     }
     .btn {

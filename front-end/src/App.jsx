@@ -18,7 +18,7 @@ import Eat from './components/tab/Eat';
 import Store from './components/tab/Store';
 import UpdateAccomodation from './components/tab/UpdateAccomodation';
 import AuthTokenContext from './components/context/AuthTokenContext';
-import NoResult from './components/NoResult';
+import NotFound from './components/NotFound';
 import Admin from './components/tab/Admin';
 
 function App() {
@@ -58,7 +58,7 @@ function App() {
               <Route path="store" element={<Store />} />
             </Route>
             )}
-            <Route path="*" element={<NoResult />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
         <Footer />

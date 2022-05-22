@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import axios from 'axios';
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { RiAdminFill } from 'react-icons/ri';
 import { BiLogOut } from 'react-icons/bi';
 
