@@ -31,7 +31,7 @@ class AccomodationController {
             res.status(204).send({ error: error.message })
         }
     }
-    //******** SUPPRIMER UN UTILISATEUR ********//
+    //******** SUPPRIMER UN UN HOTEL ********//
     async deleteAccomodation(req, res) {
         try {
             const deleteAccomodation = await accomodationModel.deleteAccomodation(req.params.id)
