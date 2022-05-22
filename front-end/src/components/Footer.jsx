@@ -1,8 +1,7 @@
 /* eslint-disable no-unused-vars */
 import axios from 'axios';
 import React, { useState } from 'react';
-import { RiAdminFill } from 'react-icons/ri';
-import { BiLogOut } from 'react-icons/bi';
+import { RiAdminFill, RiLogoutBoxFill } from 'react-icons/ri';
 
 function Footer() {
   const [errorConnect, setErrorConnect] = useState();
@@ -28,21 +27,24 @@ function Footer() {
         <a href="https://www.orfea.fr/fr"><img className="logo" src="/images/footer/orfea.jpg" alt="logo-orfea" /></a>
       </div>
       <div className="infos-footer">
-        <p className="link-logout">
-          <a onClick={handleLogOut} href="/" alt="logout">
-            <BiLogOut />
+        <div className="logout-admin">
+          <a className="link-logout" onClick={handleLogOut} href="/" alt="logout">
+            <RiLogoutBoxFill />
             {' '}
-            Se déconnecter
+            Déconnexion
           </a>
-        </p>
-        <a href="/administration">
-          <p className="link-admin">
+          <a className="link-admin" href="/administration">
             <RiAdminFill />
             {' '}
-            Espace administration
-          </p>
-        </a>
-        <p className="text-dedication">Destination RHR by Jean-Mi, Fred, Steph & Melvin @Wild Code School</p>
+            Administration
+          </a>
+        </div>
+        <p className="text-dedication">
+          Destination RHR by Jean-Mi, Fred, Steph & Melvin
+          {' '}
+          <br />
+          @Wild Code School
+        </p>
       </div>
       <div className="logo-footer-right">
         <a href="https://www.sncf-connect.com/"><img className="logo" src="/images/footer/connect.jpg" alt="logo-connect" /></a>
