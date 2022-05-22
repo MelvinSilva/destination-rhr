@@ -3,7 +3,7 @@ const stationModel = require('../models/station.model')
 class StationController {
     async listStations(req, res) {
         try {
-            const stations = await stationModel.listStations()
+            const stations = await stationModel.get()
             res.status(200).send(stations)
         }
         catch (error) {

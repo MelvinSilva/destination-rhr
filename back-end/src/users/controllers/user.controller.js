@@ -3,9 +3,9 @@ const argon2 = require('argon2')
 
 class UserController {
     //******** CHERCHER DES UTILISATEURS ********//
-    async listUsers(req, res) {
+    async getAllUsers(req, res) {
         try {
-            const users = await userModel.getUsers()
+            const users = await userModel.get()
             res.status(200).send(users)
         }
         catch (error) {
@@ -18,7 +18,7 @@ class UserController {
             req.body.password = await argon2.hash(req.body.password) // mdp crypté
             req.body.profil_user = "user"
             const user = req.body  // récupère tout et tous les champs sont modifiables
-            const putUser = await userModel.updateUser(user, req.params.id)
+            const putUser = await userModel.update(user, req.params.id)
             res.status(200).send(putUser)
         }
         catch (error) {
@@ -28,7 +28,7 @@ class UserController {
     //******** SUPPRIMER UN UTILISATEUR ********//
     async deleteUser(req, res) {
         try {
-            const deleteUser = await userModel.deleteUser(req.params.id)
+            const deleteUser = await userModel.remove(req.params.id)
             res.status(200).send(deleteUser)
         }
         catch (error) {

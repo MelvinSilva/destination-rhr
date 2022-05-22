@@ -11,8 +11,8 @@ class StationModel {
         database: process.env.DB_NAME
     })
 
-    //******* REQUETE GET SUR LA DB *********//
-    async listStations() { 
+    //******* REQUETE GET STATION *********//
+    async get() { 
         try {
             const result = await this.connection.promise().query('SELECT * FROM station WHERE id IN (14, 12, 8, 20, 2, 9, 10, 24, 6) ORDER BY city ASC;')
             return result[0]

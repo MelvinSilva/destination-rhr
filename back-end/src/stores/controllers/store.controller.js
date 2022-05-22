@@ -1,18 +1,18 @@
 const storeModel = require('../models/store.model')
 
 class StoreController {
-    async listStores(req, res) {
+    async getAllStores(req, res) {
         try {
-            const stores = await storeModel.listStores()
+            const stores = await storeModel.get()
             res.status(200).send(stores)
         }
         catch (error) {
             res.status(500).send({ error: error.message })
         }
     }
-    async listStoreStation(req, res) {
+    async getStore(req, res) {
         try {
-            const storeStation = await storeModel.listStoreStation(req.params.id_station)
+            const storeStation = await storeModel.getStoreByStation(req.params.id_station)
             res.status(200).send(storeStation)
         }
         catch (error) {
@@ -22,7 +22,7 @@ class StoreController {
     async updateStore(req, res) {
         try {
             const store = req.body
-            const updateStore = await storeModel.updateStore(store, req.params.id)
+            const updateStore = await storeModel.update(store, req.params.id)
             res.status(200).send(updateStore)
         }
         catch (error) {
@@ -32,7 +32,7 @@ class StoreController {
     async deleteStore(req, res) {
         try {
             const store = req.body
-            const deleteStore = await storeModel.deleteStore(store, req.params.id)
+            const deleteStore = await storeModel.delete(store, req.params.id)
             res.status(200).send(deleteStore)
         }
         catch (error) {

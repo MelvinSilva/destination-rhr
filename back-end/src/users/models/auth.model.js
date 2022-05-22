@@ -12,7 +12,7 @@ class AuthModel {
     })
 
 
-    //******* REQUETE INSCRIPTION USER SUR LA DB *********//
+    //******* REQUETE INSCRIPTION *********//
     async createUser(createUser) {
         try {
             const result = await this.connection.promise().query('INSERT INTO users SET ?', [createUser])
@@ -23,7 +23,7 @@ class AuthModel {
         }
     }
 
-    //******* REQUETE CONNEXION UTILISATEURS SUR LA DB *********//
+    //******* REQUETE CONNEXION  *********//
     async loginUser(login) {
         try {
             const result = await this.connection.promise().query('SELECT login, profil_user, firstname, lastname FROM users WHERE login = ?', [login])
@@ -36,7 +36,7 @@ class AuthModel {
 
 //******* VERIFICATION *********//
 
-    async verifyLogin(loginVerify) {
+    async verifyId(loginVerify) {
         try {
             const result = await this.connection.promise().query('SELECT login FROM users WHERE login = ?', [loginVerify])
             return result[0]
@@ -56,7 +56,7 @@ class AuthModel {
         }
     }
 
-    async verifyAuthUser(authVerify) {
+    async verifyLogin(authVerify) {
         try {
             const result = await this.connection.promise().query('SELECT login, password FROM users WHERE login = ?', [authVerify])
             return result[0][0]
