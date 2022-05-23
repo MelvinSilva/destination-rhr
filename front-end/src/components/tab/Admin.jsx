@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import {
-  MdDeleteForever, MdKeyboardReturn,
+  MdKeyboardReturn,
 } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { refresh } from 'aos';
@@ -90,27 +90,29 @@ function Admin() {
               </div>
               {(popup) ? (
                 <div className="popup">
-                  <p>
+                  <div className="select">
                     <label htmlFor="admin">
                       <select onChange={(e) => setStatut(e.target.value)} name="statut" id="statut">
-                        <option value="">Sélectionner votre statut</option>
+                        <option value="">Modifier le statut</option>
                         <option value="user">USER</option>
                         <option value="admin">ADMIN</option>
                       </select>
                     </label>
-                  </p>
-                  <button className="btn--red" type="button" onClick={() => deleteUser(user.id)}>
-                    <MdDeleteForever />
-                    Supprimer
-                  </button>
-                  <button className="btn" type="button" onClick={() => updateUser(user.id)}>
-                    <MdDeleteForever />
-                    Valider la modification
-                  </button>
-                  <button className="btn" type="submit" onClick={submit}>
-                    <MdKeyboardReturn />
-                    Retour
-                  </button>
+                  </div>
+                  <div className="button">
+                    <button className="btn--red" type="button" onClick={() => deleteUser(user.id)}>
+
+                      Supprimer l&apos;utilisateur
+                    </button>
+                    <button className="btn" type="button" onClick={() => updateUser(user.id)}>
+
+                      Valider le statut
+                    </button>
+                    <button className="btn" type="submit" onClick={submit}>
+                      <MdKeyboardReturn />
+                      Retour
+                    </button>
+                  </div>
                 </div>
               ) : null}
 
