@@ -6,6 +6,7 @@ import {
   MdDeleteForever, MdKeyboardReturn,
 } from 'react-icons/md';
 import { Link } from 'react-router-dom';
+import { refresh } from 'aos';
 
 function Admin() {
   const [users, setUsers] = useState([]);
@@ -20,6 +21,10 @@ function Admin() {
   // supp permet de réafficher les id non supprimer gràce au filter
   const submit = () => {
     setPopup(!popup);
+  };
+
+  const refreshPage = () => { // actualisation automatique de la page
+    window.location.reload();
   };
 
   useEffect(() => {
@@ -37,7 +42,7 @@ function Admin() {
   const updateUser = (userId) => {
     axios
       .put(`http://localhost:5001/users/${userId}`, { profil_user: statut })
-      .then();
+      .then(refreshPage());
   };
 
   return (
