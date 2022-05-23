@@ -9,12 +9,13 @@
     img {
         width: 370px;
         height: 250px;
+        filter: saturate(2)
     }
 
     .loading {
         margin: 10px;
-        width: 70px;
-        height: 70px;
+        width: 40px;
+        height: 40px;
 
     }
 
@@ -24,6 +25,7 @@
         font-size: 25px;
         text-align: center;
     }
+
     .btn {
         margin-top: 10px;
         width: 150px;

@@ -5,6 +5,10 @@
     height: 10vh;
     background-color: $primary-blue;
 
+    @media (max-width: 500px) {
+        text-align: center;
+    }
+
     .logo-footer-left {
 
         .logo {
@@ -13,13 +17,14 @@
             height: 45px;
             border-radius: 10px;
 
-            @media (max-width: 490px) {
+            @media (max-width: 630px) {
                 margin-left: 10px;
             }
 
-            @media (max-width: 408px) {
-                width: 35px;
-                height: 35px;
+            @media (max-width: 555px) {
+                width: 32px;
+                height: 32px;
+                margin-left: 5px;
             }
 
             @media (max-width: 380px) {
@@ -30,24 +35,27 @@
     }
 
     .logo-footer-right {
+
         .logo {
             margin-right: 30px;
             width: 45px;
             height: 45px;
             border-radius: 10px;
 
-            @media (max-width: 490px) {
+            @media (max-width: 630px) {
                 margin-right: 10px;
             }
 
-            @media (max-width: 408px) {
-                width: 35px;
-                height: 35px;
+            @media (max-width: 555px) {
+                width: 32px;
+                height: 32px;
+                margin-right: 5px;
             }
 
             @media (max-width: 380px) {
                 width: 25px;
                 height: 25px;
+                
             }
         }
     }
@@ -60,13 +68,14 @@
 
         p {
             color: $opacity-white;
-            font-size: 13px;
+            font-size: 12px;
+            text-align: center;
         }
 
         .text-dedication {
             margin-top: 2px;
-            @media (max-width: 790px) {
-                display: none;
+            @media (max-width: 720px) {
+                font-size: 10px;
             }
         }
 
@@ -74,40 +83,42 @@
             text-decoration: none;
         }
 
-        .link-admin {
-            margin-top: 2px;
-            color: $dark-grey;
-            font-size: 15px;
+        .logout-admin {
+            display: flex;
+            
+            .link-admin {
+                margin: 5px;
+                color: $dark-grey;
+                font-size: 14px;
+                
+                &:hover {
+                    color: $white;
+                }
 
-            &:hover {
-                color: $white;
+                path {
+                    color: $dark-grey;
+
+                    &:hover {
+                        color: $white;
+                    }
+                }
             }
 
-            path {
+            .link-logout {
+                margin: 5px;
                 color: $dark-grey;
+                font-size: 14px;
 
                 &:hover {
                     color: $white;
                 }
-            }
-        }
 
-        .link-logout {
-            margin-top: 2px;
-            color: $dark-grey;
-            font-size: 15px;
+                path {
+                    color: $dark-grey;
 
-            a {
-                &:hover {
-                    color: $white    
-                }
-            }
-
-            path {
-                color: $dark-grey;
-
-                &:hover {
-                    color: $white;
+                    &:hover {
+                        color: $white;
+                    }
                 }
             }
         }

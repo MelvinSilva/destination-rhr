@@ -14,8 +14,8 @@ function ChoiceStation() {
   }, []);
   return (
     <div className="choice-station">
-      <video id="background-video" autoPlay loop muted>
-        <source src="/images/production ID_4789847.mp4" type="video/mp4" />
+      <video id="background-video" muted>
+        <source src="/images/bg-video.webm" type="video/mp4" />
       </video>
       {user && user.firstname && (
       <h1>

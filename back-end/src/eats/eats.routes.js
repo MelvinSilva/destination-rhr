@@ -3,8 +3,8 @@ const eatController = require('./controllers/eat.controller')
 
 const router = express.Router()
 
-router.get('/', eatController.listEats)
-router.get('/:id_station', eatController.listEatStation)
-router.put('/:id', eatController.updateEat)
-router.delete('/:id', eatController.deleteEat)
+router.get('/', eatController.getEats)
+
+router.get('/:id_station', eatController.getEatByStation)
+
 module.exports = router
