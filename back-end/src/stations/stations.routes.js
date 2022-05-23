@@ -3,6 +3,6 @@ const stationController = require('./controllers/station.controller')
 
 const router = express.Router()
 
-router.get('/', stationController.listStations)
+router.get('/', stationController.getStations)
 
 module.exports = router

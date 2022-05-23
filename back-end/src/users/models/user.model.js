@@ -34,7 +34,7 @@ class UserModel {
     }
 
     //******* REQUETE SUPPRESSION USER SUR LA DB *********//
-    async remove(id) {
+    async delete(id) {
         try {
             const result = await this.connection.promise().query('DELETE FROM users WHERE id = ?', [id])
             return result[0]

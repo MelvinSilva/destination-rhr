@@ -2,8 +2,6 @@ const authModel = require('../models/auth.model')
 const jwt = require('jsonwebtoken')
 const argon2 = require('argon2')
 
-
-
 const maxAge = 24 * 60 * 1000 / 3 // calcul de la duree du token (8 minutes)
 
 const maxAgeLogOut  = 1 // calcul 1 miniseconde pour le logout
@@ -16,8 +14,8 @@ class AuthController {
             req.body.password = await argon2.hash(req.body.password) // mdp crypté
             req.body.profil_user = "user" // profil "user" automatique lors de l'inscription
             const newUser = req.body
-            const signUp = await authModel.createUser(newUser)
-            res.status(200).send(signUp)
+            const result = await authModel.createUser(newUser)
+            res.status(200).send(result)
         }
         catch (error) {
             res.status(500).send({ error: error.message })
@@ -26,7 +24,7 @@ class AuthController {
     //******** CONNEXION ********//
     async signIn(req, res) {
         try {
-            const { login } = req.body
+            const { login } = req.body // A VERIFIER en mettant id
             const { firstname, lastname, profil_user} = await authModel.loginUser(login) // A VERIFIER
             const token = jwt.sign({ login, profil_user, firstname, lastname, profil_user }, process.env.TOKEN_SECRET, { expiresIn: maxAge})
             res.cookie('user_token', token, { httpOnly: true, maxAge})
@@ -56,10 +54,7 @@ class AuthController {
     async reconnect (req, res) {
         const token = req.cookies.user_token // on recupere le cookie user_token qui à été généré lors du signIn
         res.status(200).send(token) // on renvoie dans la reponse le cookie qui contient le token
-    }
-
-      
-
+    }    
     
 }
 

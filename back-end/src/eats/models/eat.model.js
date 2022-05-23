@@ -22,44 +22,6 @@ class EatModel {
             throw error
         }
     }
-
-
-
-
-    ////////////////////////////////// NON UTILISES //////////////////////////////////
-
-    //******* REQUETE GET pour tous les eats *********//
-    async get() { 
-        try {
-            const result = await this.connection.promise().query('SELECT * FROM eat')
-            return result[0]
-        }
-        catch (error) {
-            throw error
-        }
-    }
-
-    //******* REQUETE PUT *********//
-    
-    async update(updateEat, id) { 
-        try {
-            const result = await this.connection.promise().query('UPDATE eat SET ? WHERE id = ?', [updateEat, id])
-            return result[0]
-        }
-        catch (error) {
-            throw error
-        }
-    }
-    //******* REQUETE DELETE *********//
-    async delete(id) { 
-        try {
-            const result = await this.connection.promise().query('DELETE FROM eat WHERE id = ?', [id])
-            return result[0]
-        }
-        catch (error) {
-            throw error
-        }
-    }
 }
 
 module.exports = new EatModel()

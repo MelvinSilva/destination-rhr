@@ -90,8 +90,8 @@ class UsersMiddleware {
         }
     }
 
+//A vérifier pour mettre login au lieu user et ensuite id
     async checkLogin(req, res, next) {
-
         try {
             const user = await authModel.verifyLogin(req.body.login)
             if (user) {

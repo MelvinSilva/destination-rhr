@@ -5,8 +5,8 @@ class UserController {
     //******** CHERCHER DES UTILISATEURS ********//
     async getAllUsers(req, res) {
         try {
-            const users = await userModel.get()
-            res.status(200).send(users)
+            const result = await userModel.get()
+            res.status(200).send(result)
         }
         catch (error) {
             res.status(500).send({ error: error.message })
@@ -16,8 +16,8 @@ class UserController {
     async updateUser(req, res) {
         try {
             const user = req.body  // récupère tout et tous les champs sont modifiables
-            const putUser = await userModel.update(user, req.params.id)
-            res.status(200).send(putUser)
+            const result = await userModel.update(user, req.params.id)
+            res.status(200).send(result)
         }
         catch (error) {
             res.status(500).send({ error: error.message })
@@ -26,8 +26,8 @@ class UserController {
     //******** SUPPRIMER UN UTILISATEUR ********//
     async deleteUser(req, res) {
         try {
-            const deleteUser = await userModel.remove(req.params.id)
-            res.status(200).send(deleteUser)
+            const result = await userModel.delete(req.params.id)
+            res.status(200).send(result)
         }
         catch (error) {
             res.status(500).send({ error: error.message })

@@ -1,7 +1,7 @@
 const accomodationModel = require('../models/accomodation.model')
 
 class AccomodationController {
-    async listAccomodations(req, res) {
+    async getAccomodations(req, res) {
         try {
             const result = await accomodationModel.get()
             res.status(200).send(result)
@@ -11,7 +11,7 @@ class AccomodationController {
         }
     }
 
-    async listAccomodationByStation(req, res) {
+    async getAccomodationByStation(req, res) {
         try {
             const result = await accomodationModel.getByStation(req.params.id_station)
             res.status(200).send(result)
@@ -31,17 +31,6 @@ class AccomodationController {
             res.status(204).send({ error: error.message })
         }
     }
-
-    async deleteAccomodation(req, res) {
-        try {
-            const result = await accomodationModel.delete(req.params.id)
-            res.status(204).send({ message: "la fiche a été supprimée" })
-        }
-        catch (error) {
-            res.status(500).send({ error: error.message })
-        }
-    }
-
 }
 
 

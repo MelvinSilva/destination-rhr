@@ -34,26 +34,6 @@ class StoreModel {
             }
         }
 
-    //******* REQUETE PUT SUR LA DB *********//
-    async update(updateStore, id) { 
-        try {
-            const result = await this.connection.promise().query('UPDATE store SET ? WHERE id = ?', [updateStore, id])
-            return result[0]
-        }
-        catch (error) {
-            throw error
-        }
-    }
-        //******* REQUETE DELETE SUR LA DB *********//
-        async delete(id) { 
-            try {
-                const result = await this.connection.promise().query('DELETE FROM store WHERE id = ?', [id])
-                return result[0]
-            }
-            catch (error) {
-                throw error
-            }
-        }
 }
 
 module.exports = new StoreModel()
