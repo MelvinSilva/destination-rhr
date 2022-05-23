@@ -10,11 +10,11 @@ const maxAgeLogOut  = 1 // calcul 1 miniseconde pour le logout
 
 class AuthController {
 
-    //******** S'INSCRIRE ********//
+    //******** INSCRIPTION ********//
     async signUp(req, res) {
         try {
             req.body.password = await argon2.hash(req.body.password) // mdp crypté
-            req.body.profil_user = "user"
+            req.body.profil_user = "user" // profil "user" automatique lors de l'inscription
             const newUser = req.body
             const signUp = await authModel.createUser(newUser)
             res.status(200).send(signUp)
@@ -23,7 +23,7 @@ class AuthController {
             res.status(500).send({ error: error.message })
         }
     }
-    //******** SE CONNECTER ********//
+    //******** CONNEXION ********//
     async signIn(req, res) {
         try {
             const { login } = req.body
@@ -38,14 +38,9 @@ class AuthController {
         }
     }
 
-    async reconnect (req, res) {
-        const token = req.cookies.user_token // on recupere le cookie user_token qui à été généré lors du signIn
-        res.status(200).send(token) // on renvoie dans la reponse le cookie qui contient le token
-    }
-
-       //******** SE DECONNECTER ********//
-
-       async logout (req, res) {
+    
+    //******** DECONNEXION ********//
+    async logout (req, res) {
         try {
             const token = jwt.sign({}, process.env.TOKEN_SECRET, { expiresIn: maxAgeLogOut})
             res.cookie('user_token', token, { httpOnly: true, maxAge:maxAgeLogOut})
@@ -55,7 +50,15 @@ class AuthController {
         catch (error) {
             res.status(500).send({ error: error.message })
         }
-    }   
+    } 
+
+    //******** RE-CONNEXION ********//
+    async reconnect (req, res) {
+        const token = req.cookies.user_token // on recupere le cookie user_token qui à été généré lors du signIn
+        res.status(200).send(token) // on renvoie dans la reponse le cookie qui contient le token
+    }
+
+      
 
     
 }

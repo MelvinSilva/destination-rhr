@@ -4,8 +4,7 @@ const {
     joiPassword
 } = require('joi-password')
 const authModel = require('../models/auth.model')
-// On utilise en destructuring connection pour aller le chercher dans le model users.model.js
-// afin de l'utiliser ensuite sur notre connection.query 
+
 
 class UsersMiddleware {
 
@@ -17,6 +16,7 @@ class UsersMiddleware {
             login,
             password,
         } = req.body;
+
         const {
             error
         } = Joi.object({
@@ -56,7 +56,7 @@ class UsersMiddleware {
             const email = await authModel.verifyEmail(req.body.email)
             if (email.length > 0) {
                 res.status(409).send({
-                    error: "Email existe déja"
+                    error: "L'email existe déja"
                 })
             } else {
                 next()
@@ -70,13 +70,13 @@ class UsersMiddleware {
         }
     }
 
-    async checkLoginUsed(req, res, next) {
+    async checkIdUsed(req, res, next) {
 
         try {
-            const login = await authModel.verifyLogin(req.body.login)
-            if (login.length > 0) {
+            const id = await authModel.verifyId(req.body.login)
+            if (id.length > 0) {
                 res.status(409).send({
-                    error: "Login existe déja"
+                    error: "L'identifiant existe déja"
                 })
             } else {
                 next()
@@ -90,10 +90,10 @@ class UsersMiddleware {
         }
     }
 
-    async checkAuthUser(req, res, next) {
+    async checkLogin(req, res, next) {
 
         try {
-            const user = await authModel.verifyAuthUser(req.body.login)
+            const user = await authModel.verifyLogin(req.body.login)
             if (user) {
                 if (await argon2.verify(user.password, req.body.password)) {
                     next()

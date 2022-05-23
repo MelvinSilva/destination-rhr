@@ -1,4 +1,4 @@
-$primary-blue: #009AA6;   // bleu canard sncf 
+$primary-blue: #009AA6; // bleu canard sncf 
 $dark-grey: #4D4F53;     // gris foncé sncf
 $middle-grey: #cbc8c8;  // gris moyen sncf
 $light-grey: #F2F2F2;  // gris léger sncf
@@ -17,6 +17,14 @@ $shadow: 0 3px 20px rgba(0, 0, 0, 0.168); // ombre à utiliser par défaut
     font-family: Arial, Helvetica, sans-serif;
     color: $dark-grey;
 }
+
+/* @mixin typo-h2 {
+  font-size: rem(20);
+  line-height: rem(26);
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: normal;
+  color: orange;
+} */
 
 .btn {
     margin: 10px auto;
