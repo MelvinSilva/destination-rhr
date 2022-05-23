@@ -9,7 +9,10 @@ import { Link } from 'react-router-dom';
 
 function Admin() {
   const [users, setUsers] = useState([]);
+  const [statut, setStatut] = useState();
+
   const [popup, setPopup] = useState(false);
+  // supp permet de réafficher les id non supprimer gràce au filter
   const supp = (userId) => {
     const sortedUsers = users.filter((user) => user.id !== userId);
     setUsers(sortedUsers);
@@ -18,7 +21,6 @@ function Admin() {
   const submit = () => {
     setPopup(!popup);
   };
-  // supp permet de réafficher les id non supprimer gràce au filter
 
   useEffect(() => {
     axios
@@ -30,6 +32,12 @@ function Admin() {
     axios
       .delete(`http://localhost:5001/users/${userId}`)
       .then(supp(userId));
+  };
+
+  const updateUser = (userId) => {
+    axios
+      .put(`http://localhost:5001/users/${userId}`, { profil_user: statut })
+      .then();
   };
 
   return (
@@ -62,22 +70,28 @@ function Admin() {
                 <span>{user.login}</span>
               </p>
               <p>
-                Type de profil :
+                Statut :
                 {' '}
-                <span>{`${user.profil_user}`.toUpperCase()}</span>
+                {`${user.profil_user}`.toUpperCase()}
               </p>
-              <p>
-                ID :
-                {' '}
-                <span>{user.id}</span>
-              </p>
-
               {popup ? (
                 <div className="popup">
-
+                  <p>
+                    <label htmlFor="admin">
+                      <select onChange={(e) => setStatut(e.target.value)} name="statut" id="statut">
+                        <option value="">Sélectionner votre statut</option>
+                        <option value="user">USER</option>
+                        <option value="admin">ADMIN</option>
+                      </select>
+                    </label>
+                  </p>
                   <button className="btn--red" type="button" onClick={() => deleteUser(user.id)}>
                     <MdDeleteForever />
                     Supprimer
+                  </button>
+                  <button className="btn" type="button" onClick={() => updateUser(user.id)}>
+                    <MdDeleteForever />
+                    Valider la modification
                   </button>
                   <button className="btn" type="submit" onClick={submit}>
                     <MdKeyboardReturn />
