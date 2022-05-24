@@ -28,6 +28,7 @@ function Register() {
 
       })
         .then(() => {
+          alert('Votre inscription à bien été prise en compte, vous pouvez maintenant vous connectez 😁');
           returnLogin('/');
         }).catch((error) => {
           setErrorPassword(error.response.data.error); // reponse de l'API
