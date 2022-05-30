@@ -13,7 +13,7 @@ class UsersMiddleware {
             lastname,
             firstname,
             email,
-            login,
+            cp_number,
             password,
         } = req.body;
 
@@ -23,7 +23,7 @@ class UsersMiddleware {
             lastname: Joi.string().min(3).required(),
             firstname: Joi.string().min(3).required(),
             email: Joi.string().email().required(),
-            login: Joi.string().min(8).max(8).required(),
+            cp_number: Joi.string().min(8).max(8).required(),
             password: joiPassword
                 .string()
                 .min(8)
@@ -35,7 +35,7 @@ class UsersMiddleware {
             lastname,
             firstname,
             email,
-            login,
+            cp_number,
             password
         }, {
             abortEarly: false
@@ -51,7 +51,6 @@ class UsersMiddleware {
     }
 
     async checkEmailUsed(req, res, next) {
-
         try {
             const email = await authModel.verifyEmail(req.body.email)
             if (email.length > 0) {
@@ -69,11 +68,11 @@ class UsersMiddleware {
             })
         }
     }
-
+//Vérifier si CP déjà utilisé//
     async checkIdUsed(req, res, next) {
 
         try {
-            const id = await authModel.verifyId(req.body.login)
+            const id = await authModel.verifyCpUser(req.body.cp_number)
             if (id.length > 0) {
                 res.status(409).send({
                     error: "L'identifiant existe déja"
@@ -90,10 +89,9 @@ class UsersMiddleware {
         }
     }
 
-//A vérifier pour mettre login au lieu user et ensuite id
     async checkLogin(req, res, next) {
         try {
-            const user = await authModel.verifyLogin(req.body.login)
+            const user = await authModel.verifyLogin(req.body.cp_number)
             if (user) {
                 if (await argon2.verify(user.password, req.body.password)) {
                     next()

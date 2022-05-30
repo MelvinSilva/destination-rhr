@@ -24,9 +24,9 @@ class AuthController {
     //******** CONNEXION ********//
     async signIn(req, res) {
         try {
-            const { login } = req.body // A VERIFIER en mettant id
-            const { firstname, lastname, profil_user} = await authModel.loginUser(login) // A VERIFIER
-            const token = jwt.sign({ login, profil_user, firstname, lastname, profil_user }, process.env.TOKEN_SECRET, { expiresIn: maxAge})
+            const { cp_number } = req.body 
+            const { firstname, lastname, profil_user} = await authModel.loginUser(cp_number)
+            const token = jwt.sign({ cp_number, profil_user, firstname, lastname, profil_user }, process.env.TOKEN_SECRET, { expiresIn: maxAge})
             res.cookie('user_token', token, { httpOnly: true, maxAge})
             res.status(200).send(token)
             
