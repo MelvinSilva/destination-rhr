@@ -20,7 +20,7 @@ function Register() {
     e.preventDefault();
     if (confirmPassword.current.value === password.current.value) {
       axios.post('http://localhost:5001/users/register', {
-        login: login.current.value,
+        cp_number: login.current.value,
         password: password.current.value,
         firstname: firstname.current.value,
         lastname: lastname.current.value,

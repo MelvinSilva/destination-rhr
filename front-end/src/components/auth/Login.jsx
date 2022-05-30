@@ -15,7 +15,7 @@ function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5001/users/login', { login: login.current.value, password: password.current.value }, { withCredentials: true })
+    axios.post('http://localhost:5001/users/login', { cp_number: login.current.value, password: password.current.value }, { withCredentials: true })
       .then((res) => {
         setUser(decodeToken(res.data));
         choiceStation('choice-station'); // useNavigate pour atteindre la page "choice station"

@@ -1,24 +1,18 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable max-len */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {
-  MdKeyboardReturn,
-} from 'react-icons/md';
+import { MdKeyboardReturn } from 'react-icons/md';
 import { Link } from 'react-router-dom';
-import { refresh } from 'aos';
 
 function Admin() {
   const [users, setUsers] = useState([]);
   const [statut, setStatut] = useState();
 
   const [popup, setPopup] = useState(false);
-  // supp permet de réafficher les id non supprimer gràce au filter
-  const supp = (userId) => {
+  // displayUser permet de réafficher les id non supprimés gràce au filter
+  const displayUser = (userId) => {
     const sortedUsers = users.filter((user) => user.id !== userId);
     setUsers(sortedUsers);
   };
-  // supp permet de réafficher les id non supprimer gràce au filter
   const submit = () => {
     setPopup(!popup);
   };
@@ -36,7 +30,7 @@ function Admin() {
   const deleteUser = (userId) => {
     axios
       .delete(`http://localhost:5001/users/${userId}`)
-      .then(supp(userId));
+      .then(displayUser(userId));
   };
 
   const updateUser = (userId) => {
@@ -49,7 +43,6 @@ function Admin() {
 
     <div className="admin">
       <h1>Liste des utilisateurs</h1>
-      {/* {eat.length > 0 && <h1>☟ Se restaurer à {eat[0].city} ☟</h1>} Rendu conditionnel hors mapping    */}
       <div className="delete-card">
         {users.map((user) => (
           <li>
