@@ -13,7 +13,7 @@ function Footer() {
   const handleLogOut = (e) => {
     e.preventDefault();
     axios.get('http://localhost:5001/users/logout', { withCredentials: true })
-      .then((res) => {
+      .then(() => {
         refreshPage();
       }).catch((error) => {
         setErrorConnect(error.response.data.error); // reponse de l'API

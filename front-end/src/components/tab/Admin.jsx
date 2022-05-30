@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 function Admin() {
   const [users, setUsers] = useState([]);
   const [statut, setStatut] = useState();
-
   const [popup, setPopup] = useState(false);
   // displayUser permet de réafficher les id non supprimés gràce au filter
   const displayUser = (userId) => {
@@ -16,8 +15,7 @@ function Admin() {
   const submit = () => {
     setPopup(!popup);
   };
-
-  const refreshPage = () => { // actualisation automatique de la page
+  const refreshPage = () => {
     window.location.reload();
   };
 
@@ -36,7 +34,7 @@ function Admin() {
   const updateUser = (userId) => {
     axios
       .put(`http://localhost:5001/users/${userId}`, { profil_user: statut })
-      .then(refreshPage());
+      .then(() => refreshPage());
   };
 
   return (
@@ -50,51 +48,46 @@ function Admin() {
               <p>
                 Prénom :
                 {' '}
-                <span>{`${user.firstname}`.toUpperCase()}</span>
+                <span>{user.firstname}</span>
               </p>
               <p>
                 Nom :
                 {' '}
-                <span>{`${user.lastname}`.toUpperCase()}</span>
+                <span>{user.lastname}</span>
               </p>
               <p>
                 Email :
                 {' '}
-                <span>{`${user.email}`.toUpperCase()}</span>
+                <span>{user.email}</span>
               </p>
               <p>
-                Login :
+                Identifiant :
                 {' '}
                 <span>{user.login}</span>
               </p>
               <p>
                 Statut :
                 {' '}
-                {`${user.profil_user}`.toUpperCase()}
+                <span>{user.profil_user}</span>
               </p>
               {(popup) ? (
                 <div className="popup">
                   <div className="select">
-                    <label htmlFor="admin">
-                      <select onChange={(e) => setStatut(e.target.value)} name="statut" id="statut">
-                        <option value="">Modifier le statut</option>
-                        <option value="user">USER</option>
-                        <option value="admin">ADMIN</option>
-                      </select>
-                    </label>
+                    <select onChange={(e) => setStatut(e.target.value)} name="statut" id="statut">
+                      <option value="">Modifier le statut de l&apos;utilisateur</option>
+                      <option value="user">USER</option>
+                      <option value="admin">ADMIN</option>
+                    </select>
                   </div>
                   <div className="button">
                     <button className="btn--red" type="button" onClick={() => deleteUser(user.id)}>
-
                       Supprimer l&apos;utilisateur
                     </button>
                     <button className="btn" type="button" onClick={() => updateUser(user.id)}>
-
-                      Valider le statut
+                      Valider le nouveau statut
                     </button>
-                    <button className="btn" type="submit" onClick={submit}>
+                    <button className="btn-return" type="submit" onClick={submit}>
                       <MdKeyboardReturn />
-                      Retour
                     </button>
                   </div>
                 </div>
