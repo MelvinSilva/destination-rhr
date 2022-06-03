@@ -1,3 +1,5 @@
+/* eslint-disable no-alert */
+/* eslint-disable no-restricted-globals */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { MdKeyboardReturn } from 'react-icons/md';
@@ -26,9 +28,14 @@ function Admin() {
   }, []);
 
   const deleteUser = (userId) => {
-    axios
-      .delete(`http://localhost:5001/users/${userId}`)
-      .then(displayUser(userId));
+    if (confirm("Voulez-vous vraiment supprimer l'utilisateur❓")) {
+      axios
+        .delete(`http://localhost:5001/users/${userId}`)
+        .then(displayUser(userId));
+      alert("L'utilisateur a été supprimé ✅");
+    } else {
+      alert("L'utilisateur n'a pas été supprimé ❌");
+    }
   };
 
   const updateUser = (userId) => {
@@ -63,7 +70,7 @@ function Admin() {
               <p>
                 Identifiant :
                 {' '}
-                <span>{user.login}</span>
+                <span>{user.cp_number}</span>
               </p>
               <p>
                 Statut :
