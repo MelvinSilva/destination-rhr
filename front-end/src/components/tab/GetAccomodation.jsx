@@ -147,7 +147,7 @@ function GetAccomodation() {
 &ensp;Salle de télévision
                     </p>
                     )}
-                    {dataAccomodation.cofee === 1 && (
+                    {dataAccomodation.coffee === 1 && (
                     <p>
                       <FaMugHot />
 &ensp;Café à disposition
