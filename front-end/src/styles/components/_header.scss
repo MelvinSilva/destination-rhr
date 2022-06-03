@@ -1,0 +1,166 @@
+$chars: "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V",
+    "W", "X", "Y", "Z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9";
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 10vh;
+    background-color: $primary-blue;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+
+    p {
+        margin: 20px;
+        font-size: 15px;
+        color: $white;
+    }
+
+    .logo {
+        margin-left: 30px;
+        width: 55px;
+        height: 55px;
+        @media (max-width: 600px) {
+            display: none;
+        }
+    }
+
+    .title {
+        display: none;
+        font-size: 40px;
+        font-weight: 600;
+        color: $white;
+        @media (max-width: 830px) {
+            display: inline-flex;
+        }
+        @media (max-width: 600px) {
+            display: inline-flex;
+            margin: auto;
+            font-size: 35px;
+        }
+    }
+
+    .title-board {
+        margin: 20px;
+        display: inline-flex;
+        @media (max-width: 830px) {
+            display: none;
+        }
+        
+    }
+
+    .letter {
+        border-right: 1px solid $light-grey;
+        color: $white;
+        display: flex;
+        flex-direction: column;
+        height: 40px;
+        text-align: center;
+        width: 40px;
+    }
+    .letter::before {
+        //border-bottom: 1px solid $light-grey;
+        background-color: #fff;
+        font-size: 30px;
+        height: 20px;
+        line-height: 40px;
+        overflow: hidden;
+        width: 100%;
+        z-index: 20;
+    }
+    .letter::after {
+        background-color: #fff;
+        flex-grow: 0;
+        font-size: 30px;
+        height: 40px;
+        line-height: 40px;
+        margin-top: -50%;
+        overflow: hidden;
+        width: 100%;
+        z-index: 10;
+    }
+    /* Blank letter */
+    .letter-blank::before {
+        background-color: #fff;
+        content: " ";
+    }
+    .letter-blank::after {
+        background-color: #fff;
+        content: " ";
+    }
+    /* dynamic function for character classes */
+    @each $char in $chars {
+        .letter-#{$char}::before {
+            background-color: #fff;
+            color: $white;
+            content: $char;
+        }
+        .letter-#{$char}::after {
+            background-color: #fff;
+            color: $white;
+            content: $char;
+        }
+    }
+    /* Letter animations */
+    @for $i from 1 through 30 {
+        .title-board span:nth-child(#{$i}):before {
+            animation: flip 1s 1 ease-in-out;
+            animation-delay: #{$i/4}s;
+            animation-fill-mode: forwards;
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+            transition-delay: #{$i/4}s;
+            background-color: #fff;
+        }
+        .title-board span:nth-child(#{$i}):after {
+            animation: flip 1s 1 ease-in-out;
+            animation-delay: #{$i/4}s;
+            animation-fill-mode: forwards;
+            backface-visibility: hidden;
+            transition-delay: #{$i/4}s;
+            transform-style: preserve-3d;
+            background-color: #fff;
+        }
+    }
+    @keyframes flip {
+        0% {
+            color: $primary-blue;
+            transform: rotateX(0deg);
+        }
+        20% {
+            color: $primary-blue;
+            content: nth($chars, random(length($chars)));
+            transform: rotateX(360deg);
+        }
+        40% {
+            color: $primary-blue;
+            content: nth($chars, random(length($chars)-1));
+            transform: rotateX(0deg);
+        }
+        60% {
+            color: $primary-blue;
+            content: nth($chars, random(length($chars)-2));
+            transform: rotateX(360deg);
+        }
+        80% {
+            color: $primary-blue;
+            content: nth($chars, random(length($chars)-3));
+            transform: rotateX(0deg);
+        }
+        100% {
+            color: $primary-blue;
+            transform: rotateX(360deg);
+        }
+    }
+
+    .logo-sncf {
+        margin-right: 30px;
+        width: 70px;
+        height: 35px;
+        opacity: 0.9;
+        @media (max-width: 600px) {
+            display: none;
+        }
+    }
+}
