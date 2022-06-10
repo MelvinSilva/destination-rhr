@@ -73,7 +73,7 @@ function Admin() {
                 <span>{user.cp_number}</span>
               </p>
               <p>
-                Statut :
+                Rôle :
                 {' '}
                 <span>{user.profil_user}</span>
               </p>
@@ -81,7 +81,7 @@ function Admin() {
                 <div className="popup">
                   <div className="select">
                     <select onChange={(e) => setStatut(e.target.value)} name="statut" id="statut">
-                      <option value="">Modifier le statut de l&apos;utilisateur</option>
+                      <option value="">Modifier le rôle de l&apos;utilisateur</option>
                       <option value="user">USER</option>
                       <option value="admin">ADMIN</option>
                     </select>
@@ -91,7 +91,7 @@ function Admin() {
                       Supprimer l&apos;utilisateur
                     </button>
                     <button className="btn" type="button" onClick={() => updateUser(user.id)}>
-                      Valider le nouveau statut
+                      Valider le nouveau rôle
                     </button>
                     <button className="btn-return" type="submit" onClick={submit}>
                       <MdKeyboardReturn />

@@ -8,14 +8,20 @@ $red: #D52B1E;      // rouge sncf
 $border-grey: #52525298; // bordure grise
 $border-blue: 1px solid $primary-blue; // bordure bleu canard sncf
 $shadow: 0 3px 20px rgba(0, 0, 0, 0.168); // ombre à utiliser par défaut
+@font-face {
+  font-family: 'Avenir';
+  src: local('Avenir Book'), local('Avenir-Book'),
+      url(../../public/font/Avenir-Book.ttf) format('ttf');
+}
+
 
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
     color: $dark-grey;
+    font-family: 'Avenir';
 }
 
 /* @mixin typo-h2 {

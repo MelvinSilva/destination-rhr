@@ -21,7 +21,7 @@ function ChoiceStation() {
       <h1>
         Bienvenue
         {' '}
-        {user.firstname}
+        <span>{user.firstname}</span>
         , veuillez choisir votre gare d&apos;arrivée.
       </h1>
       )}

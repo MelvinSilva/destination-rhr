@@ -1,23 +1,36 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable react/button-has-type */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable no-restricted-globals */
+/* eslint-disable no-alert */
 /* eslint-disable no-unused-vars */
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { RiAdminFill, RiLogoutBoxFill } from 'react-icons/ri';
+import { useNavigate } from 'react-router-dom';
+import AuthTokenContext from './context/AuthTokenContext';
 
 function Footer() {
+  const { user } = useContext(AuthTokenContext);
+  const returnHome = useNavigate();
   const [errorConnect, setErrorConnect] = useState();
 
-  const refreshPage = () => { // actualisation automatique de la page
+  const refreshPage = () => {
     window.location.reload();
   };
 
-  const handleLogOut = (e) => {
-    e.preventDefault();
-    axios.get('http://localhost:5001/users/logout', { withCredentials: true })
-      .then(() => {
-        refreshPage();
-      }).catch((error) => {
-        setErrorConnect(error.response.data.error); // reponse de l'API
-      });
+  const handleLogOut = () => {
+    if (confirm('Voulez-vous vraiment vous déconnectez ?')) {
+      axios.get('http://localhost:5001/users/logout', { withCredentials: true })
+        .then(() => {
+          returnHome('/');
+          refreshPage();
+        }).catch((error) => {
+          setErrorConnect(error.response.data.error); // reponse de l'API
+        });
+    } else {
+      alert('Vous êtes toujours connecté');
+    }
   };
 
   return (
@@ -28,11 +41,13 @@ function Footer() {
       </div>
       <div className="infos-footer">
         <div className="logout-admin">
-          <a className="link-logout" onClick={handleLogOut} href="/" alt="logout">
+          {user && (
+          <span className="link-logout" onClick={handleLogOut}>
             <RiLogoutBoxFill />
             {' '}
             Déconnexion
-          </a>
+          </span>
+          )}
           <a className="link-admin" href="/administration">
             <RiAdminFill />
             {' '}

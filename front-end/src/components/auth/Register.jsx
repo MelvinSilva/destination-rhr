@@ -33,7 +33,7 @@ function Register() {
         }).catch((error) => {
           setErrorPassword(error.response.data.error); // reponse de l'API
         });
-    } else alert('Votre mot de passe est différent');
+    } else alert('Vos mots de passe ne correspondent pas ! Veuillez réessayer.');
   };
 
   return (

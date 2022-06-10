@@ -38,30 +38,29 @@ function App() {
 
     <AuthTokenContext.Provider value={{ user, setUser }}>
       <div>
-        <Header />
         <BrowserRouter>
+          <Header />
           <Routes>
-            {user && user.profil_user === 'admin' && <Route path="/administration" element={<Admin />} />}
             <Route path="/" element={<Navigate to="/home" />} />
             <Route path="/home" element={<Auth />}>
               <Route index element={<Login />} />
               <Route path="register" element={<Register />} />
             </Route>
-            {/* si user est different de false = user existant avec token donc tu m'affiches les composant */}
             {user && <Route path="/home/choice-station" element={<ChoiceStation />} />}
             {user && (
-            <Route path="/stations/:id_station/" element={<HomeStation />}>
-              <Route path="accomodation" element={<GetAccomodation />}>
-                <Route path="update" element={<UpdateAccomodation />} />
+              <Route path="/stations/:id_station/" element={<HomeStation />}>
+                <Route path="accomodation" element={<GetAccomodation />}>
+                  <Route path="update" element={<UpdateAccomodation />} />
+                </Route>
+                <Route path="eat" element={<Eat />} />
+                <Route path="store" element={<Store />} />
               </Route>
-              <Route path="eat" element={<Eat />} />
-              <Route path="store" element={<Store />} />
-            </Route>
             )}
+            {user && user.profil_user === 'admin' && <Route path="/administration" element={<Admin />} />}
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <Footer />
         </BrowserRouter>
-        <Footer />
       </div>
     </AuthTokenContext.Provider>
   );

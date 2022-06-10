@@ -15,7 +15,6 @@ function Eat() {
 
   return (
     <div className="choice-eat">
-      {/* {eat.length > 0 && <h1>☟ Se restaurer à {eat[0].city} ☟</h1>}Rendu condit hors mapping */}
       <div className="container-card">
         {eat.slice(0, 30).map((restaurant) => (
           <li>
