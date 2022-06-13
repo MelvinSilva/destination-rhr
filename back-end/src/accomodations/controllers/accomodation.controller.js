@@ -25,10 +25,10 @@ class AccomodationController {
         try {
             const updateAccomodation = req.body
             const result = await accomodationModel.update(updateAccomodation, req.params.id)
-            res.status(200).send(result)
+            res.status(204).send(result)
         }
         catch (error) {
-            res.status(204).send({ error: error.message })
+            res.status(500).send({ error: error.message })
         }
     }
 }

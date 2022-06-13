@@ -1,5 +1,5 @@
 const userModel = require('../models/user.model')
-const argon2 = require('argon2')
+
 
 class UserController {
     //******** CHERCHER DES UTILISATEURS ********//
@@ -17,7 +17,7 @@ class UserController {
         try {
             const user = req.body  // récupère tout et tous les champs sont modifiables
             const result = await userModel.update(user, req.params.id)
-            res.status(200).send(result)
+            res.status(204).send(result)
         }
         catch (error) {
             res.status(500).send({ error: error.message })
@@ -27,7 +27,7 @@ class UserController {
     async deleteUser(req, res) {
         try {
             const result = await userModel.delete(req.params.id)
-            res.status(200).send(result)
+            res.status(204).send(result)
         }
         catch (error) {
             res.status(500).send({ error: error.message })

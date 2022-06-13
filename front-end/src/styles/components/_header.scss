@@ -47,7 +47,6 @@ $chars: "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O
         @media (max-width: 830px) {
             display: none;
         }
-        
     }
 
     .letter {
@@ -159,6 +158,28 @@ $chars: "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O
         width: 70px;
         height: 35px;
         opacity: 0.9;
+        @media (max-width: 600px) {
+            display: none;
+        }
+    }
+    .text-name {
+        margin-right: 30px;
+        font-size: 15px;
+        opacity: 0.9;
+        color: $white;
+        font-size: 15px;
+        cursor: pointer;
+        background-position: top;
+        
+    
+        path, svg {
+            background-color: $white;
+            padding: 2px;
+            border-radius: 5px;
+            font-size: 20px;
+            color: $dark-grey;
+        }
+
         @media (max-width: 600px) {
             display: none;
         }

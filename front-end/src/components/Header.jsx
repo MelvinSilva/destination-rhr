@@ -1,11 +1,39 @@
-import React, { useEffect } from 'react';
-import Aos from 'aos';
-import 'aos/dist/aos.css';
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable no-unused-vars */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable no-restricted-globals */
+/* eslint-disable no-alert */
+import React, { useContext, useState } from 'react';
+import axios from 'axios';
+import { RiLogoutBoxFill } from 'react-icons/ri';
+import { useNavigate } from 'react-router-dom';
+import AuthTokenContext from './context/AuthTokenContext';
 
 function Header() {
-  useEffect(() => { // effet d'apparition title header
-    Aos.init({ duration: 1500 });
-  }, []);
+  const { user } = useContext(AuthTokenContext);
+
+  const returnHome = useNavigate();
+  const [errorConnect, setErrorConnect] = useState();
+
+  const refreshPage = () => {
+    window.location.reload();
+  };
+
+  const handleLogOut = () => {
+    if (confirm('Voulez-vous vraiment vous déconnectez ?')) {
+      axios.get('http://localhost:5001/users/logout', { withCredentials: true })
+        .then(() => {
+          returnHome('/');
+          refreshPage();
+        }).catch((error) => {
+          setErrorConnect(error.response.data.error); // reponse de l'API
+        });
+    } else {
+      alert('Vous êtes toujours connecté');
+    }
+  };
+
   return (
     <div className="header">
       <a href="/home/choice-station"><img className="logo" src="/images/logo.png" alt="logo" /></a>
@@ -27,7 +55,13 @@ function Header() {
         <span className="letter letter-H" />
         <span className="letter letter-R" />
       </div>
-      <img className="logo-sncf" src="/images/logosncf.png" alt="logo-sncf" />
+      {!user ? <img className="logo-sncf" src="/images/logosncf.png" alt="logo-sncf" /> : (
+        <p className="text-name" onClick={handleLogOut}>
+          <RiLogoutBoxFill />
+          {' '}
+          {user.firstname}
+        </p>
+      )}
     </div>
   );
 }

@@ -15,7 +15,7 @@ class AuthController {
             req.body.profil_user = "user" // profil "user" automatique lors de l'inscription
             const newUser = req.body
             const result = await authModel.createUser(newUser)
-            res.status(200).send(result)
+            res.status(201).send(result)
         }
         catch (error) {
             res.status(500).send({ error: error.message })
@@ -25,10 +25,10 @@ class AuthController {
     async signIn(req, res) {
         try {
             const { cp_number } = req.body 
-            const { firstname, lastname, profil_user} = await authModel.loginUser(cp_number)
+            const { firstname, lastname, profil_user } = await authModel.loginUser(cp_number)
             const token = jwt.sign({ cp_number, profil_user, firstname, lastname, profil_user }, process.env.TOKEN_SECRET, { expiresIn: maxAge})
             res.cookie('user_token', token, { httpOnly: true, maxAge})
-            res.status(200).send(token)
+            res.status(201).send(token)
             
         }
         catch (error) {
@@ -40,8 +40,8 @@ class AuthController {
     //******** DECONNEXION ********//
     async logout (req, res) {
         try {
-            const token = jwt.sign({}, process.env.TOKEN_SECRET, { expiresIn: maxAgeLogOut})
-            res.cookie('user_token', token, { httpOnly: true, maxAge:maxAgeLogOut})
+            const token = jwt.sign({ }, process.env.TOKEN_SECRET, { expiresIn: maxAgeLogOut })
+            res.cookie('user_token', token, { httpOnly: true, maxAge:maxAgeLogOut })
             res.status(200).send(token)
             
         }
