@@ -323,7 +323,7 @@ function UpdateAccomodation(props) {
 
               {props.dataAccomodation.bike === 1
                 ? (
-                  <label htmlFor="e-press">
+                  <label htmlFor="bike">
                     <p>
                       <MdPedalBike />
                       &ensp;Vélos à disposition à l&apos;accueil&ensp;
@@ -337,7 +337,7 @@ function UpdateAccomodation(props) {
                   </label>
                 )
                 : (
-                  <label htmlFor="e-press">
+                  <label htmlFor="bike">
                     <p style={{ color: '#cbc8c8' }}>
                       <MdPedalBike />
                       &ensp;Vélos à disposition à l&apos;accueil&ensp;
