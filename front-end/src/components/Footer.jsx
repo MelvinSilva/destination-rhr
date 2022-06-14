@@ -48,11 +48,13 @@ function Footer() {
             Déconnexion
           </span>
           )}
+          {user && (
           <a className="link-admin" href="/administration">
             <RiAdminFill />
             {' '}
             Administration
           </a>
+          )}
         </div>
         <p className="text-dedication">
           Destination RHR by Jean-Mi, Fred, Steph & Melvin

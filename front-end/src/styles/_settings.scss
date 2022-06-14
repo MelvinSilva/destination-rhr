@@ -10,8 +10,8 @@ $border-blue: 1px solid $primary-blue; // bordure bleu canard sncf
 $shadow: 0 3px 20px rgba(0, 0, 0, 0.168); // ombre à utiliser par défaut
 @font-face {
   font-family: 'Avenir';
-  src: local('Avenir Book'), local('Avenir-Book'),
-      url(../../public/font/Avenir-Book.ttf) format('ttf');
+  src: local('Avenir'),
+      url(../../public/font/AvenirLTStd-Book.otf) format('otf');
 }
 
 
@@ -43,6 +43,7 @@ $shadow: 0 3px 20px rgba(0, 0, 0, 0.168); // ombre à utiliser par défaut
     border: none;
     cursor: pointer;
     letter-spacing: 2px;
+
     
     &:hover {
       opacity: 0.70;
