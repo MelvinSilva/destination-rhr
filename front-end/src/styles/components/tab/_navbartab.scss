@@ -4,65 +4,109 @@
     align-items: center;
     height: 10vh;
 
-    @media (max-width: 590px) {
-        position: fixed;
-        bottom: 0px;
+    a {
+        text-decoration: none;
     }
+
 
     .tab {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 300px;
-        height: 60px;
-        border-radius: 5px;
+        width: 280px;
+        height: 55px;
+        border-radius: 30px;
         background-color: $light-grey;
-        letter-spacing: 3px;
         font-size: 25px;
         
-        
+        // media queries navbar onglet
+        @media (max-width: 1130px) {
+            width: 220px;
+            height: 55px;
+        }
+        @media (max-width: 780px) {
+            width: 160px;
+            height: 55px;
+            font-size: 30px;
+        }
+        @media (max-width: 620px) {
+            width: 100px;
+            height: 55px;
+            font-size: 30px;
+        }
+        @media (max-width: 420px) {
+            width: 80px;
+            height: 55px;
+            font-size: 35px;
+        }
         
         &--active {
             background-color: $primary-blue;
-            height: 60px;
-            width: 300px;
-            border-radius: 5px;
+            width: 280px;
+            height: 55px;
+            border-radius: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: $white;
-    
+
+            p { 
+                color: $white;
+            }
+
+            // icon navbar qui passe de couleur blanche lorsque l'onglet est actif           
+            path { 
+                color: $white
+            }
+
+            // media queries navbar onglet active
+            @media (max-width: 1130px) {
+                width: 220px;
+                height: 55px;
+            }
+            @media (max-width: 780px) {
+                width: 160px;
+                height: 55px;
+                font-size: 30px;
+            }
+            @media (max-width: 620px) {
+                width: 100px;
+                height: 55px;
+                font-size: 30px;
+            }
+            @media (max-width: 420px) {
+                width: 80px;
+                height: 55px;
+                font-size: 35px;
+            }
         }  
-        
 
-        a {
-            text-decoration: none;
+        p {
+            letter-spacing: 3px;
+            font-size: 25px;
+
+            // media queries supression texte navbar
+            @media (max-width: 780px) {
+                display: none;
+            }
         }
 
-        @media (max-width: 590px) {
-            width: 100px;
-            height: 40px;
-        }
     }
 
     .tab-return {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 300px;
-        height: 60px;
-        border-radius: 5px;
-        background-color: $middle-grey;
+        width: 80px;
+        height: 55px;
+        border-radius: 30px;
+        background-color: $light-grey;
         font-size: 25px;
         letter-spacing: 3px;
 
-        a {
-            text-decoration: none;
-        }
-
-        @media (max-width: 590px) {
-            width: 95px;
-            height: 40px;
+        @media (max-width: 420px) {
+            width: 80px;
+            height: 55px;
+            font-size: 35px;
         }
     }
 }

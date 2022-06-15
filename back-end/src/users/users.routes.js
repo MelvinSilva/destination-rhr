@@ -4,15 +4,19 @@ const userController = require('./controllers/user.controller')
 const authMiddleware = require('./middlewares/auth.middleware')
 const router = express.Router()
 
+router.get('/', userController.getAllUsers)
+router.get('/reconnect', authController.reconnect)
+router.get ('/logout', [authController.logout])
 
-router.post('/login', [authMiddleware.checkAuthUser, authController.signIn])
+router.post('/login', [authMiddleware.checkLogin, authController.signIn])
 router.post('/register',[
     authMiddleware.checkFormRegister,
     authMiddleware.checkEmailUsed,
-    authMiddleware.checkLoginUsed, 
-    authController.signUp] )
-router.get('/', userController.listUsers)
+    authMiddleware.checkIdUsed, 
+    authController.signUp])
+
 router.put('/:id', userController.updateUser)
+
 router.delete('/:id', userController.deleteUser)
 
 module.exports = router

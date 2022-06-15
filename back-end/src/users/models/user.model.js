@@ -12,7 +12,7 @@ class UserModel {
     })
 
     //******* REQUETE CHERCHER UN USER SUR LA DB *********//
-    async getUsers() {
+    async get() {
         try {
             const result = await this.connection.promise().query('SELECT * FROM users')
             return result[0]
@@ -23,7 +23,7 @@ class UserModel {
     }
 
     //******* REQUETE MODIFIER UN USER SUR LA DB *********//
-    async updateUser(updateUser, id) {
+    async update(updateUser, id) {
         try {
             const result = await this.connection.promise().query('UPDATE users SET ? WHERE id = ?', [updateUser, id])
             return result[0]
@@ -34,7 +34,7 @@ class UserModel {
     }
 
     //******* REQUETE SUPPRESSION USER SUR LA DB *********//
-    async deleteUser(id) {
+    async delete(id) {
         try {
             const result = await this.connection.promise().query('DELETE FROM users WHERE id = ?', [id])
             return result[0]

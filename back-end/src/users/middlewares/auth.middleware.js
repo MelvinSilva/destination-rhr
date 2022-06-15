@@ -4,8 +4,7 @@ const {
     joiPassword
 } = require('joi-password')
 const authModel = require('../models/auth.model')
-// On utilise en destructuring connection pour aller le chercher dans le model users.model.js
-// afin de l'utiliser ensuite sur notre connection.query 
+
 
 class UsersMiddleware {
 
@@ -14,16 +13,17 @@ class UsersMiddleware {
             lastname,
             firstname,
             email,
-            login,
+            cp_number,
             password,
         } = req.body;
+
         const {
             error
         } = Joi.object({
             lastname: Joi.string().min(3).required(),
             firstname: Joi.string().min(3).required(),
             email: Joi.string().email().required(),
-            login: Joi.string().min(8).max(8).required(),
+            cp_number: Joi.string().min(8).max(8).required(),
             password: joiPassword
                 .string()
                 .min(8)
@@ -35,7 +35,7 @@ class UsersMiddleware {
             lastname,
             firstname,
             email,
-            login,
+            cp_number,
             password
         }, {
             abortEarly: false
@@ -51,12 +51,11 @@ class UsersMiddleware {
     }
 
     async checkEmailUsed(req, res, next) {
-
         try {
             const email = await authModel.verifyEmail(req.body.email)
             if (email.length > 0) {
                 res.status(409).send({
-                    error: "Email existe déja"
+                    error: "L'email existe déja"
                 })
             } else {
                 next()
@@ -69,14 +68,14 @@ class UsersMiddleware {
             })
         }
     }
-
-    async checkLoginUsed(req, res, next) {
+//Vérifier si CP déjà utilisé//
+    async checkIdUsed(req, res, next) {
 
         try {
-            const login = await authModel.verifyLogin(req.body.login)
-            if (login.length > 0) {
+            const id = await authModel.verifyCpUser(req.body.cp_number)
+            if (id.length > 0) {
                 res.status(409).send({
-                    error: "Login existe déja"
+                    error: "L'identifiant existe déja"
                 })
             } else {
                 next()
@@ -90,10 +89,9 @@ class UsersMiddleware {
         }
     }
 
-    async checkAuthUser(req, res, next) {
-
+    async checkLogin(req, res, next) {
         try {
-            const user = await authModel.verifyAuthUser(req.body.login)
+            const user = await authModel.verifyLogin(req.body.cp_number)
             if (user) {
                 if (await argon2.verify(user.password, req.body.password)) {
                     next()

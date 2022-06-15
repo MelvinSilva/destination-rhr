@@ -3,9 +3,9 @@ const accomodationController = require('./controllers/accomodation.controller')
 
 const router = express.Router()
 
-router.get('/', accomodationController.listAccomodations)
-router.get('/:id_station', accomodationController.listAccomodationStation)
+router.get('/', accomodationController.getAccomodations)
+router.get('/:id_station', accomodationController.getAccomodationByStation)
+
 router.put('/:id', accomodationController.updateAccomodation)
-router.delete('/:id', accomodationController.deleteAccomodation)
 
 module.exports = router

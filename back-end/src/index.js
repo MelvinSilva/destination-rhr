@@ -1,19 +1,21 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require('cors')
+const cookieParser = require('cookie-parser')
 const app = express();
+const port = process.env.PORT
 
 const corsOptions = {
-  origin: '*',
+  origin: "http://localhost:3000",
+  credentials: true // permet d'envoyer des donnees sensibles (token...)
 }
+
 //******* MIDDLEWARES *********//
 app.use(express.json());
 app.use(cors(corsOptions));
+app.use(cookieParser());
 
-
-const port = process.env.PORT
-
-//******* IMPORT ROUTES *********//
+//******* ROUTES *********//
 const accomodationRouter = require('./accomodations/accomodations.routes')
 const eatRouter = require('./eats/eats.routes')
 const storeRouter = require('./stores/stores.routes')
@@ -25,8 +27,7 @@ app.use('/stores', storeRouter)
 app.use('/stations', stationRouter)
 app.use('/users', userRouter)
 
-
-
+//******* ECOUTE SERVEUR *********//
 app.listen(port, (err) => {
   if (err) {
     console.error("Something bad happened");
