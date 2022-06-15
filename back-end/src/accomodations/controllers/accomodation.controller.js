@@ -24,8 +24,8 @@ class AccomodationController {
     async updateAccomodation(req, res) {
         try {
             const updateAccomodation = req.body
-            const result = await accomodationModel.update(updateAccomodation, req.params.id)
-            res.status(204).send(result)
+            await accomodationModel.update(updateAccomodation, req.params.id)
+            res.status(204).send()
         }
         catch (error) {
             res.status(500).send({ error: error.message })

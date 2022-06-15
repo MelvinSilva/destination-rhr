@@ -13,9 +13,9 @@ class AuthModel {
 
 
     //******* REQUETE INSCRIPTION *********//
-    async createUser(createUser) {
+    async createUser(newUser) {
         try {
-            const result = await this.connection.promise().query('INSERT INTO users SET ?', [createUser])
+            const result = await this.connection.promise().query('INSERT INTO users SET ?', [newUser])
             return result[0]
         }
         catch (error) {
