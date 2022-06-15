@@ -1,27 +1,28 @@
 $primary-blue: #009AA6; // bleu canard sncf 
-$dark-grey: #4D4F53;     // gris foncé sncf
-$middle-grey: #cbc8c8;  // gris moyen sncf
-$light-grey: #F2F2F2;  // gris léger sncf
-$white: #FFFFFF;      // blanc
+$dark-grey: #4D4F53; // gris foncé sncf
+$middle-grey: #cbc8c8; // gris moyen sncf
+$light-grey: #F2F2F2; // gris léger sncf
+$white: #FFFFFF; // blanc
 $opacity-white: #ffffffc0; // blanc transparent
-$red: #D52B1E;      // rouge sncf
+$red: #D52B1E; // rouge sncf
 $border-grey: #52525298; // bordure grise
 $border-blue: 1px solid $primary-blue; // bordure bleu canard sncf
 $shadow: 0 3px 20px rgba(0, 0, 0, 0.168); // ombre à utiliser par défaut
+
 @font-face {
   font-family: 'Avenir';
-  src: local('Avenir'),
-      url(../../public/font/AvenirLTStd-Book.otf) format('otf');
+  src:
+    url(../../public/font/AvenirLTStd-Book.otf);
 }
 
 
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    color: $dark-grey;
-    font-family: 'Avenir';
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: $dark-grey;
+  font-family: 'Avenir';
 }
 
 /* @mixin typo-h2 {
@@ -33,30 +34,23 @@ $shadow: 0 3px 20px rgba(0, 0, 0, 0.168); // ombre à utiliser par défaut
 } */
 
 .btn {
-    margin: 10px auto;
-    width: 90%;
-    height: 45px;
-    border-radius: 5px;
-    background-color: $primary-blue;
-    color: $white;
-    font-size: 15px;
-    border: none;
-    cursor: pointer;
-    letter-spacing: 2px;
+  margin: 10px auto;
+  width: 90%;
+  height: 45px;
+  border-radius: 5px;
+  background-color: $primary-blue;
+  color: $white;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 2px;
 
-    
-    &:hover {
-      opacity: 0.70;
-    }
+
+  &:hover {
+    opacity: 0.70;
+  }
 }
 
 path {
   color: $primary-blue;
-} 
-
-
-/////////// a mettre dans le SCSS update acoomodation ///////////
-
- 
-
-
+}
