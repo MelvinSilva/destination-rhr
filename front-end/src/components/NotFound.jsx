@@ -19,7 +19,7 @@ function NoResult() {
           returnLogin('/'); // redirection vers la page login si pas de USER connecté
           setReloaded(false);
         }, 3000);
-      } else if (user && user.profil_user === 'user' || user && user.profil_user === 'admin') {
+      } else if (user) {
         setTimeout(() => {
           returnChoiceStation('home/choice-station'); // redirection vers la page choice station pour un USER deja connecté
           setReloaded(false);

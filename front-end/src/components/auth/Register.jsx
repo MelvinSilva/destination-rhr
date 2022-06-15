@@ -4,17 +4,12 @@ import React, { useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 function Register() {
-  const login = useRef();
-  const password = useRef();
-  const lastname = useRef();
-  const firstname = useRef();
-  const email = useRef();
-  const confirmPassword = useRef();
-
-  const returnLogin = useNavigate();
-
+  const {
+    login, password, lastname, firstname, email, confirmPassword,
+  } = useRef();
   const [errorPassword, setErrorPassword] = useState();
   const [passwordIsVisible, setPasswordIsVisible] = useState(false);
+  const returnLogin = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
