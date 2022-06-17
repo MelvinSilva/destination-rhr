@@ -34,7 +34,7 @@ function Login() {
             <input type={passwordIsVisible ? 'text' : 'password'} placeholder="Mot de passe*" ref={password} />
             {/* mise en place du i pour icone */}
             <i className={passwordIsVisible ? 'password-is-visible-login far fa-eye-slash' : 'password-is-visible-login fa fa-eye'} onClick={() => setPasswordIsVisible(!passwordIsVisible)} onKeyPress="icon" role="button" tabIndex={0} label htmlFor="password-visible" />
-            {errorConnect && <h3>{errorConnect}</h3>}
+            {errorConnect && <h2>{errorConnect}</h2>}
             <button type="submit" className="btn-login">SE CONNECTER</button>
             <p className="line_horizontal">&nbsp; OU &nbsp;</p>
           </form>

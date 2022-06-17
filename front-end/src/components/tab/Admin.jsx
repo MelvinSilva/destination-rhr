@@ -1,14 +1,18 @@
+/* eslint-disable no-console */
+/* eslint-disable react/button-has-type */
 /* eslint-disable no-alert */
 /* eslint-disable no-restricted-globals */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { MdKeyboardReturn } from 'react-icons/md';
 import { Link } from 'react-router-dom';
+import Popup from 'reactjs-popup';
 
 function Admin() {
   const [users, setUsers] = useState([]);
   const [statut, setStatut] = useState();
   const [popup, setPopup] = useState(false);
+
   // displayUser permet de réafficher les id non supprimés gràce au filter
   const displayUser = (userId) => {
     const sortedUsers = users.filter((user) => user.id !== userId);
@@ -28,14 +32,9 @@ function Admin() {
   }, []);
 
   const deleteUser = (userId) => {
-    if (confirm("Voulez-vous vraiment supprimer l'utilisateur❓")) {
-      axios
-        .delete(`http://localhost:5001/users/${userId}`)
-        .then(displayUser(userId));
-      alert("L'utilisateur a été supprimé ✅");
-    } else {
-      alert("L'utilisateur n'a pas été supprimé ❌");
-    }
+    axios
+      .delete(`http://localhost:5001/users/${userId}`)
+      .then(displayUser(userId));
   };
 
   const updateUser = (userId) => {
@@ -87,9 +86,31 @@ function Admin() {
                     </select>
                   </div>
                   <div className="button">
-                    <button className="btn--red" type="button" onClick={() => deleteUser(user.id)}>
-                      Supprimer l&apos;utilisateur
-                    </button>
+                    <Popup
+                      trigger={<button className="btn--red">Supprimer l&apos;utilisateur</button>}
+                      modal
+                      nested
+                    >
+                      {(close) => (
+                        <div className="modal">
+                          <button className="close" onClick={close}>
+                            &times;
+                          </button>
+                          <div className="header2">Êtes vous sur de bien vouloir supprimer l&apos;utilisateur ?</div>
+                          <div className="actions">
+                            <button className="btn" onClick={() => deleteUser(user.id)}> Confirmer </button>
+                            <button
+                              className="btn--white"
+                              onClick={() => {
+                                close();
+                              }}
+                            >
+                              Annuler
+                            </button>
+                          </div>
+                        </div>
+                      )}
+                    </Popup>
                     <button className="btn" type="button" onClick={() => updateUser(user.id)}>
                       Valider le nouveau rôle
                     </button>

@@ -18,12 +18,12 @@ function NoResult() {
         setTimeout(() => { // methode setTimeout qui permet d'attendre 3s avant de passer à la ligne suivante
           returnLogin('/'); // redirection vers la page login si pas de USER connecté
           setReloaded(false);
-        }, 3000);
+        }, 1800);
       } else if (user) {
         setTimeout(() => {
           returnChoiceStation('home/choice-station'); // redirection vers la page choice station pour un USER deja connecté
           setReloaded(false);
-        }, 3000);
+        }, 1800);
       }
     };
     redirect();
