@@ -56,11 +56,15 @@ function Header() {
         <span className="letter letter-R" />
       </div>
       {!user ? <img className="logo-sncf" src="/images/logosncf.png" alt="logo-sncf" /> : (
-        <p className="text-name" onClick={handleLogOut}>
-          <RiLogoutBoxFill />
-          {' '}
-          {user.firstname}
-        </p>
+        <div className="right">
+          <p className="icon-logout" onClick={handleLogOut}>
+            <RiLogoutBoxFill />
+            {' '}
+          </p>
+          <p className="text">
+            Déconnexion
+          </p>
+        </div>
       )}
     </div>
   );

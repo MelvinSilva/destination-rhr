@@ -49,8 +49,8 @@
             width: 370px;
 
             h2 {
-                font-size: 18px;
-                font-weight: 600;
+                font-size: 17px;
+                font-family: 'Avenir-bold';
                 letter-spacing: 1px;
                 text-align: center;
                 color: $primary-blue;
@@ -62,7 +62,7 @@
                 letter-spacing: 1px;
                 text-align: center;
                 padding: 5px;
-                color: $primary-blue;
+                color: $middle-grey;
             }
             hr {
                 border: 1px solid $primary-blue;

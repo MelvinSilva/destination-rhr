@@ -26,6 +26,15 @@
         width: 90%;
     }
 
+    h2 {
+        font-size: 15px;
+        text-align: center;
+        color: $red;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: $opacity-white;
+    }
+
     .btn-return-home {
         margin: 10px;
         height: 45px;

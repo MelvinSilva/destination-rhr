@@ -21,11 +21,11 @@
         height: 70px;
     }
 
-    h3 {
-        font-size: 13px;
+    h2 {
+        font-size: 15px;
         text-align: center;
         color: $red;
-        padding: 3px;
+        padding: 10px;
         border-radius: 5px;
         background-color: $opacity-white;
     }
@@ -71,10 +71,10 @@
         background-color: $white;
         color: $primary-blue;
         font-size: 15px;
-        font-weight: 600;
         border: 3px solid $primary-blue;
         cursor: pointer;
         letter-spacing: 2px;
+        font-family: 'Avenir-bold';
 
         &:hover {
             background-color: $primary-blue;
@@ -84,5 +84,6 @@
 
     .btn {
         width: 90%;
+
     }
 }

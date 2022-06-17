@@ -11,12 +11,6 @@ $chars: "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
 
-    p {
-        margin: 20px;
-        font-size: 15px;
-        color: $white;
-    }
-
     .logo {
         margin-left: 30px;
         width: 55px;
@@ -63,7 +57,7 @@ $chars: "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O
         background-color: #fff;
         font-size: 30px;
         height: 20px;
-        line-height: 40px;
+        line-height: 45px;
         overflow: hidden;
         width: 100%;
         z-index: 20;
@@ -73,7 +67,7 @@ $chars: "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O
         flex-grow: 0;
         font-size: 30px;
         height: 40px;
-        line-height: 40px;
+        line-height: 45px;
         margin-top: -50%;
         overflow: hidden;
         width: 100%;
@@ -154,7 +148,7 @@ $chars: "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O
     }
 
     .logo-sncf {
-        margin-right: 30px;
+        margin-right: 20px;
         width: 70px;
         height: 35px;
         opacity: 0.9;
@@ -162,26 +156,39 @@ $chars: "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O
             display: none;
         }
     }
-    .text-name {
+
+    .right {
+        width: 55px;
         margin-right: 30px;
-        font-size: 15px;
-        opacity: 0.9;
-        color: $white;
-        font-size: 15px;
-        cursor: pointer;
-        background-position: top;
-        
-    
-        path, svg {
-            background-color: $white;
-            padding: 2px;
-            border-radius: 5px;
-            font-size: 20px;
-            color: $dark-grey;
-        }
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
         @media (max-width: 600px) {
             display: none;
+        } 
+        
+        .icon-logout {
+            opacity: 0.9;
+            color: $white;
+            cursor: pointer;
+            background-position: top;
+
+            path,
+            svg {
+                background-color: $white;
+                padding: 2px;
+                border-radius: 5px;
+                font-size: 30px;
+                color: $dark-grey;
+            }
+        }
+        .text {
+            color: $white;
+            font-size: 12px;
+            text-align: center;
+
         }
     }
 }

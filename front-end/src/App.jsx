@@ -1,3 +1,4 @@
+/* eslint-disable import/no-named-as-default */
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable max-len */
 import {
