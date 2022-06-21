@@ -16,7 +16,7 @@ import {
 function UpdateAccomodation(props) {
   const updateSubmit = () => {
     axios
-      .put(`http://localhost:5001/accomodations/${props.dataAccomodation.id}`, props.dataAccomodation)
+      .put(`http://localhost:5001/accomodations/${props.dataAccomodation.id}`, props.dataAccomodation, { withCredentials: true })
       .then(() => props.setUpdate(true))
       .catch((error) => console.error(error));
   };

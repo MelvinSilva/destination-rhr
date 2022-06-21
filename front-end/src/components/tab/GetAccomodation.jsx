@@ -29,9 +29,10 @@ function GetAccomodation() {
   const { id_station } = useParams();
   const [dataAccomodation, setDataAccomodation] = useState([]);
 
+  // withCredentials: true permet d'autoriser et envoyer des données sensibles entre deux serveurs en complement de cors
   useEffect(() => {
     axios
-      .get(`http://localhost:5001/accomodations/${id_station}`)
+      .get(`http://localhost:5001/accomodations/${id_station}`, { withCredentials: true })
       .then((response) => setDataAccomodation(response.data[0]));
   }, []);
 
