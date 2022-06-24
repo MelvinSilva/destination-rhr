@@ -12,7 +12,6 @@ import AuthTokenContext from './context/AuthTokenContext';
 
 function Header() {
   const { user } = useContext(AuthTokenContext);
-
   const returnHome = useNavigate();
   const [errorConnect, setErrorConnect] = useState();
 
