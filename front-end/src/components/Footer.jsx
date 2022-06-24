@@ -42,18 +42,18 @@ function Footer() {
       <div className="infos-footer">
         <div className="logout-admin">
           {user && (
-          <span className="link-logout" onClick={handleLogOut}>
-            <RiLogoutBoxFill />
-            {' '}
-            Déconnexion
-          </span>
+            <span className="link-logout" onClick={handleLogOut}>
+              <RiLogoutBoxFill />
+              {' '}
+              Déconnexion
+            </span>
           )}
-          {user && (
-          <a className="link-admin" href="/administration">
-            <RiAdminFill />
-            {' '}
-            Administration
-          </a>
+          {user && user.profil_user === 'admin' && (
+            <a className="link-admin" href="/administration">
+              <RiAdminFill />
+              {' '}
+              Administration
+            </a>
           )}
         </div>
         <p className="text-dedication">

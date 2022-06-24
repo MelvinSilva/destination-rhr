@@ -1,12 +1,12 @@
 /* eslint-disable camelcase */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
 import { useParams } from 'react-router-dom';
 
 function Eat() {
   const { id_station } = useParams();
   const [eat, setEat] = useState([]);
+
   useEffect(() => {
     axios
       .get(`http://localhost:5001/eats/${id_station}`)

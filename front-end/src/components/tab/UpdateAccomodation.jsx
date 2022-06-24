@@ -16,7 +16,7 @@ import {
 function UpdateAccomodation(props) {
   const updateSubmit = () => {
     axios
-      .put(`http://localhost:5001/accomodations/${props.dataAccomodation.id}`, props.dataAccomodation)
+      .put(`http://localhost:5001/accomodations/${props.dataAccomodation.id}`, props.dataAccomodation, { withCredentials: true })
       .then(() => props.setUpdate(true))
       .catch((error) => console.error(error));
   };
@@ -323,7 +323,7 @@ function UpdateAccomodation(props) {
 
               {props.dataAccomodation.bike === 1
                 ? (
-                  <label htmlFor="e-press">
+                  <label htmlFor="bike">
                     <p>
                       <MdPedalBike />
                       &ensp;Vélos à disposition à l&apos;accueil&ensp;
@@ -337,7 +337,7 @@ function UpdateAccomodation(props) {
                   </label>
                 )
                 : (
-                  <label htmlFor="e-press">
+                  <label htmlFor="bike">
                     <p style={{ color: '#cbc8c8' }}>
                       <MdPedalBike />
                       &ensp;Vélos à disposition à l&apos;accueil&ensp;
