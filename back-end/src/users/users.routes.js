@@ -16,9 +16,9 @@ router.post('/register',[
     authMiddleware.checkIdUsed, 
     authController.signUp])
 
-router.put('/:id',[ userMiddleware.checkToken,  userController.updateUser])
+router.put('/:id',[userController.updateUser])
 
-router.delete('/:id',[ userMiddleware.checkToken,  userController.deleteUser])
+router.delete('/:id',[userController.deleteUser])
 
 
 
