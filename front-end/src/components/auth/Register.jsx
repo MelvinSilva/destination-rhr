@@ -45,7 +45,10 @@ function Register() {
             returnLogin('/');
           }, 3000);
         }).catch((error) => {
-          setErrorMessage(error.response.data.error); // reponse de l'API
+          setErrorMessage(error.response.data.error);
+          setTimeout(() => { // faire disparaitre le message d'erreur au bout de 3 secondes
+            setErrorMessage('');
+          }, 3000);
         });
     } else setPasswordError((o) => !o);
   };

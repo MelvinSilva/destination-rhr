@@ -10,6 +10,7 @@ function NavbarTab() {
       <div className="tab-return">
         <NavLink
           to="/home/choice-station"
+          className={({ isActive }) => `tab${isActive ? '--active' : ''}`}
         >
           <BsHouseDoorFill />
         </NavLink>

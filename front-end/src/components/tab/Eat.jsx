@@ -21,7 +21,7 @@ function Eat() {
             <div className="container-global">
               <div className="container-top">
 
-                <h2>{restaurant.name_eat}</h2>
+                <h2>{`${restaurant.name_eat}`.toUpperCase()}</h2>
                 <h3>{restaurant.city}</h3>
                 <hr />
                 {restaurant.adress_eat !== 'null' && (
