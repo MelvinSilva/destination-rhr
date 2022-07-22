@@ -21,6 +21,9 @@ function Login() {
         choiceStation('choice-station'); // useNavigate pour atteindre la page "choice station"
       }).catch((error) => {
         setErrorConnect(error.response.data.error); // reponse de l'API
+        setTimeout(() => { // faire disparaitre le message d'erreur au bout de 3 secondes
+          setErrorConnect('');
+        }, 3000);
       });
   };
 
